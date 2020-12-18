@@ -3,3 +3,8 @@
 }
 .mainContainer {
 }
+
+/* utility classes */
+.cursor {
+	cursor: pointer;
+}

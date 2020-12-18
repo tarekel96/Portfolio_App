@@ -1,17 +1,37 @@
 import React from 'react';
 import styles from './Card.module.css';
-export const Card = ({ id, title, imageSrc, imageAlt, header, subheader_1, subheader_2, subheader_3 }) => {
+export const Card = ({
+	id,
+	title,
+	imageSrc,
+	imageAlt,
+	header,
+	subheader,
+	url_1,
+	url_2,
+	url_1Title = 'Live Project Link',
+	url_2Title = 'GitHub Link'
+}) => {
 	return (
 		<div className={styles['card']} id={id}>
 			<img src={imageSrc} alt={imageAlt} className={styles['image']} />
 			<div className={styles['container']}>
-				<h4>
-					<b>{title}</b>
-				</h4>
-				<h6>{header}</h6>
-				<p>{subheader_1}</p>
-				<p>{subheader_2}</p>
-				<p>{subheader_3}</p>
+				<b>
+					<h2>{title}</h2>
+				</b>
+
+				<h4>{header}</h4>
+				<p>{subheader}</p>
+				<p>
+					<a className={'cursor'} href={url_1}>
+						{url_1Title}
+					</a>
+				</p>
+				<p>
+					<a className={'cursor'} href={url_2}>
+						{url_2Title}
+					</a>
+				</p>
 			</div>
 		</div>
 	);
