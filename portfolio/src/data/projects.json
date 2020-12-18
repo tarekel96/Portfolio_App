@@ -1,0 +1,24 @@
+[{
+        "name": "Simpsons Memory Game",
+        "url": "https://simpsonsgame.herokuapp.com/",
+        "githubUrl": "https://github.com/tarekel96/simpsons-game",
+        "imageSrc": "simpsonsGameSnapshot.png",
+        "objective": "Build a carding-picking game with React.js based on the Simpson characters. Scores are stored in a MySQL DB.",
+        "technologiesUsed": "React.js, Node.js, Express.js, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
+},
+{
+        "name": "Simpsons Memory Game",
+        "url": "https://simpsonsgame.herokuapp.com/",
+        "githubUrl": "https://github.com/tarekel96/simpsons-game",
+        "imageSrc": "simpsonsGameSnapshot.png",
+        "objective": "Build a carding-picking game with React.js based on the Simpson characters. Scores are stored in a MySQL DB.",
+        "technologiesUsed": "React.js, Node.js, Express.js, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
+},
+{
+        "name": "Simpsons Memory Game",
+        "url": "https://simpsonsgame.herokuapp.com/",
+        "githubUrl": "https://github.com/tarekel96/simpsons-game",
+        "imageSrc": "simpsonsGameSnapshot.png",
+        "objective": "Build a carding-picking game with React.js based on the Simpson characters. Scores are stored in a MySQL DB.",
+        "technologiesUsed": "React.js, Node.js, Express.js, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
+}]
