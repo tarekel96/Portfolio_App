@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Section.module.css';
 
-export const Section = ({ children, column = false, arrows = false, next, previous }) => {
+export const Section = ({ children, column = false, arrows = false, next, previous, onClick }) => {
 	return (
 		<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
-			{arrows && <LeftArrow onClick={previous} />}
+			{arrows && <LeftArrow onClick={onClick} />}
 			{children}
-			{arrows && <RightArrow onClick={next} />}
+			{/* {arrows && <RightArrow onClick={next} />} */}
+			{arrows && <RightArrow onClick={onClick} />}
 		</section>
 	);
 };

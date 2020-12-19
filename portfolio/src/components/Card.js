@@ -1,4 +1,5 @@
 import React from 'react';
+import { animated } from 'react-spring';
 import styles from './Card.module.css';
 export const Card = ({
 	id,
@@ -6,14 +7,16 @@ export const Card = ({
 	imageSrc,
 	imageAlt,
 	header,
+	key,
 	subheader,
+	style,
 	url_1,
 	url_2,
 	url_1Title = 'Live Project Link',
 	url_2Title = 'GitHub Link'
 }) => {
 	return (
-		<div className={styles['card']} id={id}>
+		<animated.div style={style} className={styles['card']} id={id} key={key}>
 			<img src={imageSrc} alt={imageAlt} className={styles['image']} />
 			<div className={styles['container']}>
 				<b>
@@ -33,6 +36,6 @@ export const Card = ({
 					</a>
 				</p>
 			</div>
-		</div>
+		</animated.div>
 	);
 };
