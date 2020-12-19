@@ -1,10 +1,21 @@
+:root {
+	--light-forest-green: #379683;
+}
+
 * {
 	font-family: 'Ubuntu', sans-serif;
 }
-.mainContainer {
+body {
+	background-color: var(--light-forest-green);
+	height: 100%;
+	width: 100%;
 }
 
 /* utility classes */
 .cursor {
 	cursor: pointer;
+}
+.flipX {
+	transform: scale(-1, 1);
+	transform-origin: center;
 }

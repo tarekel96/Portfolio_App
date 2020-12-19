@@ -10,7 +10,9 @@ export const Card = ({
 	url_1,
 	url_2,
 	url_1Title = 'Live Project Link',
-	url_2Title = 'GitHub Link'
+	url_2Title = 'GitHub Link',
+	next,
+	previous
 }) => {
 	return (
 		<div className={styles['card']} id={id}>

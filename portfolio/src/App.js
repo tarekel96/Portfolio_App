@@ -10,10 +10,20 @@ const App = () => {
 
 	const next = () => {
 		if (index === data.length - 1) {
-			setIndex((prevCounter) => prevCounter - data.length);
+			setIndex(0);
 		} else {
 			setIndex((prevCounter) => prevCounter + 1);
 		}
+		console.log(index);
+	};
+
+	const previous = () => {
+		if (index === 0) {
+			setIndex(data.length - 1);
+		} else {
+			setIndex((prevCounter) => prevCounter - 1);
+		}
+		console.log(index);
 	};
 
 	React.useEffect(
@@ -32,8 +42,9 @@ const App = () => {
 		return <h3>Loading...</h3>;
 	}
 	return (
-		<div className="mainContainer">
-			<Section column={true}>
+		<div>
+			<Section arrows={true} next={next} previous={previous}>
+				{<h5>Index Counter: {index}</h5>}
 				{
 					<Card
 						id={data[index].id}
