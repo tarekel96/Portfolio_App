@@ -32,7 +32,7 @@ const App = () => {
 		},
 		[ data, index ]
 	);
-
+	// wait for data to be fetched before render
 	while (true) {
 		if (data !== undefined) {
 			if (data[index] !== undefined) {
