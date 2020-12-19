@@ -10,9 +10,10 @@ const App = () => {
 	const [ index, setIndex ] = React.useState(0);
 
 	const transitions = useTransition(index, (p) => p, {
-		from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
-		enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-		leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' }
+		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
+		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
+		update: { opacity: 1, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
+		leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', transitionDuration: '0s' }
 	});
 	const handleClick = React.useCallback(() => setIndex((state) => (state + 1) % (data.length - 1)), [ data ]);
 	const next = () => {
@@ -56,14 +57,6 @@ const App = () => {
 						<Card
 							style={props}
 							key={key}
-							// id={data[item].id}
-							// title={data[item].name}
-							// imageSrc={'assets/images/' + data[item].imageSrc}
-							// imageAlt={'project ' + String(item)}
-							// header={data[item].objective}
-							// subheader_1={data[item].url}
-							// subheader_2={data[item].githubUrl}
-							// subheader_3={data[item].technologiesUsed}
 							id={data[index].id}
 							title={data[index].name}
 							imageSrc={'assets/images/' + data[index].imageSrc}
@@ -75,18 +68,6 @@ const App = () => {
 						/>
 					);
 				})}
-				{/* {
-					<Card
-						id={data[index].id}
-						title={data[index].name}
-						imageSrc={'assets/images/' + data[index].imageSrc}
-						imageAlt={'project ' + String(index)}
-						header={data[index].objective}
-						subheader_1={data[index].url}
-						subheader_2={data[index].githubUrl}
-						subheader_3={data[index].technologiesUsed}
-					/>
-				} */}
 			</Section>
 		</div>
 	);
