@@ -7,12 +7,12 @@
         "technologiesUsed": "React.js, Node.js, Express.js, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
 },
 {
-        "name": "Simpsons Memory Game",
-        "url": "https://simpsonsgame.herokuapp.com/",
-        "githubUrl": "https://github.com/tarekel96/simpsons-game",
-        "imageSrc": "simpsonsGameSnapshot.png",
-        "objective": "Build a carding-picking game with React.js based on the Simpson characters. Scores are stored in a MySQL DB.",
-        "technologiesUsed": "React.js, Node.js, Express.js, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
+        "name": "A_Connect (Forkaia Application)",
+        "url": "N/A",
+        "githubUrl": "https://github.com/forkaia/A_Connect",
+        "imageSrc": "A_ConnectSnapshot.png",
+        "objective": "Developed the user and authentication back-end with Node.js, MongoDB, and JWTs. Linked the back-end to React.js front-end.",
+        "technologiesUsed": "Node.js, Express.js, Mongo DB, JWT, React.js, Bootstrap"
 },
 {
         "name": "Simpsons Memory Game",

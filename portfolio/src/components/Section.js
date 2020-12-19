@@ -15,7 +15,7 @@ const LeftArrow = ({ onClick }) => {
 	return (
 		<svg
 			onClick={onClick}
-			className="flipX cursor"
+			className={`flipX cursor ${styles['blue']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -30,7 +30,7 @@ const RightArrow = ({ onClick }) => {
 	return (
 		<svg
 			onClick={onClick}
-			className="cursor"
+			className={`cursor ${styles['blue']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"

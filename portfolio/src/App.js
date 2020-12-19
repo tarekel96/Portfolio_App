@@ -44,7 +44,6 @@ const App = () => {
 	return (
 		<div>
 			<Section arrows={true} next={next} previous={previous}>
-				{<h5>Index Counter: {index}</h5>}
 				{
 					<Card
 						id={data[index].id}
