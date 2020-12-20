@@ -1,12 +1,19 @@
 :root {
-	--light-forest-green: #379683;
+	--color-light-forest-green: #379683;
+	--color-black: #000000;
+	--color-blue: #242582;
+	--color-orange-red: #f64c72;
+	--color-tan-brown: #99738e;
+	--color-white: #feffff;
 }
 
 * {
 	font-family: 'Ubuntu', sans-serif;
 }
 body {
-	background-color: var(--light-forest-green);
+	/* background-color: var(--color-light-forest-green); */
+	background-color: var(--color-blue);
+	color: var(--color-white);
 	height: 100%;
 	width: 100%;
 }
@@ -18,4 +25,25 @@ body {
 .flipX {
 	transform: scale(-1, 1);
 	transform-origin: center;
+}
+.flipXHalf {
+	transform: rotate(-90deg);
+}
+.flipXOneAndHalf {
+	transform: rotate(90deg);
+}
+.blackFill {
+	fill: var(--color-black);
+}
+.blueFill {
+	fill: #05386b;
+}
+.orangeRedFill {
+	fill: var(--color-orange-red);
+}
+.blueBackground {
+	background-color: var(--color-blue);
+}
+.tanBrownBackground {
+	background-color: var(--color-tan-brown);
 }

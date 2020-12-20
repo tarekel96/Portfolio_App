@@ -16,7 +16,7 @@ export const Card = ({
 	url_2Title = 'GitHub Link'
 }) => {
 	return (
-		<animated.div style={style} className={styles['card']} id={id} key={key}>
+		<animated.div style={style} className={`${styles['card']} tanBrownBackground`} id={id} key={key}>
 			<img src={imageSrc} alt={imageAlt} className={styles['image']} />
 			<div className={styles['container']}>
 				<b>

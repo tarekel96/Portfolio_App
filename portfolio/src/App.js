@@ -51,7 +51,7 @@ const App = () => {
 	}
 	return (
 		<div>
-			<Section arrows={true} next={next} previous={previous} onClick={handleClick}>
+			<Section cardArrows={true} next={next} upAndDownArrows={true} previous={previous} onClick={handleClick}>
 				{transitions.map(({ props, key }) => {
 					return (
 						<Card

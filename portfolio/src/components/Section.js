@@ -1,14 +1,31 @@
 import React from 'react';
 import styles from './Section.module.css';
 
-export const Section = ({ children, column = false, arrows = false, next, previous, onClick }) => {
+export const Section = ({
+	children,
+	column = false,
+	cardArrows = false,
+	upArrow,
+	downArrow,
+	upAndDownArrows,
+	next,
+	previous,
+	onClick
+}) => {
 	return (
-		<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
-			{arrows && <LeftArrow onClick={onClick} />}
-			{children}
-			{/* {arrows && <RightArrow onClick={next} />} */}
-			{arrows && <RightArrow onClick={onClick} />}
-		</section>
+		<div>
+			<section className={`${styles['upArrowContainer']}`}>
+				{upArrow || upAndDownArrows ? <UpArrow /> : null}
+			</section>
+			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
+				{cardArrows && <LeftArrow onClick={onClick} />}
+				{children}
+				{cardArrows && <RightArrow onClick={onClick} />}
+			</section>
+			<section className={`${styles['downArrowContainer']}`}>
+				{downArrow || upAndDownArrows ? <DownArrow /> : null}
+			</section>
+		</div>
 	);
 };
 
@@ -16,7 +33,22 @@ const LeftArrow = ({ onClick }) => {
 	return (
 		<svg
 			onClick={onClick}
-			className={`flipX cursor ${styles['blue']}`}
+			className={`flipX cursor orangeRedFill`}
+			xmlns="http://www.w3.org/2000/svg"
+			width="48"
+			height="48"
+			viewBox="0 0 24 24"
+		>
+			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
+		</svg>
+	);
+};
+
+const UpArrow = ({ onClick }) => {
+	return (
+		<svg
+			onClick={onClick}
+			className={`flipXHalf cursor orangeRedFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -31,7 +63,22 @@ const RightArrow = ({ onClick }) => {
 	return (
 		<svg
 			onClick={onClick}
-			className={`cursor ${styles['blue']}`}
+			className={`cursor orangeRedFill`}
+			xmlns="http://www.w3.org/2000/svg"
+			width="48"
+			height="48"
+			viewBox="0 0 24 24"
+		>
+			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
+		</svg>
+	);
+};
+
+const DownArrow = ({ onClick }) => {
+	return (
+		<svg
+			onClick={onClick}
+			className={`flipXOneAndHalf cursor orangeRedFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"

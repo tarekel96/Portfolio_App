@@ -2,9 +2,19 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin: 0 5%;
+	margin: 2.5% 5%;
 }
 
 .blue {
 	fill: #05386b;
+}
+.upArrowContainer {
+	display: flex;
+	justify-content: center;
+	margin: 2.5% auto .5rem auto;
+}
+.downArrowContainer {
+	display: flex;
+	justify-content: center;
+	margin: .5rem auto 2.5% auto;
 }
