@@ -15,11 +15,24 @@ const App = () => {
 		update: { opacity: 1, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
 		leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', transitionDuration: '0s' }
 	});
-	const handleClick = React.useCallback(() => setIndex((state) => (state + 1) % (data.length - 1)), [ data ]);
+	const handleClick = React.useCallback(
+		() => {
+			setIndex((state) => {
+				if (state === 0) {
+					return data.length - 1;
+				}
+				else {
+					return (state + 1) % (data.length - 1);
+				}
+			});
+		},
+		[ data ]
+	);
 	const next = () => {
 		if (index === data.length - 1) {
 			setIndex(0);
-		} else {
+		}
+		else {
 			setIndex((prevCounter) => prevCounter + 1);
 		}
 		console.log(index);
@@ -28,7 +41,8 @@ const App = () => {
 	const previous = () => {
 		if (index === 0) {
 			setIndex(data.length - 1);
-		} else {
+		}
+		else {
 			setIndex((prevCounter) => prevCounter - 1);
 		}
 		console.log(index);
@@ -51,7 +65,7 @@ const App = () => {
 	}
 	return (
 		<div>
-			<Section cardArrows={true} next={next} upAndDownArrows={true} previous={previous} onClick={handleClick}>
+			<Section cardArrows={true} next={next} downArrow={true} previous={previous} onClick={handleClick}>
 				{transitions.map(({ props, key }) => {
 					return (
 						<Card

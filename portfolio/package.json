@@ -22,7 +22,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "brace-style": [2, "stroustrup", { "allowSingleLine": true }]
+  }
   },
   "browserslist": {
     "production": [
