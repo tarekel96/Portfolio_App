@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
 import projectData from './data/projects.json';
-import { Section } from './components/Section.js';
-import { Card } from './components/Card.js';
+import Portfolio from './pages/Portfolio.js';
 import './styles/main.css';
 
 const App = () => {
@@ -65,24 +64,14 @@ const App = () => {
 	}
 	return (
 		<div>
-			<Section cardArrows={true} next={next} downArrow={true} previous={previous} onClick={handleClick}>
-				{transitions.map(({ props, key }) => {
-					return (
-						<Card
-							style={props}
-							key={key}
-							id={data[index].id}
-							title={data[index].name}
-							imageSrc={'assets/images/' + data[index].imageSrc}
-							imageAlt={'project ' + String(index)}
-							header={data[index].objective}
-							subheader_1={data[index].url}
-							subheader_2={data[index].githubUrl}
-							subheader_3={data[index].technologiesUsed}
-						/>
-					);
-				})}
-			</Section>
+			<Portfolio
+				projectData={data}
+				index={index}
+				transitions={transitions}
+				next={next}
+				previous={previous}
+				handleClick={handleClick}
+			/>
 		</div>
 	);
 };
