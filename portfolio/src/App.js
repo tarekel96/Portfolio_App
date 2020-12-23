@@ -1,14 +1,13 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
-import projectData from './data/projects.json';
+import projectDataJSON from './data/projects.json';
 import Portfolio from './pages/Portfolio.js';
 import './styles/main.css';
 
 const App = () => {
-	const [ data, setData ] = React.useState([]);
-	const [ index, setIndex ] = React.useState(0);
-	console.log(index);
-	const transitions = useTransition(index, (p) => p, {
+	const [ projectData, setProjectData ] = React.useState([]);
+	const [ projectIndex, setProjectProjectIndex ] = React.useState(0);
+	const projectTransitions = useTransition(projectIndex, (p) => p, {
 		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
 		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
 		update: { opacity: 1, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
@@ -16,8 +15,8 @@ const App = () => {
 	});
 	const handleCardNextClick = React.useCallback(
 		() => {
-			setIndex((state) => {
-				if (state === data.length - 1) {
+			setProjectProjectIndex((state) => {
+				if (state === projectData.length - 1) {
 					return 0;
 				}
 				else {
@@ -25,52 +24,32 @@ const App = () => {
 				}
 			});
 		},
-		[ data ]
+		[ projectData ]
 	);
 	const handleCardPrevClick = React.useCallback(
 		() => {
-			setIndex((state) => {
+			setProjectProjectIndex((state) => {
 				if (state === 0) {
-					return data.length - 1;
+					return projectData.length - 1;
 				}
 				else {
 					return state - 1;
 				}
 			});
 		},
-		[ data ]
+		[ projectData ]
 	);
-	// Interfaces for next and previous
-	// const next = () => {
-	// 	if (index === data.length - 1) {
-	// 		setIndex(0);
-	// 	}
-	// 	else {
-	// 		setIndex((prevCounter) => prevCounter + 1);
-	// 	}
-	// 	console.log(index);
-	// };
-
-	// const previous = () => {
-	// 	if (index === 0) {
-	// 		setIndex(data.length - 1);
-	// 	}
-	// 	else {
-	// 		setIndex((prevCounter) => prevCounter - 1);
-	// 	}
-	// 	console.log(index);
-	// };
 
 	React.useEffect(
 		() => {
-			setData(() => projectData);
+			setProjectData(() => projectDataJSON);
 		},
-		[ data, index ]
+		[ projectData, projectIndex ]
 	);
-	// wait for data to be fetched before render
+	// wait for projectData to be fetched before render
 	while (true) {
-		if (data !== undefined) {
-			if (data[index] !== undefined) {
+		if (projectData !== undefined) {
+			if (projectData[projectIndex] !== undefined) {
 				break;
 			}
 		}
@@ -79,9 +58,9 @@ const App = () => {
 	return (
 		<div>
 			<Portfolio
-				projectData={data}
-				index={index}
-				transitions={transitions}
+				projectData={projectData}
+				index={projectIndex}
+				transitions={projectTransitions}
 				next={handleCardNextClick}
 				previous={handleCardPrevClick}
 			/>
