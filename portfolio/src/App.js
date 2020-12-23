@@ -6,9 +6,9 @@ import { Section } from './components/Section.js';
 import './styles/main.css';
 
 const App = () => {
-	const [ pageIndex, setPageIndex ] = React.useState(0);
-	const [ projectData, setProjectData ] = React.useState([]);
-	const [ projectIndex, setProjectIndex ] = React.useState(0);
+	let [ pageIndex, setPageIndex ] = React.useState(0);
+	let [ projectData, setProjectData ] = React.useState([]);
+	let [ projectIndex, setProjectIndex ] = React.useState(0);
 	const projectTransitions = useTransition(projectIndex, (p) => p, {
 		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
 		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
@@ -50,20 +50,20 @@ const App = () => {
 	const handleSlideUp = () => {
 		setPageIndex((prevPageIndex) => {
 			if (prevPageIndex === 0) {
-				return setPageIndex(1);
+				return 1;
 			}
 			else {
-				return setPageIndex(prevPageIndex - 1);
+				return prevPageIndex - 1;
 			}
 		});
 	};
 	const handleSlideDown = () => {
 		setPageIndex((prevPageIndex) => {
 			if (prevPageIndex === 1) {
-				return setPageIndex(0);
+				return 0;
 			}
 			else {
-				return setPageIndex(prevPageIndex + 1);
+				return prevPageIndex + 1;
 			}
 		});
 	};
