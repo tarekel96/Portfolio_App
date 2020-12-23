@@ -4,7 +4,7 @@ import { Card } from '../components/Card.js';
 
 const Portfolio = ({ projectData, index, transitions, next, previous, handleClick }) => {
 	return (
-		<Section cardArrows={true} next={next} downArrow={true} previous={previous} onClick={handleClick}>
+		<Section cardArrows={true} next={next} downArrow={true} previous={previous}>
 			{transitions.map(({ props, key }) => {
 				return (
 					<Card
