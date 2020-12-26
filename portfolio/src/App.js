@@ -2,13 +2,14 @@ import React from 'react';
 import { useTransition } from 'react-spring';
 import projectDataJSON from './data/projects.json';
 import Portfolio from './pages/Portfolio.js';
+import Loading from './pages/Loading.js';
 import { Section } from './components/Section.js';
 import './styles/main.css';
 
 const App = () => {
-	let [ pageIndex, setPageIndex ] = React.useState(0);
-	let [ projectData, setProjectData ] = React.useState([]);
-	let [ projectIndex, setProjectIndex ] = React.useState(0);
+	const [ pageIndex, setPageIndex ] = React.useState(0);
+	const [ projectData, setProjectData ] = React.useState([]);
+	const [ projectIndex, setProjectIndex ] = React.useState(0);
 	const projectTransitions = useTransition(projectIndex, (p) => p, {
 		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
 		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
@@ -76,7 +77,7 @@ const App = () => {
 				break;
 			}
 		}
-		return <h3>Loading...</h3>;
+		return <Loading />;
 	}
 	switch (pageIndex) {
 		case 0:

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
 
