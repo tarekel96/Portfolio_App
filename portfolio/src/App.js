@@ -18,6 +18,7 @@ const App = () => {
 	React.useEffect(
 		() => {
 			setProjectData(() => projectDataJSON);
+			console.log(projectData);
 		},
 		[ projectData, projectIndex ]
 	);

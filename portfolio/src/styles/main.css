@@ -1,8 +1,11 @@
 :root {
-	--color-light-forest-green: #379683;
 	--color-black: #000000;
 	--color-blue: #242582;
+	--color-indigo: #2f2fa2;
+	--color-green-dark-pale: #1c3334;
+	--color-green-light-forest: #379683;
 	--color-orange-red: #f64c72;
+	--color-brown-burgundy: #553d67;
 	--color-tan-brown: #99738e;
 	--color-white: #feffff;
 }
@@ -45,4 +48,16 @@ body {
 }
 .tanBrownBackground {
 	background-color: var(--color-tan-brown);
+}
+.brownBurgundyBackground {
+	background-color: var(--color-brown-burgundy);
+}
+.indigoColor {
+	color: var(--color-indigo);
+}
+.greenDarkPaleColor {
+	color: var(--color-green-dark-pale);
+}
+.greenLightForestColor {
+	color: var(--color-green-light-forest);
 }
