@@ -16,17 +16,21 @@ export const Section = ({
 }) => {
 	return (
 		<div>
-			<section className={`${styles['upArrowContainer']}`}>
-				{upArrow || upAndDownArrows ? <UpArrow onClick={slideUp} /> : null}
-			</section>
+			{upArrow || upAndDownArrows ? (
+				<section className={`${styles['upArrowContainer']}`}>
+					<UpArrow onClick={slideUp} />
+				</section>
+			) : null}
 			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
 				{cardArrows && <LeftArrow onClick={previous} />}
 				{children}
 				{cardArrows && <RightArrow onClick={next} />}
 			</section>
-			<section className={`${styles['downArrowContainer']}`}>
-				{downArrow || upAndDownArrows ? <DownArrow onClick={slideDown} /> : null}
-			</section>
+			{downArrow || upAndDownArrows ? (
+				<section className={`${styles['downArrowContainer']}`}>
+					<DownArrow onClick={slideDown} />
+				</section>
+			) : null}
 		</div>
 	);
 };

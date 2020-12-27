@@ -3,7 +3,7 @@ import { useTransition } from 'react-spring';
 import projectDataJSON from './data/projects.json';
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
-import { Section } from './components/Section.js';
+import Resume from './pages/Resume.js';
 import './styles/main.css';
 
 const App = () => {
@@ -90,10 +90,11 @@ const App = () => {
 					previous={handleCardPrevClick}
 					slideUp={handleSlideUp}
 					slideDown={handleSlideDown}
+					setPageIndex={setPageIndex}
 				/>
 			);
 		case 1:
-			return <Section upAndDownArrows={true} slideUp={handleSlideUp} slideDown={handleSlideDown} />;
+			return <Resume slideUp={handleSlideUp} slideDown={handleSlideDown} setPageIndex={setPageIndex} />;
 		default:
 			return (
 				<Portfolio
@@ -104,6 +105,7 @@ const App = () => {
 					previous={handleCardPrevClick}
 					slideUp={handleSlideUp}
 					slideDown={handleSlideDown}
+					setPageIndex={setPageIndex}
 				/>
 			);
 	}

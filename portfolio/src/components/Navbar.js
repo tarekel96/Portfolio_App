@@ -1,4 +1,7 @@
-export const Navbar = () => {
+import React from 'react';
+import styles from './Navbar.module.css';
+
+export const Navbar = ({ setPageIndex }) => {
 	const navItems = [
 		{
 			name: 'Portfolio',
@@ -14,9 +17,22 @@ export const Navbar = () => {
 		}
 	];
 	return (
-		<nav>
+		<nav className={`${styles['navbar']} brownBurgundyBackground`}>
 			{navItems.map((navItem) => {
-				return <span key={navItem.indexNumber}>{navItem.name}</span>;
+				return (
+					<div
+						id={navItem.indexNumber}
+						className={`cursor greenLightForestColor`}
+						key={navItem.indexNumber}
+						onClick={(e) => {
+							setPageIndex((prevPageIndex) => {
+								return Number(e.target.id);
+							});
+						}}
+					>
+						{navItem.name}
+					</div>
+				);
 			})}
 		</nav>
 	);
