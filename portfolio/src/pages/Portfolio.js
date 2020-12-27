@@ -38,4 +38,14 @@ const Portfolio = ({ projectData, index, transitions, next, previous, slideUp, s
 	);
 };
 
+Portfolio.propTypes = {
+	projectData: PropTypes.array,
+	index: PropTypes.number,
+	transitions: PropTypes.array,
+	next: PropTypes.func,
+	previous: PropTypes.func,
+	slideUp: PropTypes.func,
+	slideDown: PropTypes.func
+};
+
 export default Portfolio;

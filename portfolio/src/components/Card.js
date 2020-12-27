@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { animated } from 'react-spring';
 import styles from './Card.module.css';
 export const Card = ({
@@ -47,7 +48,23 @@ export const Card = ({
 		</animated.div>
 	);
 };
+Card.propTypes = {
+	id: PropTypes.number,
+	title: PropTypes.string,
+	imageSrc: PropTypes.string,
+	imageAlt: PropTypes.string,
+	content: PropTypes.string,
+	style: PropTypes.object,
+	url_1: PropTypes.string,
+	url_2: PropTypes.string,
+	url_1Title: PropTypes.string,
+	url_2Title: PropTypes.string,
+	tags: PropTypes.array
+};
 
 const Tag = ({ content }) => {
 	return <span className={`${styles['tag']} brownBurgundyBackground greenLightForestColor`}>{content}</span>;
+};
+Tag.propTypes = {
+	content: PropTypes.string
 };
