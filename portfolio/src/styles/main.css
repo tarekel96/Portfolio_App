@@ -54,6 +54,9 @@ body {
 .brownBurgundyBackground {
 	background-color: var(--color-brown-burgundy);
 }
+.whiteColor {
+	color: var(--color-white);
+}
 .indigoColor {
 	color: var(--color-indigo);
 }

@@ -20,20 +20,32 @@ export const Navbar = ({ setPageIndex }) => {
 		<nav className={`${styles['navbar']} brownBurgundyBackground`}>
 			{navItems.map((navItem) => {
 				return (
-					<div
+					<NavItem
+						name={navItem.name}
 						id={navItem.indexNumber}
-						className={`cursor greenLightForestColor`}
 						key={navItem.indexNumber}
-						onClick={(e) => {
-							setPageIndex((prevPageIndex) => {
-								return Number(e.target.id);
-							});
-						}}
-					>
-						{navItem.name}
-					</div>
+						setPageIndex={setPageIndex}
+					/>
 				);
 			})}
 		</nav>
+	);
+};
+
+const NavItem = ({ name, id, setPageIndex }) => {
+	const [ visited, setVisit ] = React.useState(false);
+	return (
+		<div
+			id={id}
+			className={`cursor ${visited ? `whiteColor` : 'greenLightForestColor'}`}
+			onClick={(e) => {
+				setVisit((prevState) => !prevState);
+				setPageIndex((prevPageIndex) => {
+					return Number(e.target.id);
+				});
+			}}
+		>
+			{name}
+		</div>
 	);
 };
