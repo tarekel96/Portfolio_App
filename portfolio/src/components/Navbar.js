@@ -40,7 +40,7 @@ const NavItem = ({ name, id, setPageIndex }) => {
 			className={`cursor ${visited ? `whiteColor` : 'greenLightForestColor'}`}
 			onClick={(e) => {
 				setVisit((prevState) => !prevState);
-				setPageIndex((prevPageIndex) => {
+				setPageIndex(() => {
 					return Number(e.target.id);
 				});
 			}}

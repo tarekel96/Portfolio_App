@@ -4,9 +4,11 @@ import projectDataJSON from './data/projects.json';
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
 import Resume from './pages/Resume.js';
+import About from './pages/About.js';
 import './styles/main.css';
 
 const App = () => {
+	const NUM_OF_PAGES = 3;
 	const [ pageIndex, setPageIndex ] = React.useState(0);
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
@@ -52,7 +54,7 @@ const App = () => {
 	const handleSlideUp = () => {
 		setPageIndex((prevPageIndex) => {
 			if (prevPageIndex === 0) {
-				return 1;
+				return NUM_OF_PAGES - 1;
 			}
 			else {
 				return prevPageIndex - 1;
@@ -61,7 +63,7 @@ const App = () => {
 	};
 	const handleSlideDown = () => {
 		setPageIndex((prevPageIndex) => {
-			if (prevPageIndex === 1) {
+			if (prevPageIndex === NUM_OF_PAGES - 1) {
 				return 0;
 			}
 			else {
@@ -95,6 +97,8 @@ const App = () => {
 			);
 		case 1:
 			return <Resume slideUp={handleSlideUp} slideDown={handleSlideDown} setPageIndex={setPageIndex} />;
+		case 2:
+			return <About slideUp={handleSlideUp} setPageIndex={setPageIndex} />;
 		default:
 			return (
 				<Portfolio
