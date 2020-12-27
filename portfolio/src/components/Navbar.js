@@ -2,20 +2,58 @@ import React from 'react';
 import styles from './Navbar.module.css';
 
 export const Navbar = ({ setPageIndex }) => {
-	const navItems = [
+	// const navItems = [
+	// 	{
+	// 		name: 'Portfolio',
+	// 		indexNumber: 0,
+	// 		isCurrent: true
+	// 	},
+	// 	{
+	// 		name: 'Resume',
+	// 		indexNumber: 1,
+	// 		isCurrent: false
+	// 	},
+	// 	{
+	// 		name: 'About',
+	// 		indexNumber: 2,
+	// 		isCurrent: false
+	// 	}
+	// ];
+	const [ navItems, setCurrentNav ] = React.useState([
 		{
 			name: 'Portfolio',
-			indexNumber: 0
+			indexNumber: 0,
+			isCurrent: true
 		},
 		{
 			name: 'Resume',
-			indexNumber: 1
+			indexNumber: 1,
+			isCurrent: false
 		},
 		{
 			name: 'About',
-			indexNumber: 2
+			indexNumber: 2,
+			isCurrent: false
 		}
-	];
+	]);
+	const resetPrevious = (newCurrIndex) => {
+		const previousCurrent = navItems.findIndex((index) => {
+			return index.isCurrent === true;
+		});
+		setCurrentNav((prevState) => {
+			let newState = prevState;
+			let tempNavItem = newState[previousCurrent];
+			tempNavItem.isCurrent = false;
+			newState[previousCurrent] = tempNavItem;
+			console.log(newState);
+			return newState;
+		});
+		setCurrentNav((prevState) => {
+			let newNavbar = prevState;
+			newNavbar[newCurrIndex].isCurrent = true;
+			return newNavbar;
+		});
+	};
 	return (
 		<nav className={`${styles['navbar']} brownBurgundyBackground`}>
 			{navItems.map((navItem) => {
@@ -25,6 +63,9 @@ export const Navbar = ({ setPageIndex }) => {
 						id={navItem.indexNumber}
 						key={navItem.indexNumber}
 						setPageIndex={setPageIndex}
+						isCurrent={navItem.isCurrent}
+						setCurrentNav={setCurrentNav}
+						resetPrevious={resetPrevious}
 					/>
 				);
 			})}
@@ -32,19 +73,27 @@ export const Navbar = ({ setPageIndex }) => {
 	);
 };
 
-const NavItem = ({ name, id, setPageIndex }) => {
-	const [ visited, setVisit ] = React.useState(false);
+const NavItem = ({ name, id, setPageIndex, isCurrent, resetPrevious }) => {
+	const handleClick = React.useCallback(
+		(e) => {
+			resetPrevious(id);
+			setPageIndex(() => {
+				return Number(e.target.id);
+			});
+		},
+		[ id, resetPrevious, setPageIndex ]
+	);
+	React.useEffect(
+		() => {
+			document.getElementById(id).addEventListener('click', handleClick);
+			return () => {
+				document.removeEventListener('click', handleClick);
+			};
+		},
+		[ id, handleClick ]
+	);
 	return (
-		<div
-			id={id}
-			className={`cursor ${visited ? `whiteColor` : 'greenLightForestColor'}`}
-			onClick={(e) => {
-				setVisit((prevState) => !prevState);
-				setPageIndex(() => {
-					return Number(e.target.id);
-				});
-			}}
-		>
+		<div id={id} className={`cursor ${isCurrent ? `whiteColor` : 'greenLightForestColor'}`}>
 			{name}
 		</div>
 	);

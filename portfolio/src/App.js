@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
+import { Layout } from './components/Layout.js';
 import projectDataJSON from './data/projects.json';
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
@@ -8,6 +9,7 @@ import About from './pages/About.js';
 import './styles/main.css';
 
 const App = () => {
+	let appMainContent;
 	const NUM_OF_PAGES = 3;
 	const [ pageIndex, setPageIndex ] = React.useState(0);
 	const [ projectData, setProjectData ] = React.useState([]);
@@ -83,7 +85,7 @@ const App = () => {
 	}
 	switch (pageIndex) {
 		case 0:
-			return (
+			appMainContent = (
 				<Portfolio
 					projectData={projectData}
 					index={projectIndex}
@@ -95,24 +97,18 @@ const App = () => {
 					setPageIndex={setPageIndex}
 				/>
 			);
+			break;
 		case 1:
-			return <Resume slideUp={handleSlideUp} slideDown={handleSlideDown} setPageIndex={setPageIndex} />;
+			appMainContent = <Resume slideUp={handleSlideUp} slideDown={handleSlideDown} setPageIndex={setPageIndex} />;
+			break;
 		case 2:
-			return <About slideUp={handleSlideUp} setPageIndex={setPageIndex} />;
+			appMainContent = <About slideUp={handleSlideUp} setPageIndex={setPageIndex} />;
+			break;
 		default:
-			return (
-				<Portfolio
-					projectData={projectData}
-					index={projectIndex}
-					transitions={projectTransitions}
-					next={handleCardNextClick}
-					previous={handleCardPrevClick}
-					slideUp={handleSlideUp}
-					slideDown={handleSlideDown}
-					setPageIndex={setPageIndex}
-				/>
-			);
+			appMainContent = <Loading />;
+			break;
 	}
+	return <Layout setPageIndex={setPageIndex}>{appMainContent}</Layout>;
 };
 
 export default App;

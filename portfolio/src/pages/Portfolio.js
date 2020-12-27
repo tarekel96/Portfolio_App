@@ -1,43 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout } from '../components/Layout.js';
 import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
 
-const Portfolio = ({ projectData, index, transitions, next, previous, slideUp, slideDown, setPageIndex }) => {
+const Portfolio = ({ projectData, index, transitions, next, previous, slideUp, slideDown }) => {
 	let technologiesArray;
 	// converts the tags string into an array of tags
 	if (projectData[index].technologiesUsed !== '') {
 		technologiesArray = projectData[index].technologiesUsed.split(',');
 	}
 	return (
-		<Layout setPageIndex={setPageIndex}>
-			<Section
-				cardArrows={true}
-				next={next}
-				downArrow={true}
-				previous={previous}
-				slideUp={slideUp}
-				slideDown={slideDown}
-			>
-				{transitions.map(({ props, key }, mapIndex) => {
-					return (
-						<Card
-							style={props}
-							key={mapIndex}
-							id={projectData[index].id}
-							title={projectData[index].name}
-							imageSrc={'assets/images/' + projectData[index].imageSrc}
-							imageAlt={'project ' + String(index)}
-							content={projectData[index].objective}
-							url_1={projectData[index].url}
-							url_2={projectData[index].githubUrl}
-							tags={technologiesArray}
-						/>
-					);
-				})}
-			</Section>
-		</Layout>
+		<Section
+			cardArrows={true}
+			next={next}
+			downArrow={true}
+			previous={previous}
+			slideUp={slideUp}
+			slideDown={slideDown}
+		>
+			{transitions.map(({ props, key }, mapIndex) => {
+				return (
+					<Card
+						style={props}
+						key={mapIndex}
+						id={projectData[index].id}
+						title={projectData[index].name}
+						imageSrc={'assets/images/' + projectData[index].imageSrc}
+						imageAlt={'project ' + String(index)}
+						content={projectData[index].objective}
+						url_1={projectData[index].url}
+						url_2={projectData[index].githubUrl}
+						tags={technologiesArray}
+					/>
+				);
+			})}
+		</Section>
 	);
 };
 
