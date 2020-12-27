@@ -12,13 +12,15 @@ export const Section = ({
 	next,
 	previous,
 	slideUp,
-	slideDown
+	slideDown,
+	upArrowRef,
+	downArrowRef
 }) => {
 	return (
 		<div>
 			{upArrow || upAndDownArrows ? (
 				<section className={`${styles['upArrowContainer']}`}>
-					<UpArrow onClick={slideUp} />
+					<UpArrow onClick={slideUp} upArrowRef={upArrowRef} />
 				</section>
 			) : null}
 			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
@@ -28,7 +30,7 @@ export const Section = ({
 			</section>
 			{downArrow || upAndDownArrows ? (
 				<section className={`${styles['downArrowContainer']}`}>
-					<DownArrow onClick={slideDown} />
+					<DownArrow onClick={slideDown} downArrowRef={downArrowRef} />
 				</section>
 			) : null}
 		</div>
@@ -65,15 +67,16 @@ LeftArrow.propTypes = {
 	onClick: PropTypes.func
 };
 
-const UpArrow = ({ onClick }) => {
+const UpArrow = ({ onClick, upArrowRef }) => {
 	return (
 		<svg
-			onClick={onClick}
+			// onClick={onClick}
 			className={`flipXHalf cursor orangeRedFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
 			viewBox="0 0 24 24"
+			ref={upArrowRef}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>
@@ -101,15 +104,16 @@ RightArrow.propTypes = {
 	onClick: PropTypes.func
 };
 
-const DownArrow = ({ onClick }) => {
+const DownArrow = ({ onClick, downArrowRef }) => {
 	return (
 		<svg
-			onClick={onClick}
+			// onClick={onClick}
 			className={`flipXOneAndHalf cursor orangeRedFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
 			viewBox="0 0 24 24"
+			ref={downArrowRef}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>

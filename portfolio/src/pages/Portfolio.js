@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
 
-const Portfolio = ({ projectData, index, transitions, next, previous, slideUp, slideDown }) => {
+const Portfolio = ({
+	projectData,
+	index,
+	transitions,
+	next,
+	previous,
+	slideUp,
+	slideDown,
+	upArrowRef,
+	downArrowRef
+}) => {
 	let technologiesArray;
 	// converts the tags string into an array of tags
 	if (projectData[index].technologiesUsed !== '') {
@@ -17,6 +27,8 @@ const Portfolio = ({ projectData, index, transitions, next, previous, slideUp, s
 			previous={previous}
 			slideUp={slideUp}
 			slideDown={slideDown}
+			upArrowRef={upArrowRef}
+			downArrowRef={downArrowRef}
 		>
 			{transitions.map(({ props, key }, mapIndex) => {
 				return (
