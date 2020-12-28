@@ -16,7 +16,7 @@ export const Card = ({
 	tags
 }) => {
 	return (
-		<animated.div style={style} className={`${styles['card']} tanBrownBackground`} id={id}>
+		<animated.div style={style} className={`${styles['card']} blackEbonyBackground`} id={id}>
 			<img src={imageSrc} alt={imageAlt} className={styles['image']} />
 			<div className={styles['container']}>
 				<b>
@@ -63,7 +63,7 @@ Card.propTypes = {
 };
 
 const Tag = ({ content }) => {
-	return <span className={`${styles['tag']} brownBurgundyBackground greenLightForestColor`}>{content}</span>;
+	return <span className={`${styles['tag']} greyLightBackground`}>{content}</span>;
 };
 Tag.propTypes = {
 	content: PropTypes.string

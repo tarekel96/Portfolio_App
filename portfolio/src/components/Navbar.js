@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 
 export const Navbar = ({ setPageIndex, navItems, setCurrentNav, resetPreviousNavItem }) => {
 	return (
-		<nav className={`${styles['navbar']} brownBurgundyBackground`}>
+		<nav className={`${styles['navbar']} blackOliveBackground`}>
 			{navItems.map((navItem) => {
 				return (
 					<NavItem
@@ -41,7 +41,7 @@ const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem }) =>
 		[ id, handleClick ]
 	);
 	return (
-		<div id={id} className={`cursor ${isCurrent ? `whiteColor` : 'greenLightForestColor'}`}>
+		<div id={id} className={`cursor ${isCurrent ? `whiteColor` : 'greySlateColor'}`}>
 			{name}
 		</div>
 	);

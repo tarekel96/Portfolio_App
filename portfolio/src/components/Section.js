@@ -14,7 +14,9 @@ export const Section = ({
 	slideUp,
 	slideDown,
 	upArrowRef,
-	downArrowRef
+	downArrowRef,
+	leftArrowRef,
+	rightArrowRef
 }) => {
 	return (
 		<div>
@@ -24,9 +26,9 @@ export const Section = ({
 				</section>
 			) : null}
 			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
-				{cardArrows && <LeftArrow onClick={previous} />}
+				{cardArrows && <LeftArrow leftArrowRef={leftArrowRef} onClick={previous} />}
 				{children}
-				{cardArrows && <RightArrow onClick={next} />}
+				{cardArrows && <RightArrow rightArrowRef={rightArrowRef} onClick={next} />}
 			</section>
 			{downArrow || upAndDownArrows ? (
 				<section className={`${styles['downArrowContainer']}`}>
@@ -49,11 +51,12 @@ Section.propTypes = {
 	slideDown: PropTypes.func
 };
 
-const LeftArrow = ({ onClick }) => {
+const LeftArrow = ({ onClick, leftArrowRef }) => {
 	return (
 		<svg
-			onClick={onClick}
-			className={`flipX cursor orangeRedFill`}
+			// onClick={onClick}
+			ref={leftArrowRef}
+			className={`flipX cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -71,7 +74,7 @@ const UpArrow = ({ onClick, upArrowRef }) => {
 	return (
 		<svg
 			// onClick={onClick}
-			className={`flipXHalf cursor orangeRedFill`}
+			className={`flipXHalf cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -86,11 +89,12 @@ UpArrow.propTypes = {
 	onClick: PropTypes.func
 };
 
-const RightArrow = ({ onClick }) => {
+const RightArrow = ({ onClick, rightArrowRef }) => {
 	return (
 		<svg
-			onClick={onClick}
-			className={`cursor orangeRedFill`}
+			// onClick={onClick}
+			ref={rightArrowRef}
+			className={`cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -108,7 +112,7 @@ const DownArrow = ({ onClick, downArrowRef }) => {
 	return (
 		<svg
 			// onClick={onClick}
-			className={`flipXOneAndHalf cursor orangeRedFill`}
+			className={`flipXOneAndHalf cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"

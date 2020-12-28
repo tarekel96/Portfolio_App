@@ -12,7 +12,9 @@ const Portfolio = ({
 	slideUp,
 	slideDown,
 	upArrowRef,
-	downArrowRef
+	downArrowRef,
+	leftArrowRef,
+	rightArrowRef
 }) => {
 	let technologiesArray;
 	// converts the tags string into an array of tags
@@ -29,6 +31,8 @@ const Portfolio = ({
 			slideDown={slideDown}
 			upArrowRef={upArrowRef}
 			downArrowRef={downArrowRef}
+			leftArrowRef={leftArrowRef}
+			rightArrowRef={rightArrowRef}
 		>
 			{transitions.map(({ props, key }, mapIndex) => {
 				return (

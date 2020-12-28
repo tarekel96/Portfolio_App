@@ -1,5 +1,8 @@
 :root {
 	--color-black: #000000;
+	--color-black-olive: #3b3c36;
+	--color-black-charcoal: #333333;
+	--color-black-ebony: #555d50;
 	--color-blue: #242582;
 	--color-indigo: #2f2fa2;
 	--color-green-dark-pale: #1c3334;
@@ -7,14 +10,22 @@
 	--color-orange-red: #f64c72;
 	--color-brown-burgundy: #553d67;
 	--color-tan-brown: #99738e;
-	--color-white: #feffff;
+	--color-off-white: #feffff;
+	--color-white: #ffffff;
+	--color-grey-light: #9598a1;
+	--color-grey-ash: #b2beb5;
+	--color-grey-slate: #b2beb5;
+	--color-tan-light: #deb887;
+	--color-tan-medium: #deb887;
+	--color-tan-dark: #c19a6b;
 }
 
 * {
 	font-family: 'Ubuntu', sans-serif;
 }
 body {
-	background-color: var(--color-blue);
+	/* background-color: var(--color-blue); */
+	background-color: var(--color-grey-light);
 	color: var(--color-white);
 	height: 100%;
 	width: 100%;
@@ -45,8 +56,35 @@ body {
 .orangeRedFill {
 	fill: var(--color-orange-red);
 }
+.blackCharcoalFill {
+	fill: var(--color-black-charcoal);
+}
+.blackBackground {
+	background-color: var(--color-black);
+}
+.blackCharcoalBackground {
+	background-color: var(--color-black-charcoal);
+}
+.blackOliveBackground {
+	background-color: var(--color-black-olive);
+}
+.blackEbonyBackground {
+	background-color: var(--color-black-ebony);
+}
+.greyLightBackground {
+	background-color: var(--color-grey-light);
+}
 .blueBackground {
 	background-color: var(--color-blue);
+}
+.tanLightBackground {
+	background-color: var(--color-tan-light);
+}
+.tanMediumBackground {
+	background-color: var(--color-tan-medium);
+}
+.tanDarkBackground {
+	background-color: var(--color-tan-dark);
 }
 .tanBrownBackground {
 	background-color: var(--color-tan-brown);
@@ -65,4 +103,10 @@ body {
 }
 .greenLightForestColor {
 	color: var(--color-green-light-forest);
+}
+.greyAshColor {
+	color: var(--color-grey-ash);
+}
+.greySlateColor {
+	color: var(--color-grey-slate);
 }

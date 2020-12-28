@@ -13,7 +13,9 @@ const App = () => {
 	const NUM_OF_PAGES = 3;
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
-	/* PROJECT SECTION STATE */
+	/* PROJECT SECTION REFS AND STATE */
+	const leftArrowRef = React.createRef('leftArrow');
+	const rightArrowRef = React.createRef('rightArrow');
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
 	const projectTransitions = useTransition(projectIndex, (p) => p, {
@@ -22,7 +24,7 @@ const App = () => {
 		update: { opacity: 1, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
 		leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', transitionDuration: '0s' }
 	});
-	/* NAVBAR STATE */
+	/* NAVBAR REFS AND STATE */
 	const upArrowRef = React.createRef('upArrow');
 	const downArrowRef = React.createRef('downArrow');
 	const [ navItems, setCurrentNav ] = React.useState([
@@ -123,20 +125,6 @@ const App = () => {
 		},
 		[ resetPreviousNavItem ]
 	);
-	/* ROOT APP useEffect */
-	React.useEffect(
-		() => {
-			setProjectData(() => projectDataJSON);
-			console.log(projectData);
-			if (downArrowRef && downArrowRef.current !== null) {
-				downArrowRef.current.addEventListener('click', handleSlideDown);
-			}
-			if (upArrowRef && upArrowRef.current !== null) {
-				upArrowRef.current.addEventListener('click', handleSlideUp);
-			}
-		},
-		[ projectData, projectIndex, handleSlideDown, handleSlideUp, downArrowRef, upArrowRef ]
-	);
 	const handleCardNextClick = React.useCallback(
 		() => {
 			setProjectIndex((state) => {
@@ -163,6 +151,46 @@ const App = () => {
 		},
 		[ projectData ]
 	);
+	/* ROOT APP useEffect */
+	React.useEffect(
+		() => {
+			let leftArrowRefCopy;
+			let rightArrowRefCopy;
+			setProjectData(() => projectDataJSON);
+			console.log(projectData);
+			if (downArrowRef !== null && downArrowRef.current !== null) {
+				downArrowRef.current.addEventListener('click', handleSlideDown);
+			}
+			if (upArrowRef !== null && upArrowRef.current !== null) {
+				upArrowRef.current.addEventListener('click', handleSlideUp);
+			}
+			if (leftArrowRef !== null && leftArrowRef.current !== null) {
+				leftArrowRefCopy = leftArrowRef.current;
+				leftArrowRef.current.addEventListener('click', handleCardPrevClick);
+			}
+			if (rightArrowRef !== null && rightArrowRef.current !== null) {
+				rightArrowRefCopy = rightArrowRef.current;
+				rightArrowRef.current.addEventListener('click', handleCardNextClick);
+			}
+			return () => {
+				// leftArrowRef.unsubscribe()
+				// leftArrowRef.current.removeEventListener('click', handleCardPrevClick);
+				// rightArrowRef.current.removeEventListener('click', handleCardNextClick);
+			};
+		},
+		[
+			projectData,
+			projectIndex,
+			handleSlideDown,
+			handleSlideUp,
+			downArrowRef,
+			upArrowRef,
+			leftArrowRef,
+			rightArrowRef,
+			handleCardNextClick,
+			handleCardPrevClick
+		]
+	);
 
 	// wait for projectData to be fetched before render
 	while (true) {
@@ -187,6 +215,8 @@ const App = () => {
 					setPageIndex={setPageIndex}
 					upArrowRef={upArrowRef}
 					downArrowRef={downArrowRef}
+					leftArrowRef={leftArrowRef}
+					rightArrowRef={rightArrowRef}
 				/>
 			);
 			break;
