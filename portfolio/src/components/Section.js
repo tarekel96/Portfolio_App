@@ -48,13 +48,17 @@ Section.propTypes = {
 	next: PropTypes.func,
 	previous: PropTypes.func,
 	slideUp: PropTypes.func,
-	slideDown: PropTypes.func
+	slideDown: PropTypes.func,
+	upArrowRef: PropTypes.objectOf(PropTypes.string),
+	downArrowRef: PropTypes.objectOf(PropTypes.string),
+	leftArrowRef: PropTypes.objectOf(PropTypes.string),
+	rightArrowRef: PropTypes.objectOf(PropTypes.string)
 };
 
 const LeftArrow = ({ onClick, leftArrowRef }) => {
 	return (
 		<svg
-			// onClick={onClick}
+			onClick={onClick}
 			ref={leftArrowRef}
 			className={`flipX cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
@@ -67,13 +71,13 @@ const LeftArrow = ({ onClick, leftArrowRef }) => {
 	);
 };
 LeftArrow.propTypes = {
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	leftArrowRef: PropTypes.objectOf(PropTypes.string)
 };
 
 const UpArrow = ({ onClick, upArrowRef }) => {
 	return (
 		<svg
-			// onClick={onClick}
 			className={`flipXHalf cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
@@ -86,13 +90,13 @@ const UpArrow = ({ onClick, upArrowRef }) => {
 	);
 };
 UpArrow.propTypes = {
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	upArrowRef: PropTypes.objectOf(PropTypes.string)
 };
 
 const RightArrow = ({ onClick, rightArrowRef }) => {
 	return (
 		<svg
-			// onClick={onClick}
 			ref={rightArrowRef}
 			className={`cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
@@ -105,13 +109,13 @@ const RightArrow = ({ onClick, rightArrowRef }) => {
 	);
 };
 RightArrow.propTypes = {
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	rightArrowRef: PropTypes.objectOf(PropTypes.string)
 };
 
 const DownArrow = ({ onClick, downArrowRef }) => {
 	return (
 		<svg
-			// onClick={onClick}
 			className={`flipXOneAndHalf cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
@@ -124,5 +128,6 @@ const DownArrow = ({ onClick, downArrowRef }) => {
 	);
 };
 DownArrow.propTypes = {
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	downArrowRef: PropTypes.objectOf(PropTypes.string)
 };

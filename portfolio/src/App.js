@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
 import { Layout } from './components/Layout.js';
-// import projectDataJSON from './data/projects.json';
 import { asyncFetchData } from './utils/fetchData.js';
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
@@ -177,7 +176,6 @@ const App = () => {
 			console.log(projectData);
 			return () => {
 				isCancelled = true;
-				console.log('begin unmount');
 				if (downArrowCopy !== undefined && downArrowCopy !== null) {
 					downArrowCopy.removeEventListener('click', handleSlideDown);
 				}
@@ -189,9 +187,7 @@ const App = () => {
 				}
 				if (rightArrowCopy !== undefined && rightArrowCopy !== null) {
 					rightArrowCopy.removeEventListener('click', handleCardNextClick);
-					console.log('rightArrow');
 				}
-				console.log('end of unmount');
 			};
 		},
 		[

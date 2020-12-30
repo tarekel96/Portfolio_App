@@ -62,7 +62,11 @@ Portfolio.propTypes = {
 	previous: PropTypes.func,
 	slideUp: PropTypes.func,
 	slideDown: PropTypes.func,
-	setPageIndex: PropTypes.func
+	setPageIndex: PropTypes.func,
+	upArrowRef: PropTypes.objectOf(PropTypes.string),
+	downArrowRef: PropTypes.objectOf(PropTypes.string),
+	leftArrowRef: PropTypes.objectOf(PropTypes.string),
+	rightArrowRef: PropTypes.objectOf(PropTypes.string)
 };
 
 export default Portfolio;
