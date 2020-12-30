@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './Navbar.module.css';
 
 export const Navbar = ({ setPageIndex, navItems, setCurrentNav, resetPreviousNavItem }) => {
@@ -22,10 +22,10 @@ export const Navbar = ({ setPageIndex, navItems, setCurrentNav, resetPreviousNav
 	);
 };
 Navbar.propTypes = {
-	setPageIndex: propTypes.func,
-	navItems: propTypes.array,
-	setCurrentNav: propTypes.func,
-	resetPreviousNavItem: propTypes.func
+	setPageIndex: PropTypes.func,
+	navItems: PropTypes.array,
+	setCurrentNav: PropTypes.func,
+	resetPreviousNavItem: PropTypes.func
 };
 
 const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem }) => {
@@ -54,9 +54,9 @@ const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem }) =>
 	);
 };
 NavItem.propTypes = {
-	name: propTypes.string,
-	id: propTypes.number,
-	setPageIndex: propTypes.func,
-	isCurrent: propTypes.bool,
-	resetPreviousNavItem: propTypes.func
+	name: PropTypes.string,
+	id: PropTypes.number,
+	setPageIndex: PropTypes.func,
+	isCurrent: PropTypes.bool,
+	resetPreviousNavItem: PropTypes.func
 };

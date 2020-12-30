@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Navbar } from './Navbar.js';
 import styles from './Layout.module.css';
 
@@ -19,10 +19,10 @@ export const Layout = ({ children, hasNavbar = true, setPageIndex, navItems, set
 	);
 };
 Layout.propTypes = {
-	children: propTypes.any,
-	hasNavbar: propTypes.bool,
-	setPageIndex: propTypes.func,
-	navItems: propTypes.array,
-	setCurrentNav: propTypes.func,
-	resetPreviousNavItem: propTypes.func
+	children: PropTypes.any,
+	hasNavbar: PropTypes.bool,
+	setPageIndex: PropTypes.func,
+	navItems: PropTypes.array,
+	setCurrentNav: PropTypes.func,
+	resetPreviousNavItem: PropTypes.func
 };

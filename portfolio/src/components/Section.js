@@ -4,6 +4,7 @@ import styles from './Section.module.css';
 
 export const Section = ({
 	children,
+	className,
 	column = false,
 	cardArrows = false,
 	upArrow,
@@ -19,7 +20,7 @@ export const Section = ({
 	rightArrowRef
 }) => {
 	return (
-		<div>
+		<div className={className !== undefined ? className : null}>
 			{upArrow || upAndDownArrows ? (
 				<section className={`${styles['upArrowContainer']}`}>
 					<UpArrow onClick={slideUp} upArrowRef={upArrowRef} />
@@ -40,6 +41,7 @@ export const Section = ({
 };
 Section.propTypes = {
 	children: PropTypes.any,
+	className: PropTypes.string,
 	column: PropTypes.bool,
 	cardArrows: PropTypes.bool,
 	upArrow: PropTypes.bool,

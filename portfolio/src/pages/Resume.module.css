@@ -1,0 +1,14 @@
+.resumeSections {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 100%;
+	margin: 2.5% auto;
+}
+.technicalSkills,
+.education,
+.experiences {
+	width: 100%;
+	height: 100%;
+}
