@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
 import { Layout } from './components/Layout.js';
-import projectDataJSON from './data/projects.json';
+// import projectDataJSON from './data/projects.json';
+import { asyncFetchData } from './utils/fetchData.js';
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
 import Resume from './pages/Resume.js';
@@ -18,6 +19,7 @@ const App = () => {
 	const rightArrowRef = React.createRef('rightArrow');
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
+	//const [ cardIsMounted, setCardMount ] = React.useState(false);
 	const projectTransitions = useTransition(projectIndex, (p) => p, {
 		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
 		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
@@ -58,17 +60,9 @@ const App = () => {
 					new Promise((resolve, reject) => {
 						resolve(
 							setCurrentNav((prevState) => {
-								console.log('previous state');
-								console.log(prevState);
-								// const previousCurrent = navItems.findIndex((index) => {
-								// 	return index.isCurrent === true;
-								// });
 								let newState = prevState;
 								let tempNavItem = newState[previousCurrent];
 								tempNavItem.isCurrent = false;
-								//newState[previousCurrent] = tempNavItem;
-								console.log('New State');
-								console.log(newState);
 								return newState;
 							})
 						);
@@ -78,7 +72,6 @@ const App = () => {
 					new Promise((resolve, reject) => {
 						resolve(
 							setCurrentNav((prevState) => {
-								console.log('here2');
 								let newNavbar = prevState;
 								newNavbar[newCurrIndex].isCurrent = true;
 								return newNavbar;
@@ -108,7 +101,6 @@ const App = () => {
 	);
 	const handleSlideDown = React.useCallback(
 		() => {
-			console.log('hit handle slide down');
 			setPageIndex((prevPageIndex) => {
 				resetPreviousNavItem(prevPageIndex);
 				if (prevPageIndex === NUM_OF_PAGES - 1) {
@@ -151,31 +143,55 @@ const App = () => {
 		},
 		[ projectData ]
 	);
+	React.useEffect(() => {
+		let isCancelled = false;
+		if (isCancelled === false) asyncFetchData('assets/projects.json', setProjectData);
+		return () => (isCancelled = true);
+	}, []);
 	/* ROOT APP useEffect */
 	React.useEffect(
 		() => {
-			let leftArrowRefCopy;
-			let rightArrowRefCopy;
-			setProjectData(() => projectDataJSON);
+			let downArrowCopy,
+				upArrowCopy,
+				rightArrowCopy,
+				leftArrowCopy = null;
+			let isCancelled = false;
+			if (isCancelled === false && projectData.length !== 0) {
+				if (downArrowRef !== null && downArrowRef.current !== null) {
+					downArrowCopy = downArrowRef.current;
+					downArrowRef.current.addEventListener('click', handleSlideDown);
+				}
+				if (upArrowRef !== null && upArrowRef.current !== null) {
+					upArrowCopy = upArrowRef.current;
+					upArrowRef.current.addEventListener('click', handleSlideUp);
+				}
+				if (leftArrowRef !== null && leftArrowRef.current !== null) {
+					rightArrowCopy = rightArrowRef.current;
+					leftArrowRef.current.addEventListener('click', handleCardPrevClick);
+				}
+				if (rightArrowRef !== null && rightArrowRef.current !== null) {
+					leftArrowCopy = leftArrowRef.current;
+					rightArrowRef.current.addEventListener('click', handleCardNextClick);
+				}
+			}
 			console.log(projectData);
-			if (downArrowRef !== null && downArrowRef.current !== null) {
-				downArrowRef.current.addEventListener('click', handleSlideDown);
-			}
-			if (upArrowRef !== null && upArrowRef.current !== null) {
-				upArrowRef.current.addEventListener('click', handleSlideUp);
-			}
-			if (leftArrowRef !== null && leftArrowRef.current !== null) {
-				leftArrowRefCopy = leftArrowRef.current;
-				leftArrowRef.current.addEventListener('click', handleCardPrevClick);
-			}
-			if (rightArrowRef !== null && rightArrowRef.current !== null) {
-				rightArrowRefCopy = rightArrowRef.current;
-				rightArrowRef.current.addEventListener('click', handleCardNextClick);
-			}
 			return () => {
-				// leftArrowRef.unsubscribe()
-				// leftArrowRef.current.removeEventListener('click', handleCardPrevClick);
-				// rightArrowRef.current.removeEventListener('click', handleCardNextClick);
+				isCancelled = true;
+				console.log('begin unmount');
+				if (downArrowCopy !== undefined && downArrowCopy !== null) {
+					downArrowCopy.removeEventListener('click', handleSlideDown);
+				}
+				if (upArrowCopy !== undefined && upArrowCopy !== null) {
+					upArrowCopy.removeEventListener('click', handleSlideUp);
+				}
+				if (leftArrowCopy !== undefined && leftArrowCopy !== null) {
+					leftArrowCopy.removeEventListener('click', handleCardPrevClick);
+				}
+				if (rightArrowCopy !== undefined && rightArrowCopy !== null) {
+					rightArrowCopy.removeEventListener('click', handleCardNextClick);
+					console.log('rightArrow');
+				}
+				console.log('end of unmount');
 			};
 		},
 		[
