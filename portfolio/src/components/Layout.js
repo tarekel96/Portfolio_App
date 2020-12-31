@@ -8,6 +8,7 @@ export const Layout = ({
 	children,
 	arrows,
 	hasNavbar = true,
+	pageIndex,
 	setPageIndex,
 	navItems,
 	setCurrentNav,
@@ -33,6 +34,7 @@ export const Layout = ({
 				/>
 			)}
 			<Section
+				pageIndex={pageIndex}
 				upAndDownArrows={arrows === 'updown' ? true : false}
 				upArrow={arrows === 'up' ? true : false}
 				downArrow={arrows === 'down' ? true : false}
@@ -45,6 +47,10 @@ export const Layout = ({
 				downArrowRef={downArrowRef}
 				leftArrowRef={leftArrowRef}
 				rightArrowRef={rightArrowRef}
+				setPageIndex={setPageIndex}
+				navItems={navItems}
+				setCurrentNav={setCurrentNav}
+				resetPreviousNavItem={resetPreviousNavItem}
 			>
 				{children}
 			</Section>

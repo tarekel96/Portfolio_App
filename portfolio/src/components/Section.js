@@ -17,8 +17,53 @@ export const Section = ({
 	upArrowRef,
 	downArrowRef,
 	leftArrowRef,
-	rightArrowRef
+	rightArrowRef,
+	setPageIndex,
+	pageIndex,
+	navItems,
+	setCurrentNav,
+	resetPreviousNavItem
 }) => {
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === false) return;
+			let upHandler;
+			let downHandler;
+			if (upArrow || upAndDownArrows) {
+				upHandler = setInterval(
+					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
+					500
+				);
+			}
+			if (downArrow || upAndDownArrows) {
+				downHandler = setInterval(
+					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
+					500
+				);
+			}
+			return () => {
+				clearInterval(upHandler);
+				clearInterval(downHandler);
+				isMounted = false;
+			};
+		},
+		[
+			next,
+			rightArrowRef,
+			previous,
+			leftArrowRef,
+			slideUp,
+			slideDown,
+			upArrowRef,
+			downArrowRef,
+			pageIndex,
+			resetPreviousNavItem,
+			downArrow,
+			upArrow,
+			upAndDownArrows
+		]
+	);
 	return (
 		<div className={className !== undefined ? className : null}>
 			{upArrow || upAndDownArrows ? (

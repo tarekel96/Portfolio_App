@@ -224,6 +224,7 @@ const App = () => {
 	}
 	return (
 		<Layout
+			pageIndex={pageIndex}
 			setPageIndex={setPageIndex}
 			navItems={navItems}
 			setCurrentNav={setCurrentNav}
