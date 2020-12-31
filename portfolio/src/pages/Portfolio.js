@@ -1,7 +1,6 @@
 import React from 'react';
 import { Slide } from 'react-awesome-reveal';
 import PropTypes from 'prop-types';
-import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
 
 const Portfolio = ({
@@ -40,32 +39,19 @@ const Portfolio = ({
 	);
 
 	return (
-		<Section
-			cardArrows={true}
-			next={next}
-			downArrow={true}
-			previous={previous}
-			slideUp={slideUp}
-			slideDown={slideDown}
-			upArrowRef={upArrowRef}
-			downArrowRef={downArrowRef}
-			leftArrowRef={leftArrowRef}
-			rightArrowRef={rightArrowRef}
-		>
-			<Slide direction={lastCommand === 'previous' ? 'right' : 'left'} duration={1250}>
-				<Card
-					key={projectData[index].id}
-					id={index}
-					title={projectData[index].name}
-					imageSrc={'assets/images/' + projectData[index].imageSrc}
-					imageAlt={'project ' + String(index)}
-					content={projectData[index].objective}
-					url_1={projectData[index].url}
-					url_2={projectData[index].githubUrl}
-					tags={technologiesArray}
-				/>
-			</Slide>
-		</Section>
+		<Slide direction={lastCommand === 'previous' ? 'right' : 'left'} duration={1250}>
+			<Card
+				key={projectData[index].id}
+				id={index}
+				title={projectData[index].name}
+				imageSrc={'assets/images/' + projectData[index].imageSrc}
+				imageAlt={'project ' + String(index)}
+				content={projectData[index].objective}
+				url_1={projectData[index].url}
+				url_2={projectData[index].githubUrl}
+				tags={technologiesArray}
+			/>
+		</Slide>
 	);
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Section } from '../components/Section.js';
 
 const About = ({ setPageIndex, slideUp, upArrowRef }) => {
 	React.useEffect(
@@ -14,11 +13,7 @@ const About = ({ setPageIndex, slideUp, upArrowRef }) => {
 		},
 		[ slideUp, upArrowRef ]
 	);
-	return (
-		<Section upArrow={true} slideUp={slideUp} upArrowRef={upArrowRef}>
-			<h1>About</h1>
-		</Section>
-	);
+	return <h1>About</h1>;
 };
 
 export default About;

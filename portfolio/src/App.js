@@ -10,6 +10,8 @@ import './styles/main.css';
 const App = () => {
 	let appMainContent;
 	const NUM_OF_PAGES = 3;
+	let arrows = '';
+	let cardArrows = false;
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
 	/* PROJECT SECTION REFS AND STATE */
@@ -171,6 +173,8 @@ const App = () => {
 	}
 	switch (pageIndex) {
 		case 0:
+			cardArrows = true;
+			arrows = 'down';
 			appMainContent = (
 				<Portfolio
 					lastCommand={lastCommand}
@@ -185,10 +189,13 @@ const App = () => {
 					downArrowRef={downArrowRef}
 					leftArrowRef={leftArrowRef}
 					rightArrowRef={rightArrowRef}
+					cardArrows={true}
 				/>
 			);
 			break;
 		case 1:
+			cardArrows = false;
+			arrows = 'updown';
 			appMainContent = (
 				<Resume
 					slideUp={handleSlideUp}
@@ -200,6 +207,8 @@ const App = () => {
 			);
 			break;
 		case 2:
+			cardArrows = false;
+			arrows = 'up';
 			appMainContent = (
 				<About
 					slideUp={handleSlideUp}
@@ -219,6 +228,19 @@ const App = () => {
 			navItems={navItems}
 			setCurrentNav={setCurrentNav}
 			resetPreviousNavItem={resetPreviousNavItem}
+			lastCommand={lastCommand}
+			projectData={projectData}
+			index={projectIndex}
+			next={handleCardNextClick}
+			previous={handleCardPrevClick}
+			slideUp={handleSlideUp}
+			slideDown={handleSlideDown}
+			upArrowRef={upArrowRef}
+			downArrowRef={downArrowRef}
+			leftArrowRef={leftArrowRef}
+			rightArrowRef={rightArrowRef}
+			cardArrows={cardArrows}
+			arrows={arrows}
 		>
 			{appMainContent}
 		</Layout>

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Section } from '../components/Section.js';
+//import PropTypes from 'prop-types';
 import styles from './Resume.module.css';
 
 const Resume = ({ slideUp, slideDown, upArrowRef, downArrowRef }) => {
@@ -19,19 +18,11 @@ const Resume = ({ slideUp, slideDown, upArrowRef, downArrowRef }) => {
 		[ slideUp, slideDown, upArrowRef, downArrowRef ]
 	);
 	return (
-		<Section
-			upAndDownArrows={true}
-			slideUp={slideUp}
-			slideDown={slideDown}
-			upArrowRef={upArrowRef}
-			downArrowRef={downArrowRef}
-		>
-			<div className={styles['resumeSections']}>
-				<section className={styles['technicalSkills']}>Technical Skills</section>
-				<section className={styles['education']}>Education</section>
-				<section className={styles['experiences']}>Experiences</section>
-			</div>
-		</Section>
+		<div className={styles['resumeSections']}>
+			<section className={styles['technicalSkills']}>Technical Skills</section>
+			<section className={styles['education']}>Education</section>
+			<section className={styles['experiences']}>Experiences</section>
+		</div>
 	);
 };
 
