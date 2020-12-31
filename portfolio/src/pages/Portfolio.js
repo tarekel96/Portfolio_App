@@ -5,9 +5,9 @@ import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
 
 const Portfolio = ({
+	lastCommand,
 	projectData,
 	index,
-	transitions,
 	next,
 	previous,
 	slideUp,
@@ -22,6 +22,22 @@ const Portfolio = ({
 	if (projectData[index].technologiesUsed !== '') {
 		technologiesArray = projectData[index].technologiesUsed.split(',');
 	}
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === false) return;
+			const rightHandler = setInterval(rightArrowRef.current.addEventListener('click', next), 500);
+			const leftHandler = setInterval(leftArrowRef.current.addEventListener('click', previous), 500);
+			const downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
+			return () => {
+				clearInterval(rightHandler);
+				clearInterval(leftHandler);
+				clearInterval(downHandler);
+				isMounted = false;
+			};
+		},
+		[ next, rightArrowRef, previous, leftArrowRef, slideUp, slideDown, upArrowRef, downArrowRef ]
+	);
 
 	return (
 		<Section
@@ -36,7 +52,7 @@ const Portfolio = ({
 			leftArrowRef={leftArrowRef}
 			rightArrowRef={rightArrowRef}
 		>
-			<Slide direction="left" duration={1250}>
+			<Slide direction={lastCommand === 'previous' ? 'right' : 'left'} duration={1250}>
 				<Card
 					key={projectData[index].id}
 					id={index}

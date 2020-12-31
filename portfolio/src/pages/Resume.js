@@ -4,6 +4,20 @@ import { Section } from '../components/Section.js';
 import styles from './Resume.module.css';
 
 const Resume = ({ slideUp, slideDown, upArrowRef, downArrowRef }) => {
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === false) return;
+			const upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
+			const downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
+			return () => {
+				clearInterval(upHandler);
+				clearInterval(downHandler);
+				isMounted = false;
+			};
+		},
+		[ slideUp, slideDown, upArrowRef, downArrowRef ]
+	);
 	return (
 		<Section
 			upAndDownArrows={true}

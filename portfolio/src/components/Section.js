@@ -51,26 +51,13 @@ Section.propTypes = {
 	previous: PropTypes.func,
 	slideUp: PropTypes.func,
 	slideDown: PropTypes.func,
-	upArrowRef: PropTypes.objectOf(PropTypes.string),
-	downArrowRef: PropTypes.objectOf(PropTypes.string),
-	leftArrowRef: PropTypes.objectOf(PropTypes.string),
-	rightArrowRef: PropTypes.objectOf(PropTypes.string)
+	upArrowRef: PropTypes.object,
+	downArrowRef: PropTypes.object,
+	leftArrowRef: PropTypes.object,
+	rightArrowRef: PropTypes.object
 };
 
-const LeftArrow = ({ onClick, leftArrowRef }) => {
-	React.useEffect(
-		() => {
-			let isMounted = true;
-			if (isMounted === false) return;
-			const id = setInterval(leftArrowRef.current.addEventListener('click', onClick), 500);
-
-			return () => {
-				clearInterval(id);
-				isMounted = false;
-			};
-		},
-		[ onClick, leftArrowRef ]
-	);
+const LeftArrow = ({ leftArrowRef }) => {
 	return (
 		<svg
 			ref={leftArrowRef}
@@ -85,11 +72,10 @@ const LeftArrow = ({ onClick, leftArrowRef }) => {
 	);
 };
 LeftArrow.propTypes = {
-	onClick: PropTypes.func,
-	leftArrowRef: PropTypes.objectOf(PropTypes.string)
+	leftArrowRef: PropTypes.object
 };
 
-const UpArrow = ({ onClick, upArrowRef }) => {
+const UpArrow = ({ upArrowRef }) => {
 	return (
 		<svg
 			className={`flipXHalf cursor blackCharcoalFill`}
@@ -105,23 +91,10 @@ const UpArrow = ({ onClick, upArrowRef }) => {
 };
 UpArrow.propTypes = {
 	onClick: PropTypes.func,
-	upArrowRef: PropTypes.objectOf(PropTypes.string)
+	upArrowRef: PropTypes.object
 };
 
 const RightArrow = ({ onClick, rightArrowRef }) => {
-	React.useEffect(
-		() => {
-			let isMounted = true;
-			if (isMounted === false) return;
-			const id = setInterval(rightArrowRef.current.addEventListener('click', onClick), 500);
-
-			return () => {
-				clearInterval(id);
-				isMounted = false;
-			};
-		},
-		[ onClick, rightArrowRef ]
-	);
 	return (
 		<svg
 			ref={rightArrowRef}
@@ -136,8 +109,7 @@ const RightArrow = ({ onClick, rightArrowRef }) => {
 	);
 };
 RightArrow.propTypes = {
-	onClick: PropTypes.func,
-	rightArrowRef: PropTypes.objectOf(PropTypes.string)
+	rightArrowRef: PropTypes.object
 };
 
 const DownArrow = ({ onClick, downArrowRef }) => {
@@ -156,5 +128,5 @@ const DownArrow = ({ onClick, downArrowRef }) => {
 };
 DownArrow.propTypes = {
 	onClick: PropTypes.func,
-	downArrowRef: PropTypes.objectOf(PropTypes.string)
+	downArrowRef: PropTypes.object
 };
