@@ -1,4 +1,5 @@
 import React from 'react';
+import { Slide } from 'react-awesome-reveal';
 import PropTypes from 'prop-types';
 import { Section } from '../components/Section.js';
 import { Card } from '../components/Card.js';
@@ -21,6 +22,7 @@ const Portfolio = ({
 	if (projectData[index].technologiesUsed !== '') {
 		technologiesArray = projectData[index].technologiesUsed.split(',');
 	}
+
 	return (
 		<Section
 			cardArrows={true}
@@ -34,22 +36,19 @@ const Portfolio = ({
 			leftArrowRef={leftArrowRef}
 			rightArrowRef={rightArrowRef}
 		>
-			{transitions.map(({ props, key }, mapIndex) => {
-				return (
-					<Card
-						style={props}
-						key={mapIndex}
-						id={projectData[index].id}
-						title={projectData[index].name}
-						imageSrc={'assets/images/' + projectData[index].imageSrc}
-						imageAlt={'project ' + String(index)}
-						content={projectData[index].objective}
-						url_1={projectData[index].url}
-						url_2={projectData[index].githubUrl}
-						tags={technologiesArray}
-					/>
-				);
-			})}
+			<Slide direction="left" duration={1250}>
+				<Card
+					key={projectData[index].id}
+					id={index}
+					title={projectData[index].name}
+					imageSrc={'assets/images/' + projectData[index].imageSrc}
+					imageAlt={'project ' + String(index)}
+					content={projectData[index].objective}
+					url_1={projectData[index].url}
+					url_2={projectData[index].githubUrl}
+					tags={technologiesArray}
+				/>
+			</Slide>
 		</Section>
 	);
 };

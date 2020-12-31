@@ -58,9 +58,21 @@ Section.propTypes = {
 };
 
 const LeftArrow = ({ onClick, leftArrowRef }) => {
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === false) return;
+			const id = setInterval(leftArrowRef.current.addEventListener('click', onClick), 500);
+
+			return () => {
+				clearInterval(id);
+				isMounted = false;
+			};
+		},
+		[ onClick, leftArrowRef ]
+	);
 	return (
 		<svg
-			onClick={onClick}
 			ref={leftArrowRef}
 			className={`flipX cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
@@ -97,6 +109,19 @@ UpArrow.propTypes = {
 };
 
 const RightArrow = ({ onClick, rightArrowRef }) => {
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === false) return;
+			const id = setInterval(rightArrowRef.current.addEventListener('click', onClick), 500);
+
+			return () => {
+				clearInterval(id);
+				isMounted = false;
+			};
+		},
+		[ onClick, rightArrowRef ]
+	);
 	return (
 		<svg
 			ref={rightArrowRef}

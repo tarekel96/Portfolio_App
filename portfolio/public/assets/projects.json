@@ -4,7 +4,8 @@
         "githubUrl": "https://github.com/tarekel96/simpsons-game",
         "imageSrc": "simpsonsGameSnapshot.png",
         "objective": "Built a carding-picking game with React.js based on the Simpson characters. Scores are stored in a MySQL DB.",
-        "technologiesUsed": "React.js, Node.js, Express.js, REST API, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap"
+        "technologiesUsed": "React.js, Node.js, Express.js, REST API, MySQL, Amazon RDS, React Hooks, React Spring API, SCSS, Bootstrap",
+        "id": "project 0"
 },
 {
         "name": "A_Connect (Forkaia Application)",
@@ -12,7 +13,8 @@
         "githubUrl": "https://github.com/forkaia/A_Connect",
         "imageSrc": "A_ConnectSnapshot.png",
         "objective": "Developed the user and authentication back-end with Node.js, MongoDB, and JWTs. Linked the back-end to React.js front-end.",
-        "technologiesUsed": "Node.js, Express.js, REST API, Mongo DB, JWT, React.js, Bootstrap"
+        "technologiesUsed": "Node.js, Express.js, REST API, Mongo DB, JWT, React.js, Bootstrap",
+        "id": "project 1"
 },
 {
         "name": "Django User Profile - Upload and Update",
@@ -20,7 +22,8 @@
         "githubUrl": "https://github.com/tarekel96/Django_Coding_Challenge",
         "imageSrc": "DjangoCodingChallenge.png",
         "objective": "Built a user profile web app (single user) in which the user can upload a profile pic and update his or her profile.",
-        "technologiesUsed": "Django3, Python3, SQLite, REST API, Bootstrap 4, CSS, HTML"
+        "technologiesUsed": "Django3, Python3, SQLite, REST API, Bootstrap 4, CSS, HTML",
+        "id": "project 2"
 },
 {
         "name": "GTR High Performance",
@@ -28,7 +31,8 @@
         "githubUrl": "https://github.com/tarekel96/GTR_Front_End",
         "imageSrc": "GTRHighPerformance.png",
         "objective": "Developed a new version of the GTR High Performance website with modern technologies and design.",
-        "technologiesUsed": "React.js, Google Maps API, React Class Components, React Bootstrap, CSS, Yelp widgets"
+        "technologiesUsed": "React.js, Google Maps API, React Class Components, React Bootstrap, CSS, Yelp widgets",
+        "id": "project 3"
 },
 {
         "name": "Synchronized Plus and Minus Buttons",
@@ -36,7 +40,8 @@
         "githubUrl": "https://github.com/tarekel96/PlusAndMinusButtons",
         "imageSrc": "plusMinusButtons.png",
         "objective": "Built a plus and minus buttons component that are synchroizned with the help of a plugin.",
-        "technologiesUsed": "JavaScript, RadialIndicator.js (plugin), CSS, HTML"
+        "technologiesUsed": "JavaScript, RadialIndicator.js (plugin), CSS, HTML",
+        "id": "project 4"
 },
 {
         "name": "Palindrome Checker",
@@ -44,6 +49,7 @@
         "githubUrl": "https://github.com/forkaia/A_Connect",
         "imageSrc": "palindromeChecker.png",
         "objective": "Built a simple web app that tells user whether a provided word is a palindrome or not.",
-        "technologiesUsed": "JavaScript, CSS, CSS Keyframes, HTML"
+        "technologiesUsed": "JavaScript, CSS, CSS Keyframes, HTML",
+        "id": "project 5"
 }
 ]

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { animated } from 'react-spring';
 import styles from './Card.module.css';
 export const Card = ({
 	id,
+	item,
 	title,
 	imageSrc,
 	imageAlt,
@@ -16,7 +16,7 @@ export const Card = ({
 	tags
 }) => {
 	return (
-		<animated.div style={style} className={`${styles['card']} blackEbonyBackground`} id={id}>
+		<div style={style} className={`${styles['card']} blackEbonyBackground`} id={id}>
 			<img src={imageSrc} alt={imageAlt} className={styles['image']} />
 			<div className={styles['container']}>
 				<b>
@@ -45,7 +45,7 @@ export const Card = ({
 					})}
 				</p>
 			</div>
-		</animated.div>
+		</div>
 	);
 };
 Card.propTypes = {

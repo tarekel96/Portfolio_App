@@ -19,6 +19,12 @@ const App = () => {
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
 	//const [ cardIsMounted, setCardMount ] = React.useState(false);
+	// const projectTransitions = useTransition(projectIndex, (p) => p, {
+	// 	from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
+	// 	enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
+	// 	update: { opacity: 1, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
+	// 	leave: { opacity: 0, transform: 'translate3d(-50%,0,0)', transitionDuration: '0s' }
+	// });
 	const projectTransitions = useTransition(projectIndex, (p) => p, {
 		from: { opacity: 0, transform: 'translate3d(100%,0,0)', transitionDuration: '.45s' },
 		enter: { opacity: 0, transform: 'translate3d(0%,0,0)', transitionDuration: '1.25s' },
@@ -142,66 +148,27 @@ const App = () => {
 		},
 		[ projectData ]
 	);
+
 	React.useEffect(() => {
 		let isCancelled = false;
-		if (isCancelled === false) asyncFetchData('assets/projects.json', setProjectData);
+		if (isCancelled === false) {
+			try {
+				asyncFetchData('assets/projects.json', setProjectData);
+				// eslint-disable-next-line
+			} catch (error) {
+				//
+				console.log(new Error(error));
+			}
+		}
 		return () => (isCancelled = true);
 	}, []);
 	/* ROOT APP useEffect */
 	React.useEffect(
 		() => {
-			let downArrowCopy,
-				upArrowCopy,
-				rightArrowCopy,
-				leftArrowCopy = null;
-			let isCancelled = false;
-			if (isCancelled === false && projectData.length !== 0) {
-				if (downArrowRef !== null && downArrowRef.current !== null) {
-					downArrowCopy = downArrowRef.current;
-					downArrowRef.current.addEventListener('click', handleSlideDown);
-				}
-				if (upArrowRef !== null && upArrowRef.current !== null) {
-					upArrowCopy = upArrowRef.current;
-					upArrowRef.current.addEventListener('click', handleSlideUp);
-				}
-				if (leftArrowRef !== null && leftArrowRef.current !== null) {
-					rightArrowCopy = rightArrowRef.current;
-					leftArrowRef.current.addEventListener('click', handleCardPrevClick);
-				}
-				if (rightArrowRef !== null && rightArrowRef.current !== null) {
-					leftArrowCopy = leftArrowRef.current;
-					rightArrowRef.current.addEventListener('click', handleCardNextClick);
-				}
-			}
 			console.log(projectData);
-			return () => {
-				isCancelled = true;
-				if (downArrowCopy !== undefined && downArrowCopy !== null) {
-					downArrowCopy.removeEventListener('click', handleSlideDown);
-				}
-				if (upArrowCopy !== undefined && upArrowCopy !== null) {
-					upArrowCopy.removeEventListener('click', handleSlideUp);
-				}
-				if (leftArrowCopy !== undefined && leftArrowCopy !== null) {
-					leftArrowCopy.removeEventListener('click', handleCardPrevClick);
-				}
-				if (rightArrowCopy !== undefined && rightArrowCopy !== null) {
-					rightArrowCopy.removeEventListener('click', handleCardNextClick);
-				}
-			};
+			return () => {};
 		},
-		[
-			projectData,
-			projectIndex,
-			handleSlideDown,
-			handleSlideUp,
-			downArrowRef,
-			upArrowRef,
-			leftArrowRef,
-			rightArrowRef,
-			handleCardNextClick,
-			handleCardPrevClick
-		]
+		[ projectData ]
 	);
 
 	// wait for projectData to be fetched before render
