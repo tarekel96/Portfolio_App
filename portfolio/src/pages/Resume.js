@@ -30,60 +30,76 @@ const Resume = () => {
 	}
 	return (
 		<div className={`${styles['resumeSections']} offWhiteBackground blackColor`}>
-			<section className={styles['technicalSkills']}>
-				<header>Technical Skills</header>
+			<div className={`${styles['skillsAndEducation']}`}>
+				<section className={styles['technicalSkills']}>
+					<header>Technical Skills</header>
+					<hr style={{ width: '100%' }} />
+					<div>
+						{/* Slice (1st third of arr) -> Map */}
+						<ul>
+							{convertToArray(skillsData.skills)
+								.slice(0, getThirdArrLength(convertToArray(skillsData.skills)))
+								.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+						</ul>
+						{/* Slice (2nd third of arr) -> Map */}
+						<ul>
+							{convertToArray(skillsData.skills)
+								.slice(
+									getThirdArrLength(convertToArray(skillsData.skills)),
+									2 * getThirdArrLength(convertToArray(skillsData.skills))
+								)
+								.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+						</ul>
+						{/* Slice (last third of arr) -> Map */}
+						<ul>
+							{convertToArray(skillsData.skills)
+								.slice(
+									2 * getThirdArrLength(convertToArray(skillsData.skills)),
+									convertToArray(skillsData.skills).length
+								)
+								.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+						</ul>
+					</div>
+					<article>"*" indicates certification for skill</article>
+					<hr />
+				</section>
+				<section className={styles['education']}>
+					<header>Education</header>
+					<hr style={{ width: '100%' }} />
+					{skillsData.educations.map(({ name, id, duration, major, degreeType, gpa, specialAwards }) => (
+						<Education
+							key={id}
+							name={name}
+							duration={duration}
+							major={major}
+							degreeType={degreeType}
+							gpa={gpa}
+							specialAwards={specialAwards}
+						/>
+					))}
+					<hr />
+				</section>
+			</div>
+			<section className={styles['experiences']}>
+				<header>Experiences</header>
 				<hr />
-				<div>
-					{/* Slice (1st third of arr) -> Map */}
-					<ul>
-						{convertToArray(skillsData.skills)
-							.slice(0, getThirdArrLength(convertToArray(skillsData.skills)))
-							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-					</ul>
-					{/* Slice (2nd third of arr) -> Map */}
-					<ul>
-						{convertToArray(skillsData.skills)
-							.slice(
-								getThirdArrLength(convertToArray(skillsData.skills)),
-								2 * getThirdArrLength(convertToArray(skillsData.skills))
-							)
-							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-					</ul>
-					{/* Slice (last third of arr) -> Map */}
-					<ul>
-						{convertToArray(skillsData.skills)
-							.slice(
-								2 * getThirdArrLength(convertToArray(skillsData.skills)),
-								convertToArray(skillsData.skills).length
-							)
-							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-					</ul>
-				</div>
-				<article>"*" indicates certification for skill</article>
-				<hr />
-			</section>
-			<section className={styles['education']}>
-				<header>Education</header>
-				<hr />
-				{skillsData.educations.map(({ name, id, duration, major, degreeType, gpa, specialAwards }) => (
-					<Education
+				{skillsData.experiences.map(({ companyName, id, location, duration, position, roles }) => (
+					<Experience
 						key={id}
-						name={name}
+						companyName={companyName}
+						location={location}
+						position={position}
 						duration={duration}
-						major={major}
-						degreeType={degreeType}
-						gpa={gpa}
-						specialAwards={specialAwards}
+						roles={roles}
 					/>
 				))}
 				<hr />
 			</section>
-			<section className={styles['experiences']}>Experiences</section>
 		</div>
 	);
 };
 
-const Education = ({ name, id, duration, major, degreeType, gpa, specialAwards }) => {
+const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) => {
 	return (
 		<div>
 			<article>{name}</article>
@@ -121,8 +137,31 @@ const Education = ({ name, id, duration, major, degreeType, gpa, specialAwards }
 	);
 };
 Education.propTypes = {};
-const Experience = ({ companyName, id, duration, position, roleDescription }) => {
-	return <div>Education</div>;
+const Experience = ({ companyName, location, duration, position, roles }) => {
+	return (
+		<div>
+			<article>
+				{companyName} - {location}
+			</article>
+			<ul>
+				<li>
+					<span className="bold">Duration:</span> {duration}
+				</li>
+				<li>
+					<span className="bold">Position:</span> {position}
+				</li>
+				<li>
+					<article className="bold">Roles: </article>
+				</li>
+				{roles.map((role, index) => (
+					<li key={`Role ${index}`} style={{ marginLeft: '2.5%', listStyleType: 'square' }}>
+						{role}
+						{index !== roles.length - 1 && ', '}{' '}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
 };
 Experience.propTypes = {};
 export default Resume;

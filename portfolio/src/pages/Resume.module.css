@@ -11,17 +11,29 @@
 .technicalSkills,
 .education,
 .experiences {
+	margin: 0 auto;
 	width: 100%;
-	height: 100%;
+	max-width: 100%;
+}
+.skillsAndEducation {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 1fr;
+}
+.skillsAndEducation > section {
+	display: flex;
+	flex-direction: column;
 }
 .technicalSkills > header,
-.education > header {
+.education > header,
+.experiences > header {
 	text-align: center;
 	font-size: 1.4rem;
 }
 .technicalSkills > div {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 .technicalSkills > article {
 	font-size: .75rem;
@@ -34,8 +46,10 @@
 }
 .education > div {
 	padding: 0;
-	padding-left: 10%;
 	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .education > div > ul {
 	margin-top: 0.40rem;

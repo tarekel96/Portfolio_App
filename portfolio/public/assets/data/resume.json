@@ -34,5 +34,51 @@
 			"relevantCourses": "",
 			"specialAwards": []
 		}
+	],
+	"experiences": [
+		{
+			"companyName": "Pacific Life Insurance",
+			"id": "pacificLife",
+			"location": "Newport Beach, CA",
+			"duration": "Jan 2020-August 2020",
+			"position": "Web Developer Intern",
+			"roles": [
+				"Build web applications using innovative technologies such as Node.js, React.js, SCSS/styled-components, GraphQL, Contentful CMS, Gatsby, Zapiar Webhook API Email Automation, Style Dictionary, Webflow, Bit.dev, Airtable, Mural, and more",
+				"Built a custom React Grid Component (from scratch) that replaced the role of bootstrap columns and rows.",
+				"Debug/troubleshoot existing code",
+				"Work in quickly adapting environment based on Agile methodologies and SCRUM practices"
+			]
+		},
+		{
+			"companyName": "Forkaia",
+			"id": "forkaia",
+			"location": "Irvine, CA",
+			"duration": "June 2019-Jan 2020",
+			"position": "Startup Software Engineer Intern",
+			"roles": [
+				"Design apps and producing content for startup apps.",
+				"Developed the backend user sign up and sign in authentication for 2 apps: A_Connect and 46andMix using Node.js, Express.js, Mongo, Mongoose, JWT, and Bcrypt. Developed some of the Front-End for A-Connect with React.js and Bootstrap."
+			]
+		},
+		{
+			"companyName": "University of California Irvine - The Coding Bootcamp",
+			"id": "uci",
+			"duration": "08/01/18 - 10/20/20",
+			"position": "Bootcamp Student",
+			"roles": [
+				"An intensive 24-week long boot camp dedicated to designing and building web applications.",
+				"Skills learned consisted of HTML5, CSS3, JavaScript, jQuery, Bootstrap, Firebase, NodeJs, MySQL, MongoDB, Express, Handlebars JS, & React Js.",
+				"Note - 5 Coding Certifications (please refer to LinkedIn)"
+			]
+		},
+		{
+			"companyName": "University of California, San Diego Airway Research and Clinical Trials Center",
+			"id": "ucsd",
+			"position": "Undergraduate Researcher",
+			"roles": [
+				"Organize and input raw patient data, worked with medical staff to collect samples from patients, and performed spirometer respiratory function and DLCO tests on patients.",
+				"Co-author of abstract: Abstract 2018 American Thoracic Society: Electronic Cigarette, Conventional Cigarette and Marijuana Use Patterns in San Diego County"
+			]
+		}
 	]
 }
