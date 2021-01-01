@@ -22,6 +22,7 @@
 
 * {
 	font-family: 'Ubuntu', sans-serif;
+	font-weight: 400;
 }
 body {
 	/* background-color: var(--color-blue); */
@@ -36,6 +37,9 @@ body {
 /* utility classes */
 .cursor {
 	cursor: pointer;
+}
+.bold {
+	font-weight: 700;
 }
 .flipX {
 	transform: scale(-1, 1);

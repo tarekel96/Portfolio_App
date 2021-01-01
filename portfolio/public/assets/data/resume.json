@@ -1,0 +1,38 @@
+{
+	"skills": "Data Structures & Algorithms, C++, Java, Python, Django, *Node.js, *JavaScript/jQuery, *React.js, *MongoDB, *SQL, *Express.js, *HTML/CSS, Bootstrap, Redux, GraphQL, CMS integration, SCSS/styled-components,  Authentication (JWT), CyberSecurity, REST API, 3rd Party API Integration, Git, Deployment, Testing, Front-End Development, Back-End Development, Full-Stack Development",
+	"educations": [
+		{
+			"name": "Chapman University",
+			"id": "chapman",
+			"duration": "09/01/19 - current",
+			"major": "Software Engineering",
+			"degreeType": "Bachelor's of Science",
+			"gpa": "3.5",
+			"relevantCourses": "Data Structure & Algorithms (C++), Intro to computer science I & II (Python and Java), Intro to Linux/Unix Programming and Git, Software Requirements, Software Design, Discrete Math, Calculus I-III, Intro to Linear Algebra and Differential Equations, Intro to Statistics, Intro to 3D printing and modeling",
+			"specialAwards": []
+		},
+		{
+			"name": "University of San Diego",
+			"id": "usd",
+			"duration": "09/01/14 - 05/20/18",
+			"major": "Business Administration",
+			"degreeType": "Bachelor's of Arts",
+			"gpa": "3.56",
+			"relevantCourses": "",
+			"specialAwards": [
+				"Academic Excellence in Business Administration",
+				"Departmental Honors in Business Administration"
+			]
+		},
+		{
+			"name": "University of California Irvine - Department of Continuing Education",
+			"id": "uci",
+			"duration": "08/01/18 - 10/20/20",
+			"major": "The Coding Bootcamp",
+			"degreeType": "Coding Certifications",
+			"gpa": "n/a",
+			"relevantCourses": "",
+			"specialAwards": []
+		}
+	]
+}

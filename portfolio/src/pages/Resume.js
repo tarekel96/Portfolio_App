@@ -13,7 +13,7 @@ const Resume = () => {
 	React.useEffect(() => {
 		try {
 			return new Promise((resolve, reject) => {
-				resolve(asyncFetchData('assets/data/skills.json', setSkills));
+				resolve(asyncFetchData('assets/data/resume.json', setSkills));
 			});
 			// eslint-disable-next-line
 		} catch (error) {
@@ -22,6 +22,7 @@ const Resume = () => {
 	}, []);
 
 	while (loading) {
+		console.log(skillsData);
 		if (skillsData !== null) {
 			setLoading(() => false);
 		}
@@ -61,14 +62,63 @@ const Resume = () => {
 				<article>"*" indicates certification for skill</article>
 				<hr />
 			</section>
-			<section className={styles['education']}>Education</section>
+			<section className={styles['education']}>
+				<header>Education</header>
+				<hr />
+				{skillsData.educations.map(({ name, id, duration, major, degreeType, gpa, specialAwards }) => (
+					<Education
+						key={id}
+						name={name}
+						duration={duration}
+						major={major}
+						degreeType={degreeType}
+						gpa={gpa}
+						specialAwards={specialAwards}
+					/>
+				))}
+				<hr />
+			</section>
 			<section className={styles['experiences']}>Experiences</section>
 		</div>
 	);
 };
 
 const Education = ({ name, id, duration, major, degreeType, gpa, specialAwards }) => {
-	return <div>Education</div>;
+	return (
+		<div>
+			<article>{name}</article>
+			<ul>
+				<li>
+					<span className="bold">Time Attended:</span> {duration}
+				</li>
+				<li>
+					<span className="bold">Major:</span> {major} - {degreeType}
+				</li>
+				<li
+					style={{
+						display: gpa !== 'n/a' ? 'block' : 'none',
+						listStyleType: gpa !== 'n/a' ? 'circle' : 'none'
+					}}
+				>
+					<span className="bold">GPA:</span> {gpa}
+				</li>
+				<li
+					style={{
+						display: specialAwards.length !== 0 ? 'block' : 'none',
+						listStyleType: specialAwards.length !== 0 ? 'circle' : 'none'
+					}}
+				>
+					<span className="bold">Awards:</span>{' '}
+					{specialAwards.map((award, index) => (
+						<span key={`Award ${index}`}>
+							{award}
+							{index !== specialAwards.length - 1 && ', '}{' '}
+						</span>
+					))}
+				</li>
+			</ul>
+		</div>
+	);
 };
 Education.propTypes = {};
 const Experience = ({ companyName, id, duration, position, roleDescription }) => {
