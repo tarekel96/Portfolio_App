@@ -4,7 +4,7 @@ import { asyncFetchData, convertToArray } from '../utils/fetchData.js';
 //import PropTypes from 'prop-types';
 import styles from './Resume.module.css';
 
-const Resume = ({ slideUp, slideDown, upArrowRef, downArrowRef }) => {
+const Resume = () => {
 	const [ skillsData, setSkills ] = React.useState(null);
 	const [ loading, setLoading ] = React.useState(true);
 	React.useEffect(() => {
@@ -17,22 +17,7 @@ const Resume = ({ slideUp, slideDown, upArrowRef, downArrowRef }) => {
 			return console.log(new Error(error));
 		}
 	}, []);
-	React.useEffect(
-		() => {
-			let isMounted = true;
-			console.log(loading);
-			console.log(skillsData);
-			if (isMounted === false) return;
-			const upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
-			const downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
-			return () => {
-				clearInterval(upHandler);
-				clearInterval(downHandler);
-				isMounted = false;
-			};
-		},
-		[ slideUp, slideDown, upArrowRef, downArrowRef, skillsData, loading ]
-	);
+
 	while (loading) {
 		if (skillsData !== null) {
 			setLoading(() => false);

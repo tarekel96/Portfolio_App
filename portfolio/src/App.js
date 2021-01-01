@@ -14,6 +14,7 @@ const App = () => {
 	let cardArrows = false;
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
+	const [ loading, setLoading ] = React.useState(true);
 	/* PROJECT SECTION REFS AND STATE */
 	const leftArrowRef = React.createRef('leftArrow');
 	const rightArrowRef = React.createRef('rightArrow');
@@ -144,7 +145,9 @@ const App = () => {
 		let isCancelled = false;
 		if (isCancelled === false) {
 			try {
-				asyncFetchData('assets/data/projects.json', setProjectData);
+				return new Promise((resolve, reject) => {
+					resolve(asyncFetchData('assets/data/projects.json', setProjectData));
+				});
 				// eslint-disable-next-line
 			} catch (error) {
 				//
@@ -163,10 +166,10 @@ const App = () => {
 	);
 
 	// wait for projectData to be fetched before render
-	while (true) {
+	while (loading) {
 		if (projectData !== undefined) {
 			if (projectData[projectIndex] !== undefined) {
-				break;
+				setLoading(() => false);
 			}
 		}
 		return <Loading />;

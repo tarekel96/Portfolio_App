@@ -29,22 +29,39 @@ export const Section = ({
 			let isMounted = true;
 			if (isMounted === false) return;
 			let upHandler;
+			let upNavHandler;
 			let downHandler;
-			if (upArrow || upAndDownArrows) {
-				upHandler = setInterval(
+			let downNavHandler;
+			let leftHandler;
+			let rightHandler;
+			if ((upArrow || upAndDownArrows) && upArrowRef !== null) {
+				console.log('1');
+				upNavHandler = setInterval(
 					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
 					500
 				);
+				upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
 			}
-			if (downArrow || upAndDownArrows) {
-				downHandler = setInterval(
+			if ((downArrow || upAndDownArrows) && downArrowRef !== null) {
+				console.log('2');
+				downNavHandler = setInterval(
 					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
 					500
 				);
+				downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
+			}
+			if (cardArrows === true && rightArrowRef !== null && leftArrowRef !== null) {
+				console.log('3');
+				rightHandler = setInterval(rightArrowRef.current.addEventListener('click', next), 500);
+				leftHandler = setInterval(leftArrowRef.current.addEventListener('click', previous), 500);
 			}
 			return () => {
+				clearInterval(upNavHandler);
 				clearInterval(upHandler);
+				clearInterval(downNavHandler);
 				clearInterval(downHandler);
+				clearInterval(rightHandler);
+				clearInterval(leftHandler);
 				isMounted = false;
 			};
 		},
@@ -61,7 +78,8 @@ export const Section = ({
 			resetPreviousNavItem,
 			downArrow,
 			upArrow,
-			upAndDownArrows
+			upAndDownArrows,
+			cardArrows
 		]
 	);
 	return (
