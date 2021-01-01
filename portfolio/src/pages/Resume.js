@@ -7,8 +7,8 @@ import styles from './Resume.module.css';
 const Resume = () => {
 	const [ skillsData, setSkills ] = React.useState(null);
 	const [ loading, setLoading ] = React.useState(true);
-	const getHalfArrLength = (arr) => {
-		return Math.round((arr.length - 1) / 2);
+	const getThirdArrLength = (arr) => {
+		return Math.round(arr.length / 3);
 	};
 	React.useEffect(() => {
 		try {
@@ -33,17 +33,26 @@ const Resume = () => {
 				<header>Technical Skills</header>
 				<hr />
 				<div>
-					{/* Slice (1st half of arr) -> Map */}
+					{/* Slice (1st third of arr) -> Map */}
 					<ul>
 						{convertToArray(skillsData.skills)
-							.slice(0, getHalfArrLength(convertToArray(skillsData.skills)))
+							.slice(0, getThirdArrLength(convertToArray(skillsData.skills)))
 							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
 					</ul>
-					{/* Slice (2nd half of arr) -> Map */}
+					{/* Slice (2nd third of arr) -> Map */}
 					<ul>
 						{convertToArray(skillsData.skills)
 							.slice(
-								getHalfArrLength(convertToArray(skillsData.skills)),
+								getThirdArrLength(convertToArray(skillsData.skills)),
+								2 * getThirdArrLength(convertToArray(skillsData.skills))
+							)
+							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+					</ul>
+					{/* Slice (last third of arr) -> Map */}
+					<ul>
+						{convertToArray(skillsData.skills)
+							.slice(
+								2 * getThirdArrLength(convertToArray(skillsData.skills)),
 								convertToArray(skillsData.skills).length
 							)
 							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
