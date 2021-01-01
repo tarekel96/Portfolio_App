@@ -7,6 +7,9 @@ import styles from './Resume.module.css';
 const Resume = () => {
 	const [ skillsData, setSkills ] = React.useState(null);
 	const [ loading, setLoading ] = React.useState(true);
+	const getHalfArrLength = (arr) => {
+		return Math.round((arr.length - 1) / 2);
+	};
 	React.useEffect(() => {
 		try {
 			return new Promise((resolve, reject) => {
@@ -25,13 +28,29 @@ const Resume = () => {
 		return <Loading />;
 	}
 	return (
-		<div className={styles['resumeSections']}>
+		<div className={`${styles['resumeSections']} offWhiteBackground blackColor`}>
 			<section className={styles['technicalSkills']}>
-				<ul>
-					{convertToArray(skillsData.skills).map((skill, index) => (
-						<li key={`Skill ID#: ${index}`}>{skill}</li>
-					))}
-				</ul>
+				<header>Technical Skills</header>
+				<hr />
+				<div>
+					{/* Slice (1st half of arr) -> Map */}
+					<ul>
+						{convertToArray(skillsData.skills)
+							.slice(0, getHalfArrLength(convertToArray(skillsData.skills)))
+							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+					</ul>
+					{/* Slice (2nd half of arr) -> Map */}
+					<ul>
+						{convertToArray(skillsData.skills)
+							.slice(
+								getHalfArrLength(convertToArray(skillsData.skills)),
+								convertToArray(skillsData.skills).length
+							)
+							.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+					</ul>
+				</div>
+				<article>"*" indicates certification for skill</article>
+				<hr />
 			</section>
 			<section className={styles['education']}>Education</section>
 			<section className={styles['experiences']}>Experiences</section>

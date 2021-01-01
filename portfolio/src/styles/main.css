@@ -92,8 +92,14 @@ body {
 .brownBurgundyBackground {
 	background-color: var(--color-brown-burgundy);
 }
+.offWhiteBackground {
+	background-color: var(--color-off-white);
+}
 .whiteColor {
 	color: var(--color-white);
+}
+.blackColor {
+	color: var(--color-black);
 }
 .indigoColor {
 	color: var(--color-indigo);
