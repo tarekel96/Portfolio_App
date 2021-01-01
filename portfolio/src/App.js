@@ -144,7 +144,7 @@ const App = () => {
 		let isCancelled = false;
 		if (isCancelled === false) {
 			try {
-				asyncFetchData('assets/projects.json', setProjectData);
+				asyncFetchData('assets/data/projects.json', setProjectData);
 				// eslint-disable-next-line
 			} catch (error) {
 				//
