@@ -5,6 +5,7 @@ import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
 import Resume from './pages/Resume.js';
 import About from './pages/About.js';
+import { Fade } from 'react-awesome-reveal';
 import './styles/main.css';
 
 const App = () => {
@@ -200,13 +201,15 @@ const App = () => {
 			cardArrows = false;
 			arrows = 'updown';
 			appMainContent = (
-				<Resume
-					slideUp={handleSlideUp}
-					slideDown={handleSlideDown}
-					setPageIndex={setPageIndex}
-					upArrowRef={upArrowRef}
-					downArrowRef={downArrowRef}
-				/>
+				<Fade triggerOnce={true} duration={1750}>
+					<Resume
+						slideUp={handleSlideUp}
+						slideDown={handleSlideDown}
+						setPageIndex={setPageIndex}
+						upArrowRef={upArrowRef}
+						downArrowRef={downArrowRef}
+					/>
+				</Fade>
 			);
 			break;
 		case 2:
