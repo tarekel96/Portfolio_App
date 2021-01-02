@@ -143,8 +143,8 @@ const App = () => {
 	);
 
 	React.useEffect(() => {
-		let isCancelled = false;
-		if (isCancelled === false) {
+		let isMounted = true;
+		if (isMounted === true) {
 			try {
 				return new Promise((resolve, reject) => {
 					resolve(asyncFetchData('assets/data/projects.json', setProjectData));
@@ -155,7 +155,7 @@ const App = () => {
 				console.log(new Error(error));
 			}
 		}
-		return () => (isCancelled = true);
+		return () => (isMounted = false);
 	}, []);
 	/* ROOT APP useEffect */
 	React.useEffect(

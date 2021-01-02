@@ -29,6 +29,7 @@
 .experiences > header {
 	text-align: center;
 	font-size: 1.4rem;
+	font-weight: 700;
 }
 .technicalSkills > div {
 	display: flex;

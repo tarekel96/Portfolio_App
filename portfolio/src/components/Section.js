@@ -35,7 +35,6 @@ export const Section = ({
 			let leftHandler;
 			let rightHandler;
 			if ((upArrow || upAndDownArrows) && upArrowRef !== null) {
-				console.log('1');
 				upNavHandler = setInterval(
 					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
 					500
@@ -43,7 +42,6 @@ export const Section = ({
 				upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
 			}
 			if ((downArrow || upAndDownArrows) && downArrowRef !== null) {
-				console.log('2');
 				downNavHandler = setInterval(
 					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
 					500
@@ -51,7 +49,6 @@ export const Section = ({
 				downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
 			}
 			if (cardArrows === true && rightArrowRef !== null && leftArrowRef !== null) {
-				console.log('3');
 				rightHandler = setInterval(rightArrowRef.current.addEventListener('click', next), 500);
 				leftHandler = setInterval(leftArrowRef.current.addEventListener('click', previous), 500);
 			}
