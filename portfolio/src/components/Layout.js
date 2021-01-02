@@ -21,7 +21,8 @@ export const Layout = ({
 	downArrowRef,
 	leftArrowRef,
 	rightArrowRef,
-	cardArrows
+	cardArrows,
+	hasFooter
 }) => {
 	return (
 		<div className={`${styles['layoutContainer']}`}>
@@ -34,6 +35,7 @@ export const Layout = ({
 				/>
 			)}
 			<Section
+				hasFooter={hasFooter}
 				pageIndex={pageIndex}
 				upAndDownArrows={arrows === 'updown' ? true : false}
 				upArrow={arrows === 'up' ? true : false}

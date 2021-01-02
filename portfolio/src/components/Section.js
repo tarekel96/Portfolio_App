@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Footer } from './Footer';
 import styles from './Section.module.css';
 
 export const Section = ({
@@ -22,7 +23,8 @@ export const Section = ({
 	pageIndex,
 	navItems,
 	setCurrentNav,
-	resetPreviousNavItem
+	resetPreviousNavItem,
+	hasFooter
 }) => {
 	React.useEffect(
 		() => {
@@ -96,6 +98,7 @@ export const Section = ({
 					<DownArrow onClick={slideDown} downArrowRef={downArrowRef} />
 				</section>
 			) : null}
+			{hasFooter && <Footer />}
 		</div>
 	);
 };

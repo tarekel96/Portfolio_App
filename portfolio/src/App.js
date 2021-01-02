@@ -13,6 +13,7 @@ const App = () => {
 	const NUM_OF_PAGES = 3;
 	let arrows = '';
 	let cardArrows = false;
+	let hasFooter = false;
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
 	const [ loading, setLoading ] = React.useState(true);
@@ -179,6 +180,7 @@ const App = () => {
 		case 0:
 			cardArrows = true;
 			arrows = 'down';
+			hasFooter = true;
 			appMainContent = (
 				<Portfolio
 					lastCommand={lastCommand}
@@ -200,6 +202,7 @@ const App = () => {
 		case 1:
 			cardArrows = false;
 			arrows = 'updown';
+			hasFooter = false;
 			appMainContent = (
 				<Fade triggerOnce={true} duration={1750}>
 					<Resume
@@ -215,6 +218,7 @@ const App = () => {
 		case 2:
 			cardArrows = false;
 			arrows = 'up';
+			hasFooter = true;
 			appMainContent = (
 				<About
 					slideUp={handleSlideUp}
@@ -248,6 +252,7 @@ const App = () => {
 			rightArrowRef={rightArrowRef}
 			cardArrows={cardArrows}
 			arrows={arrows}
+			hasFooter={hasFooter}
 		>
 			{appMainContent}
 		</Layout>

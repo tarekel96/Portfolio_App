@@ -4,6 +4,7 @@
 	"interests": [
 		"3D Printing",
 		"Traveling",
+		"Dogs",
 		"Sneakers",
 		"Hiking",
 		"Basketball (NBA)",
@@ -14,5 +15,7 @@
 		"Foodie"
 	],
 	"mission1": "My mission as a software engineer is to build robust, efficient, and user-considerate applications that empower and improve lives.",
-	"mission2": "I believe that with software engineering we can make the world a better place by developing technologies that empower people and businesses."
+	"mission2": "I believe that with software engineering we can make the world a better place by developing technologies that empower people and businesses.",
+	"linkedIn": "https://www.linkedin.com/in/tarek-e-0a2b1a132/",
+	"gitHub": "https://github.com/tarekel96"
 }

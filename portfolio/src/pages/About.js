@@ -3,7 +3,7 @@ import Loading from './Loading.js';
 import { asyncFetchData } from '../utils/fetchData.js';
 import styles from './About.module.css';
 
-const About = ({ setPageIndex, slideUp, upArrowRef }) => {
+const About = () => {
 	const [ aboutData, setAboutData ] = React.useState({});
 	const [ loading, setLoading ] = React.useState(true);
 	React.useEffect(() => {
