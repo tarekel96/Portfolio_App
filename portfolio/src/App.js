@@ -178,8 +178,42 @@ const App = () => {
 	}
 	switch (pageIndex) {
 		case 0:
-			cardArrows = true;
+			cardArrows = false;
 			arrows = 'down';
+			hasFooter = true;
+			// cardArrows = true;
+			// arrows = 'down';
+			// hasFooter = true;
+			appMainContent = (
+				<Fade triggerOnce={false} duration={1750}>
+					<About
+						slideUp={handleSlideUp}
+						setPageIndex={setPageIndex}
+						upArrowRef={upArrowRef}
+						downArrowRef={downArrowRef}
+					/>
+				</Fade>
+			);
+			break;
+		case 1:
+			cardArrows = false;
+			arrows = 'updown';
+			hasFooter = false;
+			appMainContent = (
+				<Fade triggerOnce={false} duration={1750}>
+					<Resume
+						slideUp={handleSlideUp}
+						slideDown={handleSlideDown}
+						setPageIndex={setPageIndex}
+						upArrowRef={upArrowRef}
+						downArrowRef={downArrowRef}
+					/>
+				</Fade>
+			);
+			break;
+		case 2:
+			cardArrows = true;
+			arrows = 'up';
 			hasFooter = true;
 			appMainContent = (
 				<Portfolio
@@ -196,35 +230,6 @@ const App = () => {
 					leftArrowRef={leftArrowRef}
 					rightArrowRef={rightArrowRef}
 					cardArrows={true}
-				/>
-			);
-			break;
-		case 1:
-			cardArrows = false;
-			arrows = 'updown';
-			hasFooter = false;
-			appMainContent = (
-				<Fade triggerOnce={true} duration={1750}>
-					<Resume
-						slideUp={handleSlideUp}
-						slideDown={handleSlideDown}
-						setPageIndex={setPageIndex}
-						upArrowRef={upArrowRef}
-						downArrowRef={downArrowRef}
-					/>
-				</Fade>
-			);
-			break;
-		case 2:
-			cardArrows = false;
-			arrows = 'up';
-			hasFooter = true;
-			appMainContent = (
-				<About
-					slideUp={handleSlideUp}
-					setPageIndex={setPageIndex}
-					upArrowRef={upArrowRef}
-					downArrowRef={downArrowRef}
 				/>
 			);
 			break;
