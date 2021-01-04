@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Navbar.module.css';
 
-export const Navbar = ({ setPageIndex, navItems, setCurrentNav, resetPreviousNavItem }) => {
+export const Navbar = ({
+	setPageIndex,
+	navItems,
+	setCurrentNav,
+	resetPreviousNavItem,
+	resetPrevNavItem,
+	getCurrentNavItem
+}) => {
 	return (
 		<nav className={`${styles['navbar']} blackOliveBackground`}>
 			{navItems.map((navItem) => {
@@ -15,6 +22,8 @@ export const Navbar = ({ setPageIndex, navItems, setCurrentNav, resetPreviousNav
 						isCurrent={navItem.isCurrent}
 						setCurrentNav={setCurrentNav}
 						resetPreviousNavItem={resetPreviousNavItem}
+						getCurrentNavItem={getCurrentNavItem}
+						resetPrevNavItem={resetPrevNavItem}
 					/>
 				);
 			})}
@@ -28,15 +37,18 @@ Navbar.propTypes = {
 	resetPreviousNavItem: PropTypes.func
 };
 
-const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem }) => {
+const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem, getCurrentNavItem, resetPrevNavItem }) => {
 	const handleClick = React.useCallback(
 		(e) => {
-			resetPreviousNavItem(id);
+			console.log('HERE');
+			// let prevCurrPageIndex = getCurrentNavItem();
+			// resetPreviousNavItem(prevCurrPageIndex, id);
+			resetPrevNavItem(id);
 			setPageIndex(() => {
 				return Number(e.target.id);
 			});
 		},
-		[ id, resetPreviousNavItem, setPageIndex ]
+		[ id, resetPrevNavItem, setPageIndex ]
 	);
 	React.useEffect(
 		() => {

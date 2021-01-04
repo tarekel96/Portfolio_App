@@ -19,6 +19,8 @@
 .profileImageContainer > div > img {
 	box-shadow: 12px 12px 12px #666;
 	border-radius: 5px;
+	width: 384px;
+	height: 384px;
 }
 .aboutContainer > section > div > p {
 	text-align: justify;

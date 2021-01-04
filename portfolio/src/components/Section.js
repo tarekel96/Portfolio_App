@@ -36,16 +36,31 @@ export const Section = ({
 			let downNavHandler;
 			let leftHandler;
 			let rightHandler;
+			console.log('NEW PAGE INDEX');
+			console.log(pageIndex);
+			let newPageIndex;
 			if ((upArrow || upAndDownArrows) && upArrowRef !== null) {
+				if (pageIndex === 0) {
+					newPageIndex = 2;
+				}
+				else {
+					newPageIndex = pageIndex - 1;
+				}
 				upNavHandler = setInterval(
-					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
+					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex, newPageIndex)),
 					500
 				);
 				upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
 			}
 			if ((downArrow || upAndDownArrows) && downArrowRef !== null) {
+				if (pageIndex === 2) {
+					newPageIndex = 0;
+				}
+				else {
+					newPageIndex = pageIndex + 1;
+				}
 				downNavHandler = setInterval(
-					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex)),
+					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex, newPageIndex)),
 					500
 				);
 				downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
@@ -87,17 +102,29 @@ export const Section = ({
 				<section className={`${styles['upArrowContainer']}`}>
 					<UpArrow onClick={slideUp} upArrowRef={upArrowRef} />
 				</section>
-			) : null}
+			) : (
+				<UpArrow hide={true} upArrowRef={upArrowRef} />
+			)}
 			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
-				{cardArrows && <LeftArrow leftArrowRef={leftArrowRef} onClick={previous} />}
+				{cardArrows ? (
+					<LeftArrow leftArrowRef={leftArrowRef} onClick={previous} />
+				) : (
+					<LeftArrow hide={true} leftArrowRef={leftArrowRef} />
+				)}
 				{children}
-				{cardArrows && <RightArrow rightArrowRef={rightArrowRef} onClick={next} />}
+				{cardArrows ? (
+					<RightArrow rightArrowRef={rightArrowRef} onClick={next} />
+				) : (
+					<RightArrow hide={true} rightArrowRef={rightArrowRef} />
+				)}
 			</section>
 			{downArrow || upAndDownArrows ? (
 				<section className={`${styles['downArrowContainer']}`}>
 					<DownArrow onClick={slideDown} downArrowRef={downArrowRef} />
 				</section>
-			) : null}
+			) : (
+				<DownArrow hide={true} downArrowRef={downArrowRef} />
+			)}
 			{hasFooter && <Footer />}
 		</div>
 	);
@@ -120,7 +147,7 @@ Section.propTypes = {
 	rightArrowRef: PropTypes.object
 };
 
-const LeftArrow = ({ leftArrowRef }) => {
+const LeftArrow = ({ leftArrowRef, hide = false }) => {
 	return (
 		<svg
 			ref={leftArrowRef}
@@ -129,6 +156,7 @@ const LeftArrow = ({ leftArrowRef }) => {
 			width="48"
 			height="48"
 			viewBox="0 0 24 24"
+			style={{ visibility: hide === true ? 'hidden' : 'visible' }}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>
@@ -138,7 +166,7 @@ LeftArrow.propTypes = {
 	leftArrowRef: PropTypes.object
 };
 
-const UpArrow = ({ upArrowRef }) => {
+const UpArrow = ({ upArrowRef, hide = false }) => {
 	return (
 		<svg
 			className={`flipXHalf cursor blackCharcoalFill`}
@@ -147,6 +175,7 @@ const UpArrow = ({ upArrowRef }) => {
 			height="48"
 			viewBox="0 0 24 24"
 			ref={upArrowRef}
+			style={{ visibility: hide === true ? 'hidden' : 'visible' }}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>
@@ -157,7 +186,7 @@ UpArrow.propTypes = {
 	upArrowRef: PropTypes.object
 };
 
-const RightArrow = ({ onClick, rightArrowRef }) => {
+const RightArrow = ({ onClick, rightArrowRef, hide = false }) => {
 	return (
 		<svg
 			ref={rightArrowRef}
@@ -166,6 +195,7 @@ const RightArrow = ({ onClick, rightArrowRef }) => {
 			width="48"
 			height="48"
 			viewBox="0 0 24 24"
+			style={{ visibility: hide === true ? 'hidden' : 'visible' }}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>
@@ -175,7 +205,7 @@ RightArrow.propTypes = {
 	rightArrowRef: PropTypes.object
 };
 
-const DownArrow = ({ onClick, downArrowRef }) => {
+const DownArrow = ({ onClick, downArrowRef, hide = false }) => {
 	return (
 		<svg
 			className={`flipXOneAndHalf cursor blackCharcoalFill`}
@@ -184,6 +214,7 @@ const DownArrow = ({ onClick, downArrowRef }) => {
 			height="48"
 			viewBox="0 0 24 24"
 			ref={downArrowRef}
+			style={{ visibility: hide === true ? 'hidden' : 'visible' }}
 		>
 			<path d="M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z" />
 		</svg>

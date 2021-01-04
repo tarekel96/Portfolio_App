@@ -13,6 +13,7 @@ export const Layout = ({
 	navItems,
 	setCurrentNav,
 	resetPreviousNavItem,
+	resetPrevNavItem,
 	next,
 	previous,
 	slideUp,
@@ -32,6 +33,8 @@ export const Layout = ({
 					navItems={navItems}
 					setCurrentNav={setCurrentNav}
 					resetPreviousNavItem={resetPreviousNavItem}
+					pageIndex={pageIndex}
+					resetPrevNavItem={resetPrevNavItem}
 				/>
 			)}
 			<Section

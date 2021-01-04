@@ -1,11 +1,7 @@
 .footerSection {
-	/* position: fixed;
-	width: 80%;
-	margin: 0 auto; */
-	position: absolute;
 	bottom: 5%;
 	width: 100%;
-	height: 60px; /* Height of the footer */
+	height: 60px;
 }
 .iconsContainer {
 	padding-top: 1rem;
