@@ -41,8 +41,6 @@ export const Section = ({
 				else {
 					newPageIndex = pageIndex - 1;
 				}
-				console.log('New Index: ' + newPageIndex);
-				console.log('Previous Page Index: ' + pageIndex);
 				upNavHandler = setInterval(
 					upArrowRef.current.addEventListener('click', () => resetPrevNavItem(newPageIndex)),
 					500

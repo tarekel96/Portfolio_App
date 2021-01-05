@@ -40,9 +40,6 @@ Navbar.propTypes = {
 const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem, getCurrentNavItem, resetPrevNavItem }) => {
 	const handleClick = React.useCallback(
 		(e) => {
-			console.log('HERE');
-			// let prevCurrPageIndex = getCurrentNavItem();
-			// resetPreviousNavItem(prevCurrPageIndex, id);
 			resetPrevNavItem(id);
 			setPageIndex(() => {
 				return Number(e.target.id);

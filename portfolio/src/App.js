@@ -65,8 +65,6 @@ const App = () => {
 	const handleSlideUp = React.useCallback(
 		() => {
 			setPageIndex((prevPageIndex) => {
-				console.log('SLIDEUP');
-				console.log(prevPageIndex);
 				if (prevPageIndex === 0) {
 					const newIndex = NUM_OF_PAGES - 1;
 					resetPrevNavItem(newIndex);
@@ -74,8 +72,6 @@ const App = () => {
 				}
 				else {
 					const newIndex = prevPageIndex - 1;
-					console.log('New Index: ' + newIndex);
-					console.log('Previous Page Index: ' + prevPageIndex);
 					resetPrevNavItem(newIndex);
 					return newIndex;
 				}
