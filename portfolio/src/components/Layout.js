@@ -12,7 +12,6 @@ export const Layout = ({
 	setPageIndex,
 	navItems,
 	setCurrentNav,
-	resetPreviousNavItem,
 	resetPrevNavItem,
 	next,
 	previous,
@@ -23,7 +22,8 @@ export const Layout = ({
 	leftArrowRef,
 	rightArrowRef,
 	cardArrows,
-	hasFooter
+	hasFooter,
+	getCurrentNavItem
 }) => {
 	return (
 		<div className={`${styles['layoutContainer']}`}>
@@ -32,9 +32,10 @@ export const Layout = ({
 					setPageIndex={setPageIndex}
 					navItems={navItems}
 					setCurrentNav={setCurrentNav}
-					resetPreviousNavItem={resetPreviousNavItem}
+					resetPreviousNavItem={resetPrevNavItem}
 					pageIndex={pageIndex}
 					resetPrevNavItem={resetPrevNavItem}
+					getCurrentNavItem={getCurrentNavItem}
 				/>
 			)}
 			<Section
@@ -55,7 +56,8 @@ export const Layout = ({
 				setPageIndex={setPageIndex}
 				navItems={navItems}
 				setCurrentNav={setCurrentNav}
-				resetPreviousNavItem={resetPreviousNavItem}
+				resetPrevNavItem={resetPrevNavItem}
+				getCurrentNavItem={getCurrentNavItem}
 			>
 				{children}
 			</Section>

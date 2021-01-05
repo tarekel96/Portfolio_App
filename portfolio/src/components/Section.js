@@ -19,11 +19,8 @@ export const Section = ({
 	downArrowRef,
 	leftArrowRef,
 	rightArrowRef,
-	setPageIndex,
 	pageIndex,
-	navItems,
-	setCurrentNav,
-	resetPreviousNavItem,
+	resetPrevNavItem,
 	hasFooter
 }) => {
 	React.useEffect(
@@ -36,8 +33,6 @@ export const Section = ({
 			let downNavHandler;
 			let leftHandler;
 			let rightHandler;
-			console.log('NEW PAGE INDEX');
-			console.log(pageIndex);
 			let newPageIndex;
 			if ((upArrow || upAndDownArrows) && upArrowRef !== null) {
 				if (pageIndex === 0) {
@@ -46,11 +41,13 @@ export const Section = ({
 				else {
 					newPageIndex = pageIndex - 1;
 				}
+				console.log('New Index: ' + newPageIndex);
+				console.log('Previous Page Index: ' + pageIndex);
 				upNavHandler = setInterval(
-					upArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex, newPageIndex)),
+					upArrowRef.current.addEventListener('click', () => resetPrevNavItem(newPageIndex)),
 					500
 				);
-				upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 500);
+				upHandler = setInterval(upArrowRef.current.addEventListener('click', slideUp), 2000);
 			}
 			if ((downArrow || upAndDownArrows) && downArrowRef !== null) {
 				if (pageIndex === 2) {
@@ -60,7 +57,7 @@ export const Section = ({
 					newPageIndex = pageIndex + 1;
 				}
 				downNavHandler = setInterval(
-					downArrowRef.current.addEventListener('click', () => resetPreviousNavItem(pageIndex, newPageIndex)),
+					downArrowRef.current.addEventListener('click', () => resetPrevNavItem(newPageIndex)),
 					500
 				);
 				downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
@@ -89,7 +86,7 @@ export const Section = ({
 			upArrowRef,
 			downArrowRef,
 			pageIndex,
-			resetPreviousNavItem,
+			resetPrevNavItem,
 			downArrow,
 			upArrow,
 			upAndDownArrows,
@@ -100,7 +97,7 @@ export const Section = ({
 		<div className={className !== undefined ? className : null}>
 			{upArrow || upAndDownArrows ? (
 				<section className={`${styles['upArrowContainer']}`}>
-					<UpArrow onClick={slideUp} upArrowRef={upArrowRef} />
+					<UpArrow upArrowRef={upArrowRef} />
 				</section>
 			) : (
 				<UpArrow hide={true} upArrowRef={upArrowRef} />
@@ -120,7 +117,7 @@ export const Section = ({
 			</section>
 			{downArrow || upAndDownArrows ? (
 				<section className={`${styles['downArrowContainer']}`}>
-					<DownArrow onClick={slideDown} downArrowRef={downArrowRef} />
+					<DownArrow downArrowRef={downArrowRef} />
 				</section>
 			) : (
 				<DownArrow hide={true} downArrowRef={downArrowRef} />
