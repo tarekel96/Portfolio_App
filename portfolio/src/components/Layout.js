@@ -13,8 +13,8 @@ export const Layout = ({
 	navItems,
 	setCurrentNav,
 	resetPrevNavItem,
-	next,
-	previous,
+	handleCardNextClick,
+	handleCardPrevClick,
 	slideUp,
 	slideDown,
 	upArrowRef,
@@ -23,7 +23,17 @@ export const Layout = ({
 	rightArrowRef,
 	cardArrows,
 	hasFooter,
-	getCurrentNavItem
+	getCurrentNavItem,
+	TYPES,
+	projectType,
+	setProjectType,
+	SWECardIndex,
+	setSWECardIndex,
+	setWebDevCommand,
+	setSWECommand,
+	projectData,
+	setProjectIndex,
+	SWEData
 }) => {
 	return (
 		<div className={`${styles['layoutContainer']}`}>
@@ -45,8 +55,6 @@ export const Layout = ({
 				upArrow={arrows === 'up' ? true : false}
 				downArrow={arrows === 'down' ? true : false}
 				cardArrows={cardArrows}
-				next={next}
-				previous={previous}
 				slideUp={slideUp}
 				slideDown={slideDown}
 				upArrowRef={upArrowRef}
@@ -58,6 +66,18 @@ export const Layout = ({
 				setCurrentNav={setCurrentNav}
 				resetPrevNavItem={resetPrevNavItem}
 				getCurrentNavItem={getCurrentNavItem}
+				TYPES={TYPES}
+				projectType={projectType}
+				setProjectType={setProjectType}
+				SWECardIndex={SWECardIndex}
+				setSWECardIndex={setSWECardIndex}
+				handleCardNextClick={handleCardNextClick}
+				handleCardPrevClick={handleCardPrevClick}
+				setWebDevCommand={setWebDevCommand}
+				projectData={projectData}
+				setProjectIndex={setProjectIndex}
+				SWEData={SWEData}
+				setSWECommand={setSWECommand}
 			>
 				{children}
 			</Section>

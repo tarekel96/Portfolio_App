@@ -17,11 +17,19 @@ const App = () => {
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
 	/* PROJECT SECTION REFS AND STATE */
+	// WebDev Section
 	const leftArrowRef = React.createRef('leftArrow');
 	const rightArrowRef = React.createRef('rightArrow');
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
-	const [ lastCommand, setCommand ] = React.useState('');
+	const [ lastWebDevCommand, setWebDevCommand ] = React.useState('');
+	// SWE Section
+	const TYPES = { WEB_DEV: 'webDevelopment', GEN_SWE: 'generalSoftwareEngineneering' };
+	const { WEB_DEV, GEN_SWE } = TYPES;
+	const [ projectType, setProjectType ] = React.useState(WEB_DEV);
+	const [ SWEData, setSWEData ] = React.useState([]);
+	const [ SWECardIndex, setSWECardIndex ] = React.useState(0);
+	const [ lastSWECommand, setSWECommand ] = React.useState('');
 	/* NAVBAR REFS AND STATE */
 	const upArrowRef = React.createRef('upArrow');
 	const downArrowRef = React.createRef('downArrow');
@@ -118,34 +126,28 @@ const App = () => {
 		},
 		[ resetPrevNavItem ]
 	);
-	const handleCardNextClick = React.useCallback(
-		() => {
-			setCommand(() => 'next');
-			setProjectIndex((state) => {
-				if (state === projectData.length - 1) {
-					return 0;
-				}
-				else {
-					return state + 1;
-				}
-			});
-		},
-		[ projectData ]
-	);
-	const handleCardPrevClick = React.useCallback(
-		() => {
-			setCommand(() => 'previous');
-			setProjectIndex((state) => {
-				if (state === 0) {
-					return projectData.length - 1;
-				}
-				else {
-					return state - 1;
-				}
-			});
-		},
-		[ projectData ]
-	);
+	const handleCardNextClick = React.useCallback((arr, setCommand, setIndex) => {
+		setCommand(() => 'next');
+		setIndex((state) => {
+			if (state === arr.length - 1) {
+				return 0;
+			}
+			else {
+				return state + 1;
+			}
+		});
+	}, []);
+	const handleCardPrevClick = React.useCallback((arr, setCommand, setIndex) => {
+		setCommand(() => 'previous');
+		setIndex((state) => {
+			if (state === 0) {
+				return arr.length - 1;
+			}
+			else {
+				return state - 1;
+			}
+		});
+	}, []);
 
 	switch (pageIndex) {
 		case 0:
@@ -185,7 +187,8 @@ const App = () => {
 			hasFooter = true;
 			appMainContent = (
 				<Portfolio
-					lastCommand={lastCommand}
+					lastWebDevCommand={lastWebDevCommand}
+					lastSWECommand={lastSWECommand}
 					projectData={projectData}
 					projectIndex={projectIndex}
 					next={handleCardNextClick}
@@ -198,6 +201,13 @@ const App = () => {
 					leftArrowRef={leftArrowRef}
 					rightArrowRef={rightArrowRef}
 					cardArrows={true}
+					TYPES={TYPES}
+					projectType={projectType}
+					setProjectType={setProjectType}
+					SWEData={SWEData}
+					setSWEData={setSWEData}
+					SWECardIndex={SWECardIndex}
+					setSWECardIndex={setSWECardIndex}
 				/>
 			);
 			break;
@@ -212,11 +222,12 @@ const App = () => {
 			navItems={navItems}
 			setCurrentNav={setCurrentNav}
 			resetPrevNavItem={resetPrevNavItem}
-			lastCommand={lastCommand}
+			lastWebDevCommand={lastWebDevCommand}
 			projectData={projectData}
 			projectIndex={projectIndex}
-			next={handleCardNextClick}
-			previous={handleCardPrevClick}
+			setProjectIndex={setProjectIndex}
+			handleCardNextClick={handleCardNextClick}
+			handleCardPrevClick={handleCardPrevClick}
 			slideUp={handleSlideUp}
 			slideDown={handleSlideDown}
 			upArrowRef={upArrowRef}
@@ -227,6 +238,15 @@ const App = () => {
 			arrows={arrows}
 			hasFooter={hasFooter}
 			getCurrentNavItemIndex={getCurrentNavItemIndex}
+			TYPES={TYPES}
+			projectType={projectType}
+			setProjectType={setProjectType}
+			SWEData={SWEData}
+			setSWEData={setSWEData}
+			SWECardIndex={SWECardIndex}
+			setSWECardIndex={setSWECardIndex}
+			setWebDevCommand={setWebDevCommand}
+			setSWECommand={setSWECommand}
 		>
 			{appMainContent}
 		</Layout>

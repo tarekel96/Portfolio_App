@@ -14,6 +14,20 @@
 	margin-bottom: 1.5rem;
 	transition: 0.3s;
 }
+.cardNoImg {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 64px 32px;
+	width: 400px;
+	min-height: 350px;
+	border-radius: 8px;
+	box-shadow: 12px 12px 12px #666;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	transition: 0.3s;
+}
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {

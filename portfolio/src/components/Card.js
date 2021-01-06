@@ -17,7 +17,7 @@ export const Card = ({
 	webDev = true
 }) => {
 	return (
-		<div style={style} className={`${styles['card']} blackEbonyBackground`} id={id}>
+		<div style={style} className={`${webDev ? styles['card'] : styles['cardNoImg']} blackEbonyBackground`} id={id}>
 			{webDev ? <img src={imageSrc} alt={imageAlt} className={styles['image']} /> : null}
 			<div className={styles['container']}>
 				<b>
@@ -32,7 +32,7 @@ export const Card = ({
 						</a>
 					</p>
 				) : null}
-				{url_2 !== 'N/A' && webDev === true ? (
+				{url_2 !== 'N/A' ? (
 					<p>
 						<a className={'cursor'} href={url_2} target="_blank" rel="noreferrer">
 							{url_2Title}

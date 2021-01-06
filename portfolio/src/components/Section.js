@@ -11,8 +11,8 @@ export const Section = ({
 	upArrow,
 	downArrow,
 	upAndDownArrows,
-	next,
-	previous,
+	handleCardNextClick,
+	handleCardPrevClick,
 	slideUp,
 	slideDown,
 	upArrowRef,
@@ -21,8 +21,17 @@ export const Section = ({
 	rightArrowRef,
 	pageIndex,
 	resetPrevNavItem,
-	hasFooter
+	hasFooter,
+	projectData,
+	setProjectIndex,
+	projectType,
+	TYPES,
+	setWebDevCommand,
+	SWEData,
+	setSWECardIndex,
+	setSWECommand
 }) => {
+	const { WEB_DEV, GEN_SWE } = TYPES;
 	React.useEffect(
 		() => {
 			let isMounted = true;
@@ -31,8 +40,6 @@ export const Section = ({
 			let upNavHandler;
 			let downHandler;
 			let downNavHandler;
-			let leftHandler;
-			let rightHandler;
 			let newPageIndex;
 			if ((upArrow || upAndDownArrows) && upArrowRef !== null) {
 				if (pageIndex === 0) {
@@ -60,24 +67,21 @@ export const Section = ({
 				);
 				downHandler = setInterval(downArrowRef.current.addEventListener('click', slideDown), 500);
 			}
-			if (cardArrows === true && rightArrowRef !== null && leftArrowRef !== null) {
-				rightHandler = setInterval(rightArrowRef.current.addEventListener('click', next), 500);
-				leftHandler = setInterval(leftArrowRef.current.addEventListener('click', previous), 500);
-			}
 			return () => {
 				clearInterval(upNavHandler);
 				clearInterval(upHandler);
 				clearInterval(downNavHandler);
 				clearInterval(downHandler);
-				clearInterval(rightHandler);
-				clearInterval(leftHandler);
 				isMounted = false;
 			};
 		},
 		[
-			next,
+			handleCardNextClick,
+			handleCardPrevClick,
+			projectData,
+			setProjectIndex,
+			setWebDevCommand,
 			rightArrowRef,
-			previous,
 			leftArrowRef,
 			slideUp,
 			slideDown,
@@ -88,7 +92,13 @@ export const Section = ({
 			downArrow,
 			upArrow,
 			upAndDownArrows,
-			cardArrows
+			cardArrows,
+			projectType,
+			WEB_DEV,
+			GEN_SWE,
+			SWEData,
+			setSWECardIndex,
+			setSWECommand
 		]
 	);
 	return (
@@ -102,13 +112,33 @@ export const Section = ({
 			)}
 			<section style={{ flexDirection: column ? 'column' : 'row' }} className={styles['sectionContainer']}>
 				{cardArrows ? (
-					<LeftArrow leftArrowRef={leftArrowRef} onClick={previous} />
+					<LeftArrow
+						leftArrowRef={leftArrowRef}
+						onClick={() => {
+							if (projectType === WEB_DEV) {
+								handleCardPrevClick(projectData, setWebDevCommand, setProjectIndex);
+							}
+							else {
+								handleCardPrevClick(SWEData, setSWECommand, setSWECardIndex);
+							}
+						}}
+					/>
 				) : (
 					<LeftArrow hide={true} leftArrowRef={leftArrowRef} />
 				)}
 				{children}
 				{cardArrows ? (
-					<RightArrow rightArrowRef={rightArrowRef} onClick={next} />
+					<RightArrow
+						rightArrowRef={rightArrowRef}
+						onClick={() => {
+							if (projectType === WEB_DEV) {
+								handleCardNextClick(projectData, setWebDevCommand, setProjectIndex);
+							}
+							else {
+								handleCardNextClick(SWEData, setSWECommand, setSWECardIndex);
+							}
+						}}
+					/>
 				) : (
 					<RightArrow hide={true} rightArrowRef={rightArrowRef} />
 				)}
@@ -142,9 +172,10 @@ Section.propTypes = {
 	rightArrowRef: PropTypes.object
 };
 
-const LeftArrow = ({ leftArrowRef, hide = false }) => {
+const LeftArrow = ({ leftArrowRef, hide = false, onClick }) => {
 	return (
 		<svg
+			onClick={onClick}
 			ref={leftArrowRef}
 			className={`flipX cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
@@ -185,6 +216,7 @@ const RightArrow = ({ onClick, rightArrowRef, hide = false }) => {
 	return (
 		<svg
 			ref={rightArrowRef}
+			onClick={onClick}
 			className={`cursor blackCharcoalFill`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"

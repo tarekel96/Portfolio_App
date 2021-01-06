@@ -5,32 +5,43 @@ import { Slide } from 'react-awesome-reveal';
 import { Card } from '../components/Card.js';
 import styles from './Portfolio.module.css';
 
-const Portfolio = ({ projectIndex, projectData, lastCommand }) => {
+const Portfolio = ({
+	projectIndex,
+	projectData,
+	lastWebDevCommand,
+	lastSWECommand,
+	TYPES,
+	projectType,
+	setProjectType,
+	SWEData,
+	setSWEData,
+	SWECardIndex,
+	setSWECardIndex
+}) => {
 	const [ loading, setLoading ] = React.useState(true);
-	const TYPES = { WEB_DEV: 'webDevelopment', GEN_SWE: 'generalSoftwareEngineneering' };
 	const { WEB_DEV, GEN_SWE } = TYPES;
-	const [ projectType, setProjectType ] = React.useState(WEB_DEV);
 	let technologiesArray;
-	const [ SWEData, setSWEData ] = React.useState([]);
-	const [ SWECardIndex, setSWECardIndex ] = React.useState(0);
-	React.useEffect(() => {
-		let isMounted = true;
-		if (isMounted === true) {
-			try {
-				// closure - invokes function right after defining it
-				(async function() {
-					const res = await fetch('assets/data/swe_projects.json');
-					const data = await res.json();
-					setSWEData(() => data.cplusplus);
-				})();
-				// eslint-disable-next-line
-			} catch (error) {
-				//
-				console.log(new Error(error));
+	React.useEffect(
+		() => {
+			let isMounted = true;
+			if (isMounted === true) {
+				try {
+					// closure - invokes function right after defining it
+					(async function() {
+						const res = await fetch('assets/data/swe_projects.json');
+						const data = await res.json();
+						setSWEData(() => data.cplusplus);
+					})();
+					// eslint-disable-next-line
+				} catch (error) {
+					//
+					console.log(new Error(error));
+				}
 			}
-		}
-		return () => (isMounted = false);
-	}, []);
+			return () => (isMounted = false);
+		},
+		[ setSWEData ]
+	);
 
 	React.useEffect(
 		() => {
@@ -62,12 +73,19 @@ const Portfolio = ({ projectIndex, projectData, lastCommand }) => {
 					projectData={projectData}
 					projectIndex={projectIndex}
 					technologiesArray={technologiesArray}
-					lastCommand={lastCommand}
+					lastWebDevCommand={lastWebDevCommand}
 				/>
 			);
 			break;
 		case GEN_SWE:
-			currentHero = <GenSWE SWEData={SWEData} SWECardIndex={SWECardIndex} setSWECardIndex={setSWECardIndex} />;
+			currentHero = (
+				<GenSWE
+					SWEData={SWEData}
+					SWECardIndex={SWECardIndex}
+					setSWECardIndex={setSWECardIndex}
+					lastSWECommand={lastSWECommand}
+				/>
+			);
 			break;
 		default:
 			currentHero = (
@@ -75,7 +93,7 @@ const Portfolio = ({ projectIndex, projectData, lastCommand }) => {
 					projectData={projectData}
 					projectIndex={projectIndex}
 					technologiesArray={technologiesArray}
-					lastCommand={lastCommand}
+					lastWebDevCommand={lastWebDevCommand}
 				/>
 			);
 			break;
@@ -108,36 +126,79 @@ const Options = ({ projectType, setProjectType, TYPES }) => {
 	);
 };
 
-const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastCommand }) => {
+const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastWebDevCommand }) => {
+	const { name, objective, githubUrl, id, imageSrc, url } = projectData[projectIndex];
 	return (
 		<React.Fragment>
-			<Slide direction={lastCommand === 'previous' ? 'right' : 'left'} duration={1250}>
-				<Card
-					key={projectData[projectIndex].id}
-					id={projectIndex}
-					title={projectData[projectIndex].name}
-					imageSrc={'assets/images/' + projectData[projectIndex].imageSrc}
-					imageAlt={'project ' + String(projectIndex)}
-					content={projectData[projectIndex].objective}
-					url_1={projectData[projectIndex].url}
-					url_2={projectData[projectIndex].githubUrl}
-					tags={technologiesArray}
-				/>
-			</Slide>
+			{lastWebDevCommand === '' ? (
+				<Slide direction={'up'} duration={1250}>
+					<Card
+						key={id}
+						id={projectIndex}
+						webDev={true}
+						title={name}
+						imageSrc={'assets/images/' + imageSrc}
+						imageAlt={'project ' + String(projectIndex)}
+						content={objective}
+						url_1={url}
+						url_2={githubUrl}
+						tags={technologiesArray}
+					/>
+				</Slide>
+			) : null}
+			{lastWebDevCommand !== '' ? (
+				<Slide direction={lastWebDevCommand === 'previous' ? 'right' : 'left'} duration={1250}>
+					<Card
+						key={id}
+						id={projectIndex}
+						webDev={true}
+						title={name}
+						imageSrc={'assets/images/' + imageSrc}
+						imageAlt={'project ' + String(projectIndex)}
+						content={objective}
+						url_1={url}
+						url_2={githubUrl}
+						tags={technologiesArray}
+					/>
+				</Slide>
+			) : null}
 		</React.Fragment>
 	);
 };
 
-const GenSWE = ({ SWEData, SWECardIndex }) => {
+const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 	let technologiesArray;
-	const { name, githubUrl, objective, technologiesUsed } = SWEData[SWECardIndex];
+	const { name, githubUrl, objective, technologiesUsed, id } = SWEData[SWECardIndex];
 	// converts the tags string into an array of tags
 	if (technologiesUsed !== '') {
 		technologiesArray = technologiesUsed.split(',');
 	}
 	return (
 		<React.Fragment>
-			<Card webDev={false} title={name} content={objective} url_1={githubUrl} tags={technologiesArray} />
+			{lastSWECommand === '' ? (
+				<Slide direction={'up'} duration={1250}>
+					<Card
+						webDev={false}
+						title={name}
+						content={objective}
+						url_2={githubUrl}
+						tags={technologiesArray}
+						key={id}
+					/>
+				</Slide>
+			) : null}
+			{lastSWECommand !== '' ? (
+				<Slide direction={lastSWECommand === 'previous' ? 'right' : 'left'} duration={1250}>
+					<Card
+						webDev={false}
+						title={name}
+						content={objective}
+						url_2={githubUrl}
+						tags={technologiesArray}
+						key={id}
+					/>
+				</Slide>
+			) : null}
 		</React.Fragment>
 	);
 };
