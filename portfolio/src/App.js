@@ -16,13 +16,12 @@ const App = () => {
 	let hasFooter = false;
 	/* ROOT APP STATE */
 	const [ pageIndex, setPageIndex ] = React.useState(0);
-	const [ loading, setLoading ] = React.useState(true);
 	/* PROJECT SECTION REFS AND STATE */
 	const leftArrowRef = React.createRef('leftArrow');
 	const rightArrowRef = React.createRef('rightArrow');
-	const [ lastCommand, setCommand ] = React.useState('');
 	const [ projectData, setProjectData ] = React.useState([]);
 	const [ projectIndex, setProjectIndex ] = React.useState(0);
+	const [ lastCommand, setCommand ] = React.useState('');
 	/* NAVBAR REFS AND STATE */
 	const upArrowRef = React.createRef('upArrow');
 	const downArrowRef = React.createRef('downArrow');
@@ -48,6 +47,29 @@ const App = () => {
 			return navItems.findIndex((index) => index.isCurrent === true);
 		},
 		[ navItems ]
+	);
+	React.useEffect(() => {
+		let isMounted = true;
+		if (isMounted === true) {
+			try {
+				return new Promise((resolve, reject) => {
+					resolve(asyncFetchData('assets/data/projects.json', setProjectData));
+				});
+				// eslint-disable-next-line
+			} catch (error) {
+				//
+				console.log(new Error(error));
+			}
+		}
+		return () => (isMounted = false);
+	}, []);
+	/* ROOT APP useEffect */
+	React.useEffect(
+		() => {
+			console.log(projectData);
+			return () => {};
+		},
+		[ projectData ]
 	);
 	const resetPrevNavItem = React.useCallback(
 		(newCurrIndex) => {
@@ -125,39 +147,6 @@ const App = () => {
 		[ projectData ]
 	);
 
-	React.useEffect(() => {
-		let isMounted = true;
-		if (isMounted === true) {
-			try {
-				return new Promise((resolve, reject) => {
-					resolve(asyncFetchData('assets/data/projects.json', setProjectData));
-				});
-				// eslint-disable-next-line
-			} catch (error) {
-				//
-				console.log(new Error(error));
-			}
-		}
-		return () => (isMounted = false);
-	}, []);
-	/* ROOT APP useEffect */
-	React.useEffect(
-		() => {
-			console.log(projectData);
-			return () => {};
-		},
-		[ projectData ]
-	);
-
-	// wait for projectData to be fetched before render
-	while (loading) {
-		if (projectData !== undefined) {
-			if (projectData[projectIndex] !== undefined) {
-				setLoading(() => false);
-			}
-		}
-		return <Loading />;
-	}
 	switch (pageIndex) {
 		case 0:
 			cardArrows = false;
@@ -198,7 +187,7 @@ const App = () => {
 				<Portfolio
 					lastCommand={lastCommand}
 					projectData={projectData}
-					index={projectIndex}
+					projectIndex={projectIndex}
 					next={handleCardNextClick}
 					previous={handleCardPrevClick}
 					slideUp={handleSlideUp}
@@ -225,7 +214,7 @@ const App = () => {
 			resetPrevNavItem={resetPrevNavItem}
 			lastCommand={lastCommand}
 			projectData={projectData}
-			index={projectIndex}
+			projectIndex={projectIndex}
 			next={handleCardNextClick}
 			previous={handleCardPrevClick}
 			slideUp={handleSlideUp}

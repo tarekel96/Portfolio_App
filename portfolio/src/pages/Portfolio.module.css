@@ -1,0 +1,17 @@
+.optionsContainer {
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+.optionsContainer > button {
+	width: 450px;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+	font-size: 1.25rem;
+}
+.optionsContainer > button:hover {
+	cursor: pointer;
+	background-color: #feffff;
+}
