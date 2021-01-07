@@ -110,6 +110,7 @@ const Options = ({ projectType, setProjectType, TYPES }) => {
 	const { WEB_DEV, GEN_SWE } = TYPES;
 	return (
 		<header className={`${styles['optionsContainer']}`}>
+			<p>*Keep Scrolling Down to See Cards</p>
 			<button
 				onClick={() => setProjectType(() => WEB_DEV)}
 				className={`${projectType === WEB_DEV ? 'offWhiteBackground' : 'blackEbonyBackground'}`}

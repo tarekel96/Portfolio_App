@@ -25,7 +25,7 @@ const App = () => {
 	const [ lastWebDevCommand, setWebDevCommand ] = React.useState('');
 	// SWE Section
 	const TYPES = { WEB_DEV: 'webDevelopment', GEN_SWE: 'generalSoftwareEngineneering' };
-	const { WEB_DEV, GEN_SWE } = TYPES;
+	const { WEB_DEV } = TYPES;
 	const [ projectType, setProjectType ] = React.useState(WEB_DEV);
 	const [ SWEData, setSWEData ] = React.useState([]);
 	const [ SWECardIndex, setSWECardIndex ] = React.useState(0);

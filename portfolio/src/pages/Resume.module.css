@@ -56,3 +56,29 @@
 	margin-top: 0.40rem;
 	margin-bottom: 0.40rem;
 }
+@media only screen and (max-width: 768px) {
+	.technicalSkills,
+	.education,
+	.experiences {
+		max-width: 90%;
+	}
+	.skillsAndEducation {
+		display: block;
+	}
+	.technicalSkills > div {
+		display: block;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.technicalSkills,
+	.education,
+	.experiences {
+		max-width: 375px;
+	}
+	.skillsAndEducation {
+		display: block;
+	}
+	.technicalSkills > div {
+		display: block;
+	}
+}

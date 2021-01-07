@@ -50,3 +50,11 @@
 	padding: 4px 6px;
 	margin: 4px;
 }
+@media only screen and (max-width: 600px) {
+	.card,
+	.cardNoImg {
+		max-width: 300px;
+		width: 225px;
+		margin: 0 auto;
+	}
+}

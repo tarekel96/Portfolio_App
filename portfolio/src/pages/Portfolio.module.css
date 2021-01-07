@@ -15,3 +15,9 @@
 	cursor: pointer;
 	background-color: #feffff;
 }
+@media only screen and (max-width: 600px) {
+	.optionsContainer > button {
+		width: 300px;
+		font-size: 1rem;
+	}
+}
