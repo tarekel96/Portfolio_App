@@ -177,7 +177,7 @@ const LeftArrow = ({ leftArrowRef, hide = false, onClick }) => {
 		<svg
 			onClick={onClick}
 			ref={leftArrowRef}
-			className={`flipX cursor blackCharcoalFill`}
+			className={`flipX cursor blackCharcoalFill ${styles['arrowIcons']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -195,7 +195,7 @@ LeftArrow.propTypes = {
 const UpArrow = ({ upArrowRef, hide = false }) => {
 	return (
 		<svg
-			className={`flipXHalf cursor blackCharcoalFill`}
+			className={`flipXHalf cursor blackCharcoalFill ${styles['arrowIcons']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -217,7 +217,7 @@ const RightArrow = ({ onClick, rightArrowRef, hide = false }) => {
 		<svg
 			ref={rightArrowRef}
 			onClick={onClick}
-			className={`cursor blackCharcoalFill`}
+			className={`cursor blackCharcoalFill ${styles['arrowIcons']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
@@ -235,7 +235,7 @@ RightArrow.propTypes = {
 const DownArrow = ({ onClick, downArrowRef, hide = false }) => {
 	return (
 		<svg
-			className={`flipXOneAndHalf cursor blackCharcoalFill`}
+			className={`flipXOneAndHalf cursor blackCharcoalFill ${styles['arrowIcons']}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="48"
 			height="48"
