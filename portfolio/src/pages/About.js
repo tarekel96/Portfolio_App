@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// ui components
 import Loading from './Loading.js';
+import LazyLoad from 'react-lazyload';
+// helper function
 import { asyncFetchData } from '../utils/fetchData.js';
+// styles
 import styles from './About.module.css';
 
 const About = () => {
-	const [ aboutData, setAboutData ] = React.useState({});
-	const [ loading, setLoading ] = React.useState(true);
-	React.useEffect(() => {
+	const [ aboutData, setAboutData ] = useState({});
+	const [ loading, setLoading ] = useState(true);
+	useEffect(() => {
 		try {
 			return new Promise((resolve, reject) => {
 				resolve(asyncFetchData('assets/data/about.json', setAboutData));
@@ -48,7 +52,9 @@ const ProfileImage = ({ imgSrc, imgAlt }) => {
 	return (
 		<section className={styles['profileImageContainer']}>
 			<div>
-				<img src={imgSrc} alt={imgAlt} />
+				<LazyLoad height={384}>
+					<img className={styles['profileImage']} src={imgSrc} alt={imgAlt} />
+				</LazyLoad>
 			</div>
 		</section>
 	);

@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// ui components
+import LazyLoad from 'react-lazyload';
+// styles
 import styles from './Card.module.css';
+
 export const Card = ({
 	id,
 	item,
@@ -18,7 +23,11 @@ export const Card = ({
 }) => {
 	return (
 		<div style={style} className={`${webDev ? styles['card'] : styles['cardNoImg']} blackEbonyBackground`} id={id}>
-			{webDev ? <img src={imageSrc} alt={imageAlt} className={styles['image']} /> : null}
+			{webDev ? (
+				<LazyLoad height={500}>
+					<img effect="blur" src={imageSrc} alt={imageAlt} className={styles['image']} />
+				</LazyLoad>
+			) : null}
 			<div className={styles['container']}>
 				<b>
 					<h2>{title}</h2>

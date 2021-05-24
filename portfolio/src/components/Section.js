@@ -150,7 +150,12 @@ export const Section = ({
 			) : (
 				<DownArrow hide={true} downArrowRef={downArrowRef} />
 			)}
-			{hasFooter && <Footer />}
+			{hasFooter && (
+				<Footer
+					gitHubUrl="https://github.com/tarekel96"
+					linkedInUrl="https://www.linkedin.com/in/tarek-e-0a2b1a132/"
+				/>
+			)}
 		</div>
 	);
 };

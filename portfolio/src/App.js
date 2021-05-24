@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, createRef, useCallback, useEffect } from 'react';
 import { Layout } from './components/Layout.js';
 import { asyncFetchData } from './utils/fetchData.js';
 import Portfolio from './pages/Portfolio.js';
@@ -15,25 +15,25 @@ const App = () => {
 	let cardArrows = false;
 	let hasFooter = false;
 	/* ROOT APP STATE */
-	const [ pageIndex, setPageIndex ] = React.useState(0);
+	const [ pageIndex, setPageIndex ] = useState(0);
 	/* PROJECT SECTION REFS AND STATE */
 	// WebDev Section
-	const leftArrowRef = React.createRef('leftArrow');
-	const rightArrowRef = React.createRef('rightArrow');
-	const [ projectData, setProjectData ] = React.useState([]);
-	const [ projectIndex, setProjectIndex ] = React.useState(0);
-	const [ lastWebDevCommand, setWebDevCommand ] = React.useState('');
+	const leftArrowRef = createRef('leftArrow');
+	const rightArrowRef = createRef('rightArrow');
+	const [ projectData, setProjectData ] = useState([]);
+	const [ projectIndex, setProjectIndex ] = useState(0);
+	const [ lastWebDevCommand, setWebDevCommand ] = useState('');
 	// SWE Section
 	const TYPES = { WEB_DEV: 'webDevelopment', GEN_SWE: 'generalSoftwareEngineneering' };
 	const { WEB_DEV } = TYPES;
-	const [ projectType, setProjectType ] = React.useState(WEB_DEV);
-	const [ SWEData, setSWEData ] = React.useState([]);
-	const [ SWECardIndex, setSWECardIndex ] = React.useState(0);
-	const [ lastSWECommand, setSWECommand ] = React.useState('');
+	const [ projectType, setProjectType ] = useState(WEB_DEV);
+	const [ SWEData, setSWEData ] = useState([]);
+	const [ SWECardIndex, setSWECardIndex ] = useState(0);
+	const [ lastSWECommand, setSWECommand ] = useState('');
 	/* NAVBAR REFS AND STATE */
-	const upArrowRef = React.createRef('upArrow');
-	const downArrowRef = React.createRef('downArrow');
-	const [ navItems, setCurrentNav ] = React.useState([
+	const upArrowRef = createRef('upArrow');
+	const downArrowRef = createRef('downArrow');
+	const [ navItems, setCurrentNav ] = useState([
 		{
 			name: 'About',
 			indexNumber: 0,
@@ -50,13 +50,13 @@ const App = () => {
 			isCurrent: false
 		}
 	]);
-	const getCurrentNavItemIndex = React.useCallback(
+	const getCurrentNavItemIndex = useCallback(
 		() => {
 			return navItems.findIndex((index) => index.isCurrent === true);
 		},
 		[ navItems ]
 	);
-	React.useEffect(() => {
+	useEffect(() => {
 		let isMounted = true;
 		if (isMounted === true) {
 			try {
@@ -72,14 +72,14 @@ const App = () => {
 		return () => (isMounted = false);
 	}, []);
 	/* ROOT APP useEffect */
-	React.useEffect(
+	useEffect(
 		() => {
 			console.log(projectData);
 			return () => {};
 		},
 		[ projectData ]
 	);
-	const resetPrevNavItem = React.useCallback(
+	const resetPrevNavItem = useCallback(
 		(newCurrIndex) => {
 			let previousCurrent;
 			previousCurrent = getCurrentNavItemIndex();
@@ -92,7 +92,7 @@ const App = () => {
 		},
 		[ getCurrentNavItemIndex ]
 	);
-	const handleSlideUp = React.useCallback(
+	const handleSlideUp = useCallback(
 		() => {
 			setPageIndex((prevPageIndex) => {
 				if (prevPageIndex === 0) {
@@ -109,7 +109,7 @@ const App = () => {
 		},
 		[ resetPrevNavItem ]
 	);
-	const handleSlideDown = React.useCallback(
+	const handleSlideDown = useCallback(
 		() => {
 			setPageIndex((prevPageIndex) => {
 				if (prevPageIndex === NUM_OF_PAGES - 1) {
@@ -126,7 +126,7 @@ const App = () => {
 		},
 		[ resetPrevNavItem ]
 	);
-	const handleCardNextClick = React.useCallback((arr, setCommand, setIndex) => {
+	const handleCardNextClick = useCallback((arr, setCommand, setIndex) => {
 		setCommand(() => 'next');
 		setIndex((state) => {
 			if (state === arr.length - 1) {
@@ -137,7 +137,7 @@ const App = () => {
 			}
 		});
 	}, []);
-	const handleCardPrevClick = React.useCallback((arr, setCommand, setIndex) => {
+	const handleCardPrevClick = useCallback((arr, setCommand, setIndex) => {
 		setCommand(() => 'previous');
 		setIndex((state) => {
 			if (state === 0) {

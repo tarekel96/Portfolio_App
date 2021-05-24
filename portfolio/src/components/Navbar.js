@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Navbar.module.css';
 
@@ -38,7 +38,7 @@ Navbar.propTypes = {
 };
 
 const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem, getCurrentNavItem, resetPrevNavItem }) => {
-	const handleClick = React.useCallback(
+	const handleClick = useCallback(
 		(e) => {
 			resetPrevNavItem(id);
 			setPageIndex(() => {
@@ -47,7 +47,7 @@ const NavItem = ({ name, id, setPageIndex, isCurrent, resetPreviousNavItem, getC
 		},
 		[ id, resetPrevNavItem, setPageIndex ]
 	);
-	React.useEffect(
+	useEffect(
 		() => {
 			document.getElementById(id).addEventListener('click', handleClick);
 			return () => {

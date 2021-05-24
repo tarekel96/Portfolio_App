@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Loading from '../pages/Loading.js';
 import { asyncFetchData } from '../utils/fetchData.js';
 import styles from './Footer.module.css';
 
 export const Footer = ({ linkedInUrl, gitHubUrl }) => {
-	const [ urlData, setUrlData ] = React.useState({});
-	const [ loading, setLoading ] = React.useState(true);
-	React.useEffect(() => {
+	const [ urlData, setUrlData ] = useState({});
+	const [ loading, setLoading ] = useState(true);
+	useEffect(() => {
 		try {
 			return new Promise((resolve, reject) => {
 				resolve(asyncFetchData('assets/data/about.json', setUrlData));
