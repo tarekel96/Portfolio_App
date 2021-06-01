@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading.js';
 import { Slide } from 'react-awesome-reveal';
@@ -18,10 +18,10 @@ const Portfolio = ({
 	SWECardIndex,
 	setSWECardIndex
 }) => {
-	const [ loading, setLoading ] = React.useState(true);
+	const [ loading, setLoading ] = useState(true);
 	const { WEB_DEV, GEN_SWE } = TYPES;
 	let technologiesArray;
-	React.useEffect(
+	useEffect(
 		() => {
 			let isMounted = true;
 			if (isMounted === true) {
@@ -43,7 +43,7 @@ const Portfolio = ({
 		[ setSWEData ]
 	);
 
-	React.useEffect(
+	useEffect(
 		() => {
 			console.log(SWEData);
 			return () => {};
@@ -99,7 +99,7 @@ const Portfolio = ({
 			break;
 	}
 	return (
-		<section>
+		<section className={`${styles['profileSectionContainer']}`}>
 			<Options projectType={projectType} setProjectType={setProjectType} TYPES={TYPES} />
 			{currentHero}
 		</section>
@@ -130,9 +130,9 @@ const Options = ({ projectType, setProjectType, TYPES }) => {
 const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastWebDevCommand }) => {
 	const { name, objective, githubUrl, id, imageSrc, url } = projectData[projectIndex];
 	return (
-		<React.Fragment>
+		<Fragment>
 			{lastWebDevCommand === '' ? (
-				<Slide direction={'up'} duration={1250}>
+				<Slide duration={100} direction={'up'}>
 					<Card
 						key={id}
 						id={projectIndex}
@@ -163,7 +163,7 @@ const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastWebDevCo
 					/>
 				</Slide>
 			) : null}
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -175,7 +175,7 @@ const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 		technologiesArray = technologiesUsed.split(',');
 	}
 	return (
-		<React.Fragment>
+		<Fragment>
 			{lastSWECommand === '' ? (
 				<Slide direction={'up'} duration={1250}>
 					<Card
@@ -200,7 +200,7 @@ const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 					/>
 				</Slide>
 			) : null}
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

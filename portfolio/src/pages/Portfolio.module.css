@@ -1,3 +1,7 @@
+.profileSectionContainer {
+	height: 100vh;
+	min-height: 100vh;
+}
 .optionsContainer {
 	margin: 2rem auto;
 	display: flex;

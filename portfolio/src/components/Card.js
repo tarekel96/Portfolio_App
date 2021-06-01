@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // ui components
-import LazyLoad from 'react-lazyload';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 // styles
 import styles from './Card.module.css';
 
@@ -24,9 +25,9 @@ export const Card = ({
 	return (
 		<div style={style} className={`${webDev ? styles['card'] : styles['cardNoImg']} blackEbonyBackground`} id={id}>
 			{webDev ? (
-				<LazyLoad height={500}>
-					<img effect="blur" src={imageSrc} alt={imageAlt} className={styles['image']} />
-				</LazyLoad>
+				<React.Fragment>
+					<LazyLoadImage src={imageSrc} alt={imageAlt} className={styles['image']} effect="blur" />
+				</React.Fragment>
 			) : null}
 			<div className={styles['container']}>
 				<b>

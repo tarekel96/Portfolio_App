@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // ui components
 import Loading from './Loading.js';
-import LazyLoad from 'react-lazyload';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 // helper function
 import { asyncFetchData } from '../utils/fetchData.js';
 // styles
@@ -52,9 +52,7 @@ const ProfileImage = ({ imgSrc, imgAlt }) => {
 	return (
 		<section className={styles['profileImageContainer']}>
 			<div>
-				<LazyLoad height={384}>
-					<img className={styles['profileImage']} src={imgSrc} alt={imgAlt} />
-				</LazyLoad>
+				<LazyLoadImage alt={imgAlt} height={384} className={styles['profileImage']} src={imgSrc} width={384} />
 			</div>
 		</section>
 	);

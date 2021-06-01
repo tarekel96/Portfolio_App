@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Footer } from './Footer';
 import styles from './Section.module.css';
 
 export const Section = ({
 	children,
-	className,
+	className = '',
 	column = false,
 	cardArrows = false,
 	upArrow,
@@ -32,7 +32,7 @@ export const Section = ({
 	setSWECommand
 }) => {
 	const { WEB_DEV, GEN_SWE } = TYPES;
-	React.useEffect(
+	useEffect(
 		() => {
 			let isMounted = true;
 			if (isMounted === false) return;
@@ -102,7 +102,7 @@ export const Section = ({
 		]
 	);
 	return (
-		<div className={className !== undefined ? className : null}>
+		<div className={className}>
 			{upArrow || upAndDownArrows ? (
 				<section className={`${styles['upArrowContainer']}`}>
 					<UpArrow upArrowRef={upArrowRef} />
