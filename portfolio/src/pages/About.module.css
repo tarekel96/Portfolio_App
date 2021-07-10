@@ -11,27 +11,22 @@
 	font-size: 1.4rem;
 	font-weight: 700;
 }
+
 .profileImageContainer {
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 }
-/* .profileImageContainer > div > img {
-	box-shadow: 12px 12px 12px #666;
-	border-radius: 5px;
-	width: 384px;
-	height: 384px;
-} */
 .profileImage {
 	box-shadow: 12px 12px 12px #666;
 	border-radius: 5px;
-	width: 384px;
-	height: 384px;
 }
+
 .aboutContainer > section > div > p {
 	text-align: justify;
 	letter-spacing: 1.25px;
 }
+
 .iconsContainer {
 	padding-top: 1rem;
 	width: 400px;

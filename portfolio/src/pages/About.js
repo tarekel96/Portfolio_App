@@ -52,7 +52,7 @@ const ProfileImage = ({ imgSrc, imgAlt }) => {
 	return (
 		<section className={styles['profileImageContainer']}>
 			<div>
-				<LazyLoadImage alt={imgAlt} height={384} className={styles['profileImage']} src={imgSrc} width={384} />
+				<LazyLoadImage alt={imgAlt} height={288} className={styles['profileImage']} src={imgSrc} width={288} />
 			</div>
 		</section>
 	);
