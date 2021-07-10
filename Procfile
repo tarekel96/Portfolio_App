@@ -1,0 +1,1 @@
+react: cd portfolio && yarn start
