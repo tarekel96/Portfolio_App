@@ -15,3 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pure-chamber-65645"
           heroku_email: "tarekel96@gmail.com"
+          appdir: "portfolio"
