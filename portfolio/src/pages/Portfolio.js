@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading.js';
-import { Slide } from 'react-awesome-reveal';
+import { Slide, Fade } from 'react-awesome-reveal';
 import { Card } from '../components/Card.js';
 import styles from './Portfolio.module.css';
 
@@ -18,6 +18,16 @@ const Portfolio = ({
 	SWECardIndex,
 	setSWECardIndex
 }) => {
+	const heroBottomRef = useRef(null);
+	// scroll user to card vertical alignment
+	useEffect(() => {
+		if (heroBottomRef !== null) {
+			if (heroBottomRef.current !== null) {
+				heroBottomRef.current.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+	});
+
 	const [ loading, setLoading ] = useState(true);
 	const { WEB_DEV, GEN_SWE } = TYPES;
 	let technologiesArray;
@@ -102,6 +112,7 @@ const Portfolio = ({
 		<section className={`${styles['profileSectionContainer']}`}>
 			<Options projectType={projectType} setProjectType={setProjectType} TYPES={TYPES} />
 			{currentHero}
+			<div ref={heroBottomRef} />
 		</section>
 	);
 };
@@ -110,7 +121,7 @@ const Options = ({ projectType, setProjectType, TYPES }) => {
 	const { WEB_DEV, GEN_SWE } = TYPES;
 	return (
 		<header className={`${styles['optionsContainer']}`}>
-			<p>*Keep Scrolling Down to See Cards</p>
+			{/* <p>*Keep Scrolling Down to See Cards</p> */}
 			<button
 				onClick={() => setProjectType(() => WEB_DEV)}
 				className={`${projectType === WEB_DEV ? 'offWhiteBackground' : 'blackEbonyBackground'}`}
@@ -132,7 +143,7 @@ const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastWebDevCo
 	return (
 		<Fragment>
 			{lastWebDevCommand === '' ? (
-				<Slide duration={100} direction={'up'}>
+				<Fade duration={1250}>
 					<Card
 						key={id}
 						id={projectIndex}
@@ -145,7 +156,7 @@ const WebDevHero = ({ projectData, projectIndex, technologiesArray, lastWebDevCo
 						url_2={githubUrl}
 						tags={technologiesArray}
 					/>
-				</Slide>
+				</Fade>
 			) : null}
 			{lastWebDevCommand !== '' ? (
 				<Slide direction={lastWebDevCommand === 'previous' ? 'right' : 'left'} duration={1250}>
@@ -177,7 +188,7 @@ const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 	return (
 		<Fragment>
 			{lastSWECommand === '' ? (
-				<Slide direction={'up'} duration={1250}>
+				<Fade duration={1250}>
 					<Card
 						webDev={false}
 						title={name}
@@ -186,7 +197,7 @@ const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 						tags={technologiesArray}
 						key={id}
 					/>
-				</Slide>
+				</Fade>
 			) : null}
 			{lastSWECommand !== '' ? (
 				<Slide direction={lastSWECommand === 'previous' ? 'right' : 'left'} duration={1250}>

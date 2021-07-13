@@ -37,6 +37,31 @@
 	],
 	"experiences": [
 		{
+			"companyName": "humanID",
+			"id": "humanID_2",
+			"location": "Cambridge, MA",
+			"duration": "Jan 2021-current",
+			"position": "Technical Lead (CTO) Intern",
+			"roles": [
+				"Led the US team of software developer and project manager interns with SCRUM practices.",
+				"Managed software projects throughout development, integration, and deployment.",
+				"Projects completed: Setup Docker containers (Django & MySQL) for development, setup staging site for developer console, improved UI/UX of developer console, migrated SDK documentation to GitBook, setup a Discord webhook alarm for site down incidents",
+				"Projects started: Automate CI/CD for developer console via GitHub Actions, CSS Style Guide, Synchronize data between DBs from microservices"
+			]
+		},
+		{
+			"companyName": "humanID",
+			"id": "humanID_1",
+			"location": "Cambridge, MA",
+			"duration": "Jan 2021-May 2021",
+			"position": "Software Developer Intern",
+			"roles": [
+				"Develop open-source software for humanID, a non-profit startup that works with Mozilla and Harvard.",
+				"Develop the Developer Console web application for humanID with the Django framework, MySQL, JavaScript, HTML/CSS and more.",
+				"Develop in a Docker environment and integrate code with AWS Hosting Platform (S3)"
+			]
+		},
+		{
 			"companyName": "Pacific Life Insurance",
 			"id": "pacificLife",
 			"location": "Newport Beach, CA",

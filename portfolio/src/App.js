@@ -1,11 +1,19 @@
+// import API and libraries
 import React, { useState, createRef, useCallback, useEffect } from 'react';
+// import UI components
 import { Layout } from './components/Layout.js';
+import { Fade } from 'react-awesome-reveal';
+// import util methods & data
 import { asyncFetchData } from './utils/fetchData.js';
+import { nav_items } from './utils/appUtils';
+// import custom React hooks
+import { UseCurrListIndex } from './utils/hooks';
+// import UI pages
 import Portfolio from './pages/Portfolio.js';
 import Loading from './pages/Loading.js';
 import Resume from './pages/Resume.js';
 import About from './pages/About.js';
-import { Fade } from 'react-awesome-reveal';
+// import styles
 import './styles/main.css';
 
 const App = () => {
@@ -33,29 +41,10 @@ const App = () => {
 	/* NAVBAR REFS AND STATE */
 	const upArrowRef = createRef('upArrow');
 	const downArrowRef = createRef('downArrow');
-	const [ navItems, setCurrentNav ] = useState([
-		{
-			name: 'About',
-			indexNumber: 0,
-			isCurrent: true
-		},
-		{
-			name: 'Resume',
-			indexNumber: 1,
-			isCurrent: false
-		},
-		{
-			name: 'Portfolio',
-			indexNumber: 2,
-			isCurrent: false
-		}
-	]);
-	const getCurrentNavItemIndex = useCallback(
-		() => {
-			return navItems.findIndex((index) => index.isCurrent === true);
-		},
-		[ navItems ]
-	);
+	const [ navItems, setCurrentNav ] = useState(nav_items);
+	const getCurrentNavItemIndex = UseCurrListIndex(navItems);
+
+	// fetch json data onMount
 	useEffect(() => {
 		let isMounted = true;
 		if (isMounted === true) {
@@ -71,6 +60,7 @@ const App = () => {
 		}
 		return () => (isMounted = false);
 	}, []);
+
 	/* ROOT APP useEffect */
 	useEffect(
 		() => {
@@ -79,6 +69,8 @@ const App = () => {
 		},
 		[ projectData ]
 	);
+
+	/* Nav-UI methods */
 	const resetPrevNavItem = useCallback(
 		(newCurrIndex) => {
 			let previousCurrent;
@@ -184,7 +176,7 @@ const App = () => {
 		case 2:
 			cardArrows = true;
 			arrows = 'up';
-			hasFooter = true;
+			hasFooter = false;
 			appMainContent = (
 				<Portfolio
 					lastWebDevCommand={lastWebDevCommand}
