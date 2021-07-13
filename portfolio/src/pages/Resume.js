@@ -1,6 +1,7 @@
 import React from 'react';
 import Loading from '../pages/Loading.js';
-import { asyncFetchData, convertToArray } from '../utils/fetchData.js';
+import { asyncFetchData } from '../utils/fetchData.js';
+import { convertToArray } from '../utils/appUtils';
 //import PropTypes from 'prop-types';
 import styles from './Resume.module.css';
 
