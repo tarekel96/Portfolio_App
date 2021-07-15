@@ -33,7 +33,11 @@ export const Layout = ({
 	setSWECommand,
 	projectData,
 	setProjectIndex,
-	SWEData
+	SWEData,
+	DS_ML_Data,
+	DS_ML_CardIndex,
+	set_DS_ML_CardIndex,
+	set_DS_ML_Command
 }) => {
 	return (
 		<div className={`${styles['layoutContainer']}`}>
@@ -78,6 +82,10 @@ export const Layout = ({
 				setProjectIndex={setProjectIndex}
 				SWEData={SWEData}
 				setSWECommand={setSWECommand}
+				DS_ML_Data={DS_ML_Data}
+				DS_ML_CardIndex={DS_ML_CardIndex}
+				set_DS_ML_CardIndex={set_DS_ML_CardIndex}
+				set_DS_ML_Command={set_DS_ML_Command}
 			>
 				{children}
 			</Section>

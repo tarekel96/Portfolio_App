@@ -29,9 +29,13 @@ export const Section = ({
 	setWebDevCommand,
 	SWEData,
 	setSWECardIndex,
-	setSWECommand
+	setSWECommand,
+	DS_ML_Data,
+	DS_ML_CardIndex,
+	set_DS_ML_CardIndex,
+	set_DS_ML_Command
 }) => {
-	const { WEB_DEV, GEN_SWE } = TYPES;
+	const { WEB_DEV, GEN_SWE, DS_ML } = TYPES;
 	useEffect(
 		() => {
 			let isMounted = true;
@@ -96,9 +100,13 @@ export const Section = ({
 			projectType,
 			WEB_DEV,
 			GEN_SWE,
+			DS_ML,
 			SWEData,
 			setSWECardIndex,
-			setSWECommand
+			setSWECommand,
+			DS_ML_Data,
+			set_DS_ML_CardIndex,
+			set_DS_ML_Command
 		]
 	);
 	return (
@@ -118,6 +126,9 @@ export const Section = ({
 							if (projectType === WEB_DEV) {
 								handleCardPrevClick(projectData, setWebDevCommand, setProjectIndex);
 							}
+							else if (projectType === DS_ML) {
+								handleCardPrevClick(DS_ML_Data, set_DS_ML_Command, set_DS_ML_CardIndex);
+							}
 							else {
 								handleCardPrevClick(SWEData, setSWECommand, setSWECardIndex);
 							}
@@ -133,6 +144,9 @@ export const Section = ({
 						onClick={() => {
 							if (projectType === WEB_DEV) {
 								handleCardNextClick(projectData, setWebDevCommand, setProjectIndex);
+							}
+							else if (projectType === DS_ML) {
+								handleCardNextClick(DS_ML_Data, set_DS_ML_Command, set_DS_ML_CardIndex);
 							}
 							else {
 								handleCardNextClick(SWEData, setSWECommand, setSWECardIndex);

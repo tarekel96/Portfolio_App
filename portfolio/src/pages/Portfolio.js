@@ -16,7 +16,12 @@ const Portfolio = ({
 	SWEData,
 	setSWEData,
 	SWECardIndex,
-	setSWECardIndex
+	setSWECardIndex,
+	DS_ML_Data,
+	set_DS_ML_Data,
+	DS_ML_CardIndex,
+	set_DS_ML_CardIndex,
+	last_DS_ML_Command
 }) => {
 	const heroBottomRef = useRef(null);
 	// scroll user to card vertical alignment
@@ -29,7 +34,7 @@ const Portfolio = ({
 	});
 
 	const [ loading, setLoading ] = useState(true);
-	const { WEB_DEV, GEN_SWE } = TYPES;
+	const { WEB_DEV, GEN_SWE, DS_ML } = TYPES;
 	let technologiesArray;
 	useEffect(
 		() => {
@@ -47,10 +52,23 @@ const Portfolio = ({
 					//
 					console.log(new Error(error));
 				}
+
+				try {
+					// closure - invokes function right after defining it
+					(async function() {
+						const res = await fetch('assets/data/ds_ml_projects.json');
+						const data = await res.json();
+						set_DS_ML_Data(() => data.datascience);
+					})();
+					// eslint-disable-next-line
+				} catch (error) {
+					//
+					console.log(new Error(error));
+				}
 			}
 			return () => (isMounted = false);
 		},
-		[ setSWEData ]
+		[ setSWEData, set_DS_ML_Data ]
 	);
 
 	useEffect(
@@ -97,6 +115,16 @@ const Portfolio = ({
 				/>
 			);
 			break;
+		case DS_ML:
+			currentHero = (
+				<DsMlHero
+					DS_ML_Data={DS_ML_Data}
+					DS_ML_CardIndex={DS_ML_CardIndex}
+					set_DS_ML_CardIndex={set_DS_ML_CardIndex}
+					last_DS_ML_Command={last_DS_ML_Command}
+				/>
+			);
+			break;
 		default:
 			currentHero = (
 				<WebDevHero
@@ -118,7 +146,7 @@ const Portfolio = ({
 };
 
 const Options = ({ projectType, setProjectType, TYPES }) => {
-	const { WEB_DEV, GEN_SWE } = TYPES;
+	const { WEB_DEV, GEN_SWE, DS_ML } = TYPES;
 	return (
 		<header className={`${styles['optionsContainer']}`}>
 			{/* <p>*Keep Scrolling Down to See Cards</p> */}
@@ -133,6 +161,12 @@ const Options = ({ projectType, setProjectType, TYPES }) => {
 				className={`${projectType === GEN_SWE ? 'offWhiteBackground' : 'blackEbonyBackground'}`}
 			>
 				Software Engineering (General)
+			</button>
+			<button
+				onClick={() => setProjectType(() => DS_ML)}
+				className={`${projectType === DS_ML ? 'offWhiteBackground' : 'blackEbonyBackground'}`}
+			>
+				Data Science & Machine Learning
 			</button>
 		</header>
 	);
@@ -207,6 +241,43 @@ const GenSWE = ({ SWEData, SWECardIndex, lastSWECommand }) => {
 						content={objective}
 						url_2={githubUrl}
 						tags={technologiesArray}
+						key={id}
+					/>
+				</Slide>
+			) : null}
+		</Fragment>
+	);
+};
+
+const DsMlHero = ({ DS_ML_Data, DS_ML_CardIndex, last_DS_ML_Command }) => {
+	let modelsAndConceptsArray;
+	const { name, githubUrl, objective, modelsAndConcepts, id } = DS_ML_Data[DS_ML_CardIndex];
+	// converts the tags string into an array of tags
+	if (modelsAndConcepts !== '') {
+		modelsAndConceptsArray = modelsAndConcepts.split(',');
+	}
+	return (
+		<Fragment>
+			{last_DS_ML_Command === '' ? (
+				<Fade duration={1250}>
+					<Card
+						webDev={false}
+						title={name}
+						content={objective}
+						url_2={githubUrl}
+						tags={modelsAndConceptsArray}
+						key={id}
+					/>
+				</Fade>
+			) : null}
+			{last_DS_ML_Command !== '' ? (
+				<Slide direction={last_DS_ML_Command === 'previous' ? 'right' : 'left'} duration={1250}>
+					<Card
+						webDev={false}
+						title={name}
+						content={objective}
+						url_2={githubUrl}
+						tags={modelsAndConceptsArray}
 						key={id}
 					/>
 				</Slide>

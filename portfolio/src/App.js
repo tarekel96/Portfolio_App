@@ -32,12 +32,20 @@ const App = () => {
 	const [ projectIndex, setProjectIndex ] = useState(0);
 	const [ lastWebDevCommand, setWebDevCommand ] = useState('');
 	// SWE Section
-	const TYPES = { WEB_DEV: 'webDevelopment', GEN_SWE: 'generalSoftwareEngineneering' };
+	const TYPES = {
+		WEB_DEV: 'webDevelopment',
+		GEN_SWE: 'generalSoftwareEngineneering',
+		DS_ML: 'dataScienceMachineLearning'
+	};
 	const { WEB_DEV } = TYPES;
 	const [ projectType, setProjectType ] = useState(WEB_DEV);
 	const [ SWEData, setSWEData ] = useState([]);
 	const [ SWECardIndex, setSWECardIndex ] = useState(0);
 	const [ lastSWECommand, setSWECommand ] = useState('');
+	// DS & ML Section
+	const [ DS_ML_Data, set_DS_ML_Data ] = useState([]);
+	const [ DS_ML_CardIndex, set_DS_ML_CardIndex ] = useState(0);
+	const [ last_DS_ML_Command, set_DS_ML_Command ] = useState('');
 	/* NAVBAR REFS AND STATE */
 	const upArrowRef = createRef('upArrow');
 	const downArrowRef = createRef('downArrow');
@@ -200,6 +208,12 @@ const App = () => {
 					setSWEData={setSWEData}
 					SWECardIndex={SWECardIndex}
 					setSWECardIndex={setSWECardIndex}
+					DS_ML_Data={DS_ML_Data}
+					set_DS_ML_Data={set_DS_ML_Data}
+					DS_ML_CardIndex={DS_ML_CardIndex}
+					set_DS_ML_CardIndex={set_DS_ML_CardIndex}
+					last_DS_ML_Command={last_DS_ML_Command}
+					set_DS_ML_Command={set_DS_ML_Command}
 				/>
 			);
 			break;
@@ -239,6 +253,12 @@ const App = () => {
 			setSWECardIndex={setSWECardIndex}
 			setWebDevCommand={setWebDevCommand}
 			setSWECommand={setSWECommand}
+			DS_ML_Data={DS_ML_Data}
+			set_DS_ML_Data={set_DS_ML_Data}
+			DS_ML_CardIndex={DS_ML_CardIndex}
+			set_DS_ML_CardIndex={set_DS_ML_CardIndex}
+			last_DS_ML_Command={last_DS_ML_Command}
+			set_DS_ML_Command={set_DS_ML_Command}
 		>
 			{appMainContent}
 		</Layout>
