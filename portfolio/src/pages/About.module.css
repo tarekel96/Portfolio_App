@@ -21,7 +21,9 @@
 	box-shadow: 12px 12px 12px #666;
 	border-radius: 5px;
 }
-
+.centerText {
+	text-align: center !important;
+}
 .aboutContainer > section > div > p {
 	text-align: justify;
 	letter-spacing: 1.25px;

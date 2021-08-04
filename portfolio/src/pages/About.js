@@ -42,8 +42,8 @@ const MissionStatements = ({ mission1, mission2 }) => {
 			<div>
 				<header>What I Strive To Do</header>
 				<hr />
-				<p>{mission1}</p>
-				<p>{mission2}</p>
+				<p className={styles['centerText']}>{mission1}</p>
+				<p className={styles['centerText']}>{mission2}</p>
 			</div>
 		</section>
 	);
