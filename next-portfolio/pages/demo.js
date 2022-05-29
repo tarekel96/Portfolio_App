@@ -2,7 +2,7 @@ import { useSettingsContext } from '../context/SettingsContext';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 // @ts-ignore
-import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const Demo = () => {
 	const theme = useTheme();
 	// @ts-ignore
 	const { darkMode, toggleDarkMode } = useSettingsContext();
-	console.log(darkMode, toggleDarkMode);
+
 	return (
 		<Box
 			sx={{
