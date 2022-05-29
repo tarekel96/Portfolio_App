@@ -1,7 +1,27 @@
-import '../styles/globals.css'
+import { useMemo } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-export default MyApp
+	const theme = useMemo(
+		() =>
+			createTheme({
+				palette: {
+					mode: prefersDarkMode ? 'dark' : 'light'
+				}
+			}),
+		[ prefersDarkMode ]
+	);
+
+	return (
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<Component {...pageProps} />
+		</ThemeProvider>
+	);
+};
+
+export default MyApp;
