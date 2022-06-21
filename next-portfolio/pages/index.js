@@ -1,36 +1,32 @@
+// import context
 import { useSettingsContext } from '../context/SettingsContext';
+// import libraries
+import { useMemo } from 'react';
 // @ts-ignore
-import { useTheme } from '@mui/material/styles';
-import { styled } from '@mui/system';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
-// @ts-ignore
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useTheme, styled, ThemeProvider, createTheme } from '@mui/material/styles';
+// import components
+import { Navbar } from '../components/Navbar';
+import { getDesignTokens } from '../styles/theme';
 
-const Wrapper = styled(Box)(({ theme }) => ({
-	display: 'flex',
-	width: '100%',
-	height: '100%',
-	alignItems: 'center',
-	justifyContent: 'center',
+const Wrapper = styled('main')(({ theme }) => ({
 	backgroundColor: theme.palette.background.default,
 	color: theme.palette.text.primary,
-	borderRadius: 1,
-	padding: 3
+	height: '100%',
+	width: '100%'
 }));
 
 const Home = () => {
-	const theme = useTheme();
+	//const theme = useTheme();
 	// @ts-ignore
 	const { darkMode, toggleDarkMode } = useSettingsContext();
+	const mode = darkMode ? 'dark' : 'light';
+	const theme = useMemo(() => createTheme(getDesignTokens(mode)), [ mode ]);
 	return (
-		<Wrapper>
-			{theme.palette.mode} mode
-			<IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
-				{theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-			</IconButton>
-		</Wrapper>
+		<ThemeProvider theme={theme}>
+			<Wrapper>
+				<Navbar />
+			</Wrapper>
+		</ThemeProvider>
 	);
 };
 export default Home;
