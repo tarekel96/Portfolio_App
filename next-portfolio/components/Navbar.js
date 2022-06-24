@@ -30,6 +30,20 @@ const Terminal = styled(TerminalIcon)(({ theme }) => ({
 	}
 }));
 
+const SubNavWrapper = styled('div')(({ theme }) => ({
+	flex: '2',
+	display: 'flex',
+	justifyContent: 'space-evenly'
+}));
+
+const NavItem = styled('h1')(({ theme }) => ({
+	fontSize: '32px',
+	cursor: 'pointer',
+	'&:hover': {
+		color: theme.palette.text.secondary
+	}
+}));
+
 export const Navbar = () => {
 	const theme = useTheme();
 	// @ts-ignore
@@ -37,6 +51,11 @@ export const Navbar = () => {
 	return (
 		<Wrapper>
 			<Terminal />
+			<SubNavWrapper>
+				<NavItem>About</NavItem>
+				<NavItem>Resume</NavItem>
+				<NavItem>Portfolio</NavItem>
+			</SubNavWrapper>
 			{theme.palette.mode} mode
 			<IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
 				{theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
