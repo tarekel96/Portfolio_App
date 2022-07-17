@@ -1,7 +1,7 @@
-import Box from '@mui/material/Box';
 import { useTheme, styled } from '@mui/material/styles';
 import { useSettingsContext } from '../context/SettingsContext';
 import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -50,7 +50,9 @@ export const Navbar = () => {
 	const { darkMode, toggleDarkMode } = useSettingsContext();
 	return (
 		<Wrapper>
-			<Terminal />
+			<Tooltip title="Send Message" placement="right" arrow={true}>
+				<Terminal />
+			</Tooltip>
 			<SubNavWrapper>
 				<NavItem>About</NavItem>
 				<NavItem>Resume</NavItem>

@@ -1,11 +1,11 @@
-// import context
-import { useSettingsContext } from '../context/SettingsContext';
 // import libraries
 import { useMemo } from 'react';
-// @ts-ignore
-import { useTheme, styled, ThemeProvider, createTheme } from '@mui/material/styles';
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
+// import context
+import { useSettingsContext } from '../context/SettingsContext';
 // import components
 import { Navbar } from '../components/Navbar';
+// important utility functions
 import { getDesignTokens } from '../styles/theme';
 
 const Wrapper = styled('main')(({ theme }) => ({
@@ -22,11 +22,12 @@ const Home = () => {
 	const mode = darkMode ? 'dark' : 'light';
 	const theme = useMemo(() => createTheme(getDesignTokens(mode)), [ mode ]);
 	return (
-		<ThemeProvider theme={theme}>
-			<Wrapper>
-				<Navbar />
-			</Wrapper>
-		</ThemeProvider>
+		<h1>Home</h1>
+		// <ThemeProvider theme={theme}>
+		// 	<Wrapper>
+		// 		<Navbar />
+		// 	</Wrapper>
+		// </ThemeProvider>
 	);
 };
 export default Home;

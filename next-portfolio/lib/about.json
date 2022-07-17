@@ -1,0 +1,34 @@
+{
+	"bio": {
+		"msg": [
+			"I am an upcoming Master of Data Science (MDS) student UCI for Fall 2022. I recently received my 2nd Bachelor's degree from Chapman University in Software Engineering. Before attending Chapman, I graduated from the University of San Diego where I got a Bachelor’s in Business Administration (as a pre-med student) and then attended the UCI Coding Bootcamp.",
+			"The Bootcamp solidified my realization that computer programming is my passion and the career path I want to continue to pursue. Additionally, I have interned as a software engineer with multiple companies such as Pacific Life Insurance and HumanID."
+		],
+		"interests": [
+			"3D Printing",
+			"Traveling",
+			"Dogs",
+			"Sneakers",
+			"Hiking",
+			"Basketball (NBA)",
+			"Cars",
+			"Music",
+			"Reading",
+			"Tea/Coffee",
+			"Foodie"
+		]
+	},
+	"contact": {
+		"msg": [
+			"Please feel welcome to message me on LinkedIn or send me an email at tarekel96@gmail.com if you have any questions."
+		],
+		"linkedIn": "https://www.linkedin.com/in/tarek-e-0a2b1a132/",
+		"gitHub": "https://github.com/tarekel96"
+	},
+	"missionStatements": {
+		"statments": [
+			"My mission as a software engineer is to build robust, efficient, and user-considerate applications that empower and improve lives.",
+			"I believe that with software engineering we can make the world a better place by developing technologies that empower people and businesses."
+		]
+	}
+}
