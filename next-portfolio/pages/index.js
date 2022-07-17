@@ -16,18 +16,6 @@ const Wrapper = styled('main')(({ theme }) => ({
 }));
 
 const Home = () => {
-	//const theme = useTheme();
-	// @ts-ignore
-	const { darkMode, toggleDarkMode } = useSettingsContext();
-	const mode = darkMode ? 'dark' : 'light';
-	const theme = useMemo(() => createTheme(getDesignTokens(mode)), [ mode ]);
-	return (
-		<h1>Home</h1>
-		// <ThemeProvider theme={theme}>
-		// 	<Wrapper>
-		// 		<Navbar />
-		// 	</Wrapper>
-		// </ThemeProvider>
-	);
+	return <h1>Home</h1>;
 };
 export default Home;

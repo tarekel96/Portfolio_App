@@ -1,14 +1,9 @@
 import { Fragment } from 'react';
-// import libraries
-import { useMemo } from 'react';
 // @ts-ignore
-import { useTheme, styled, ThemeProvider, createTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 // import context
-import { SettingsProvider, useSettingsContext } from '../context/SettingsContext';
+import { SettingsProvider } from '../context/SettingsContext';
 import { createGlobalStyle } from 'styled-components';
-// important utility functions
-import { getDesignTokens } from '../styles/theme';
-// import components
 // @ts-ignore
 import { Navbar } from '../components/Navbar';
 

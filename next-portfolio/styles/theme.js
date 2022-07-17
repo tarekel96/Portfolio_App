@@ -1,28 +1,28 @@
-import { amber, grey, deepOrange, green } from '@mui/material/colors';
+import { amber, grey, deepOrange, green, lightBlue, orange, blueGrey, lightGreen, lime } from '@mui/material/colors';
 export const getDesignTokens = (mode) => ({
 	palette: {
 		mode,
 		...(mode === 'light'
 			? {
 					// palette values for light mode
-					primary: deepOrange,
-					divider: deepOrange[700],
 					background: {
-						default: deepOrange[900],
-						paper: deepOrange[900]
+						default: lightBlue[200],
+						paper: lightBlue[200]
 					},
 					text: {
-						primary: '#fff',
-						secondary: grey[500]
+						primary: blueGrey,
+						secondary: blueGrey[900]
 					}
 				}
 			: {
 					// palette values for dark mode
-					primary: green,
-					divider: green[200],
+					background: {
+						default: grey[900],
+						paper: grey[900]
+					},
 					text: {
-						primary: green[900],
-						secondary: green[800]
+						primary: grey[50],
+						secondary: lime[900]
 					}
 				})
 	}

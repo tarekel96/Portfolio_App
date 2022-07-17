@@ -13,9 +13,8 @@ const Wrapper = styled('nav')(({ theme }) => ({
 	alignItems: 'center',
 	justifyContent: 'flex-end',
 	backgroundColor: theme.palette.background.default,
-	color: theme.palette.text.primary,
+	color: theme.palette.text.secondary,
 	borderRadius: '4px',
-	border: `5px solid ${theme.palette.text.secondary}`,
 	paddingRight: '2%'
 }));
 
@@ -26,7 +25,7 @@ const Terminal = styled(TerminalIcon)(({ theme }) => ({
 	fontSize: '3rem',
 	cursor: 'pointer',
 	'&:hover': {
-		color: theme.palette.text.secondary
+		color: theme.palette.text.primary
 	}
 }));
 
@@ -40,7 +39,21 @@ const NavItem = styled('h1')(({ theme }) => ({
 	fontSize: '32px',
 	cursor: 'pointer',
 	'&:hover': {
-		color: theme.palette.text.secondary
+		color: theme.palette.text.primary
+	}
+}));
+
+const SunIcon = styled(Brightness7Icon)(({ theme }) => ({
+	cursor: 'pointer',
+	'&:hover': {
+		color: theme.palette.text.primary
+	}
+}));
+
+const MoonIcon = styled(Brightness4Icon)(({ theme }) => ({
+	cursor: 'pointer',
+	'&:hover': {
+		color: 'yellow'
 	}
 }));
 
@@ -60,7 +73,7 @@ export const Navbar = () => {
 			</SubNavWrapper>
 			{theme.palette.mode} mode
 			<IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
-				{theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+				{theme.palette.mode === 'dark' ? <SunIcon /> : <MoonIcon />}
 			</IconButton>
 		</Wrapper>
 	);
