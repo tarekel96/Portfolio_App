@@ -1,10 +1,26 @@
 import { useTheme, styled } from '@mui/material/styles';
 import { useSettingsContext } from '../context/SettingsContext';
+import Link from 'next/link';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+
+const navItems = [
+	{
+		title: 'About',
+		url: '/about'
+	},
+	{
+		title: 'Resume',
+		url: '/resume'
+	},
+	{
+		title: 'portfolio',
+		url: '/portfolio'
+	}
+];
 
 const Wrapper = styled('nav')(({ theme }) => ({
 	display: 'flex',
@@ -64,12 +80,20 @@ export const Navbar = () => {
 	return (
 		<Wrapper>
 			<Tooltip title="Send Message" placement="right" arrow={true}>
-				<Terminal />
+				<Link href="/">
+					<a>
+						<Terminal />
+					</a>
+				</Link>
 			</Tooltip>
 			<SubNavWrapper>
-				<NavItem>About</NavItem>
-				<NavItem>Resume</NavItem>
-				<NavItem>Portfolio</NavItem>
+				{navItems.map(({ title, url }, index) => (
+					<NavItem key={index}>
+						<Link href={url}>
+							<a>{title}</a>
+						</Link>
+					</NavItem>
+				))}
 			</SubNavWrapper>
 			{theme.palette.mode} mode
 			<IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
