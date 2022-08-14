@@ -7,7 +7,7 @@ export const getDesignTokens = (mode) => ({
 					// palette values for light mode
 					background: {
 						default: blueGrey[200],
-						paper: blueGrey[200]
+						secondary: blueGrey[600]
 					},
 					text: {
 						primary: blueGrey,
@@ -18,7 +18,7 @@ export const getDesignTokens = (mode) => ({
 					// palette values for dark mode
 					background: {
 						default: grey[900],
-						paper: grey[900]
+						secondary: grey[900]
 					},
 					text: {
 						primary: grey[50],

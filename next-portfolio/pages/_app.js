@@ -6,6 +6,7 @@ import { SettingsProvider } from '../context/SettingsContext';
 import { createGlobalStyle } from 'styled-components';
 // @ts-ignore
 import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -40,6 +41,7 @@ const MyApp = ({ Component, pageProps }) => {
 				<Wrapper>
 					<Navbar />
 					<Component {...pageProps} />
+					<Footer />
 				</Wrapper>
 			</SettingsProvider>
 		</Fragment>
