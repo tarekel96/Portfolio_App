@@ -18,6 +18,10 @@ body,
 	font-family: 'Roboto';
 }
 
+html {
+	position: relative;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -29,15 +33,15 @@ a {
 const Wrapper = styled('main')(({ theme }) => ({
 	backgroundColor: theme.palette.background.default,
 	color: theme.palette.text.primary,
-	height: '100%',
-	width: '100%'
+	minHeight: '100%',
+	paddingBottom: '2.5%'
 }));
 
 const MyApp = ({ Component, pageProps }) => {
 	return (
 		<Fragment>
-			<GlobalStyle />
 			<SettingsProvider>
+				<GlobalStyle />
 				<Wrapper>
 					<Navbar />
 					<Component {...pageProps} />

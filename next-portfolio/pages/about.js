@@ -6,14 +6,10 @@ import aboutData from '../lib/about.json';
 const Loading = () => <h1>Loading</h1>;
 
 const fetchAboutData = async () => await (await fetch('../lib/about.json')).json();
-// export async function getStaticProps({ params }) {
-// 	const data = await fetchAboutData();
-// 	return data;
-// }
 
 const Wrapper = styled('section')(({ theme }) => ({
 	backgroundColor: theme.palette.background.default,
-	color: theme.palette.text.primary,
+	color: theme.palette.text.secondary,
 	height: '100%',
 	width: '100%',
 	paddingTop: '2rem'
@@ -47,16 +43,15 @@ const Divider = styled('hr')(({ theme }) => ({
 }));
 
 const About = () => {
-	// const { bio1, bio2, mission1, mission2 } = aboutData;
-
 	return (
-		<MissionSection>
-			<MissionStatement entries={aboutData.missionStatements.statments} />
+		<Wrapper>
+			<MissionSection>
+				<MissionStatement entries={aboutData.missionStatements.statments} />
 
-			<ProfileImage imgSrc={'assets/images/tarekProfilePic.jpg'} imgAlt={'Tarek'} />
-			<Bio entries={aboutData.bio.msg} />
-			{/* <Bio entries={aboutData.bio.interests} /> */}
-		</MissionSection>
+				<ProfileImage imgSrc={'assets/images/tarekProfilePic.jpg'} imgAlt={'Tarek'} />
+				<Bio entries={aboutData.bio.msg} />
+			</MissionSection>
+		</Wrapper>
 	);
 };
 

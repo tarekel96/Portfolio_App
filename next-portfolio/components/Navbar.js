@@ -17,7 +17,7 @@ const navItems = [
 		url: '/resume'
 	},
 	{
-		title: 'portfolio',
+		title: 'Portfolio',
 		url: '/portfolio'
 	}
 ];
