@@ -106,6 +106,14 @@ const ExperienceSection = styled('section')(({ theme }) => ({
 	}
 }));
 
+const BoldSpan = styled('span')(({ theme }) => ({
+	fontWeight: 'bold'
+}));
+
+const BoldArticle = styled('article')(({ theme }) => ({
+	fontWeight: 'bold'
+}));
+
 const Resume = () => {
 	const getThirdArrLength = (arr) => {
 		return Math.round(arr.length / 3);
@@ -155,7 +163,7 @@ const Resume = () => {
 						<article>"*" indicates certification for skill</article>
 						<hr />
 					</TechnicalSkills>
-					<EducationSection className={styles['education']}>
+					<EducationSection>
 						<Header>Education</Header>
 						<hr style={{ width: '100%' }} />
 						{resumeData.educations.map(({ name, id, duration, major, degreeType, gpa, specialAwards }) => (
@@ -171,7 +179,7 @@ const Resume = () => {
 						))}
 					</EducationSection>
 				</SkillsEducationWrapper>
-				<ExperienceSection className={styles['experiences']}>
+				<ExperienceSection>
 					<Header>Experiences</Header>
 					<hr />
 					{resumeData.experiences.map(({ companyName, id, location, duration, position, roles }) => (
@@ -197,10 +205,10 @@ const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) =>
 			<article>{name}</article>
 			<EducationList>
 				<li>
-					<span className="bold">Time Attended:</span> {duration}
+					<BoldSpan>Time Attended:</BoldSpan> {duration}
 				</li>
 				<li>
-					<span className="bold">Major:</span> {major} - {degreeType}
+					<BoldSpan>Major:</BoldSpan> {major} - {degreeType}
 				</li>
 				<li
 					style={{
@@ -208,7 +216,7 @@ const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) =>
 						listStyleType: gpa !== 'n/a' ? 'circle' : 'none'
 					}}
 				>
-					<span className="bold">GPA:</span> {gpa}
+					<BoldSpan>GPA:</BoldSpan> {gpa}
 				</li>
 				<li
 					style={{
@@ -216,7 +224,7 @@ const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) =>
 						listStyleType: specialAwards.length !== 0 ? 'circle' : 'none'
 					}}
 				>
-					<span className="bold">Awards:</span>{' '}
+					<BoldSpan>Awards:</BoldSpan>{' '}
 					{specialAwards.map((award, index) => (
 						<span key={`Award ${index}`}>
 							{award}
@@ -237,13 +245,13 @@ const Experience = ({ companyName, location, duration, position, roles }) => {
 			</article>
 			<ul>
 				<li>
-					<span className="bold">Duration:</span> {duration}
+					<BoldSpan>Duration:</BoldSpan> {duration}
 				</li>
 				<li>
-					<span className="bold">Position:</span> {position}
+					<BoldSpan>Position:</BoldSpan> {position}
 				</li>
 				<li>
-					<article className="bold">Roles: </article>
+					<BoldArticle>Roles: </BoldArticle>
 				</li>
 				{roles.map((role, index) => (
 					<li key={`Role ${index}`} style={{ marginLeft: '2.5%', listStyleType: 'square' }}>
