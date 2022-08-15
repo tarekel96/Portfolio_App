@@ -1,4 +1,5 @@
 import { styled } from '@mui/system';
+import { Fragment } from 'react';
 import React from 'react';
 import resumeData from '../lib/resume.json';
 const styles = {};
@@ -50,6 +51,12 @@ const Header = styled('header')(({ theme }) => ({
 	fontWeight: '700'
 }));
 
+const Subheader = styled('header')(({ theme }) => ({
+	textAlign: 'center',
+	fontSize: '1.2rem',
+	fontWeight: '600'
+}));
+
 const TechSubContainer = styled('div')(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'center',
@@ -59,13 +66,12 @@ const TechSubContainer = styled('div')(({ theme }) => ({
 	}
 }));
 
-const TechCertMessage = styled('article')(({ theme }) => ({
-	fontSize: '.75rem',
-	width: '200px',
-	'&:hover': {
-		fontSize: '1rem',
-		width: '100%',
-		cursor: 'pointer'
+const CertificationsContainer = styled('div')(({ theme }) => ({
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	[theme.breakpoints.down(768)]: {
+		display: 'block'
 	}
 }));
 
@@ -160,8 +166,36 @@ const Resume = () => {
 									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
 							</ul>
 						</TechSubContainer>
-						<article>"*" indicates certification for skill</article>
-						<hr />
+						<Subheader>Technical Certifications</Subheader>
+						<CertificationsContainer>
+							<ul>
+								{convertToArray(resumeData.certifications)
+									.slice(0, getThirdArrLength(convertToArray(resumeData.certifications)))
+									.map((certification, index) => (
+										<li key={`certification ID#: ${index}`}>{certification}</li>
+									))}
+							</ul>
+							<ul>
+								{convertToArray(resumeData.certifications)
+									.slice(
+										getThirdArrLength(convertToArray(resumeData.certifications)),
+										2 * getThirdArrLength(convertToArray(resumeData.certifications))
+									)
+									.map((certification, index) => (
+										<li key={`certification ID#: ${index}`}>{certification}</li>
+									))}
+							</ul>
+							<ul>
+								{convertToArray(resumeData.certifications)
+									.slice(
+										2 * getThirdArrLength(convertToArray(resumeData.certifications)),
+										convertToArray(resumeData.certifications).length
+									)
+									.map((certification, index) => (
+										<li key={`certification ID#: ${index}`}>{certification}</li>
+									))}
+							</ul>
+						</CertificationsContainer>
 					</TechnicalSkills>
 					<EducationSection>
 						<Header>Education</Header>

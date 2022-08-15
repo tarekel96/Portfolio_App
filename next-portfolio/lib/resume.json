@@ -1,10 +1,21 @@
 {
-	"skills": "Data Structures & Algorithms, C/C++, Java, C#, Python, Django, *Node.js, *Express.js , *JavaScript/jQuery, *React.js, Redux , *HTML/CSS, SCSS/styled-components, Bootstrap, React Native, Electron.js, *MongoDB, *SQL, Git, GitHub Actions, CI/CD, Docker, Nginx, Authentication (JWT), REST API, GraphQL, Full-Stack Development, Systems Programming, Network Engineering, 3D Printing",
+	"certifications": "Node.js/Express.js, JavaScript/jQuery, React.js, HTML/CSS, SQL/NoSQL Databases",
+	"skills": "Data Structures & Algorithms, Git, Languages (Python, JavaScript, C/C++, Java), Databases (SQL - MySQL, MS SQL, SQLite3; MongoDB), REST API, GraphQL, Data Science/ML (scikit-learn, Keras, TensorFlow), Backend Development (Django, Node), Frontend Development (Vanilla JS, Redux, React, SCSS, Bootstrap), Desktop Development (Electron.js, JavaFX), CI/CD (Jenkins, GitHub Actions), CM (Docker, Nginx), Auth (JWT)",
 	"educations": [
+		{
+			"name": "University of California Irvine",
+			"id": "uci-masters",
+			"duration": "09/15/22 - 12/20/23",
+			"major": "Data Science",
+			"degreeType": "Masters of Data Science",
+			"gpa": "n/a",
+			"relevantCourses": "",
+			"specialAwards": []
+		},
 		{
 			"name": "Chapman University",
 			"id": "chapman",
-			"duration": "09/01/19 - current",
+			"duration": "09/01/19 - 05/20/22",
 			"major": "Software Engineering",
 			"degreeType": "Bachelor's of Science",
 			"gpa": "3.5",
@@ -37,10 +48,23 @@
 	],
 	"experiences": [
 		{
+			"companyName": "Pacific Life Insurance",
+			"id": "pacificLife_2",
+			"location": "Newport Beach, CA",
+			"duration": "May, 2022 - current",
+			"position": "Data Engineer Intern",
+			"roles": [
+				"Engineered a custom, dynamic data solution (Database & Dashboard) for Risk & Security Operations Corporate IT team which helps monitor and analyze endpoint device protection at Pacific Life.",
+				"Created SRS documentation & diagrams of the dashboard and data mapping: extracting data from sources -> ETL -> data storage -> dashboard.",
+				"Designed a database from scratch using Lucid Chart; implemented the designs and populated the tables. Created a Python automation script to extract data, transform data, and store the data in the database.",
+				"Implemented Power BI dashboard & reports using the database as source."
+			]
+		},
+		{
 			"companyName": "humanID",
 			"id": "humanID_2",
 			"location": "Cambridge, MA",
-			"duration": "Jan 2021-current",
+			"duration": "Jan 2021-May 2021",
 			"position": "Technical Lead - CTO (Volunteer)",
 			"roles": [
 				"Led the US team of software developer and project manager interns with SCRUM practices.",
