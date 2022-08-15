@@ -2,7 +2,6 @@ import { styled } from '@mui/system';
 import { Fragment } from 'react';
 import React from 'react';
 import resumeData from '../lib/resume.json';
-const styles = {};
 
 const LayoutWrapper = styled('div')(({ theme }) => ({
 	display: 'flex',
