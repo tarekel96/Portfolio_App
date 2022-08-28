@@ -1,13 +1,22 @@
 import { styled } from '@mui/system';
 import { Card } from '../components/Card';
+import { Wheel } from '../components/Wheel';
 import webDevProjects from '../lib/web_dev_projects.json';
 
 console.log(webDevProjects);
 
 const TempSection = styled('section')(({ theme }) => ({
 	display: 'flex',
-	flexDirection: 'column',
-	alignItems: 'center'
+	flexDirection: 'row',
+	justifyContent: 'center',
+	margin: '0 auto'
+}));
+
+const CardWrapper = styled('div')(({ theme }) => ({
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'center',
+	margin: '0 auto'
 }));
 
 const Portfolio = () => {
@@ -23,20 +32,24 @@ const Portfolio = () => {
 		<h1>
 			Portfolio
 			<TempSection>
-				{webDevProjects.map(({ name, url, githubUrl, imageSrc, objective, technologiesUsed, id }) => (
-					<Card
-						key={`Web Dev Project #${id}`}
-						id={id}
-						title={name}
-						imageSrc={`assets/images/webDevProjects/${imageSrc}`}
-						imageAlt={name + ' ' + imageSrc}
-						content={objective}
-						tags={convertToArray(technologiesUsed)}
-						url_1={url}
-						url_2={githubUrl}
-						webDev={true}
-					/>
-				))}
+				<Wheel>
+					{webDevProjects.map(({ name, url, githubUrl, imageSrc, objective, technologiesUsed, id }) => (
+						<CardWrapper>
+							<Card
+								key={`Web Dev Project #${id}`}
+								id={id}
+								title={name}
+								imageSrc={`assets/images/webDevProjects/${imageSrc}`}
+								imageAlt={name + ' ' + imageSrc}
+								content={objective}
+								tags={convertToArray(technologiesUsed)}
+								url_1={url}
+								url_2={githubUrl}
+								webDev={true}
+							/>
+						</CardWrapper>
+					))}
+				</Wheel>
 			</TempSection>
 		</h1>
 	);

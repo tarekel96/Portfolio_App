@@ -57,17 +57,37 @@ const SubContainer = styled('div')(({ theme }) => ({
 	padding: '2px 16px'
 }));
 
+const CardTitle = styled('h2')(({ theme }) => ({
+	fontSize: '24px'
+}));
+
+const CardContent = styled('p')(({ theme }) => ({
+	fontSize: '16px'
+}));
+
 const TagItem = styled('span')(({ theme }) => ({
 	display: 'inline-block',
 	borderRadius: '16px',
 	padding: '4px 6px',
-	margin: '4px'
+	margin: '4px',
+	backgroundColor: '#9598a1'
 }));
 
 const CursorLink = styled('p')(({ theme }) => ({
+	fontSize: '16px',
+	textDecoration: 'underline',
+	color: '#0000FF',
 	'&:hover': {
 		cursor: 'pointer'
+	},
+	'a:visited': {
+		textDecoration: 'underline',
+		color: '#800080'
 	}
+}));
+
+const TechStackHeader = styled('h3')(({ theme }) => ({
+	fontSize: '18.72px'
 }));
 
 export const Card = ({
@@ -105,14 +125,26 @@ export const Card = ({
 				) : null}
 				<SubContainer>
 					<b>
-						<h2>{title}</h2>
+						<CardTitle>{title}</CardTitle>
 					</b>
 					<hr />
-					<p>{content}</p>
+					<CardContent>{content}</CardContent>
 					{url_1 !== 'N/A' && webDev === true ? (
 						<CursorLink>
 							<Link href={url_1}>
-								<a title={title} target="_blank" rel="noreferrer">
+								<a
+									title={title}
+									target="_blank"
+									rel="noreferrer"
+									style={{
+										textDecoration: 'underline',
+										color: '#0000FF',
+										visited: {
+											textDecoration: 'underline',
+											color: '#800080'
+										}
+									}}
+								>
 									{url_1Title}
 								</a>
 							</Link>
@@ -127,12 +159,12 @@ export const Card = ({
 							</Link>
 						</CursorLink>
 					) : null}
-					<h3>Technologies Used: </h3>
-					<p>
+					<TechStackHeader>Technologies Used: </TechStackHeader>
+					<CardContent>
 						{tags.map((tag, tagIndex) => {
 							return <Tag content={tag} key={tagIndex} />;
 						})}
-					</p>
+					</CardContent>
 				</SubContainer>
 			</WrapperImg>
 		);
@@ -157,10 +189,10 @@ export const Card = ({
 			) : null}
 			<SubContainer>
 				<b>
-					<h2>{title}</h2>
+					<CardTitle>{title}</CardTitle>
 				</b>
 				<hr />
-				<p>{content}</p>
+				<CardContent>{content}</CardContent>
 				{url_1 !== 'N/A' && webDev === true ? (
 					<CursorLink>
 						<Link href={url_1}>
@@ -179,12 +211,12 @@ export const Card = ({
 						</Link>
 					</CursorLink>
 				) : null}
-				<h3>Technologies Used: </h3>
-				<p>
+				<TechStackHeader>Technologies Used: </TechStackHeader>
+				<CardContent>
 					{tags.map((tag, tagIndex) => {
 						return <Tag content={tag} key={tagIndex} />;
 					})}
-				</p>
+				</CardContent>
 			</SubContainer>
 		</WrapperNoImg>
 	);
