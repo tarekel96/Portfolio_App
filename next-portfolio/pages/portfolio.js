@@ -1,15 +1,20 @@
+// import packages
+import { useState } from 'react';
 import { styled } from '@mui/system';
+// import components
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
+// import local components
 import { Card } from '../components/Card';
 import { Wheel } from '../components/Wheel';
+// import helpers
 import { convertToArray } from '../lib/helpers';
+// import data
 import webDevProjects from '../lib/web_dev_projects.json';
 import sweProjects from '../lib/swe_projects.json';
 import dsProjects from '../lib/data_science_projects.json';
 import dlProjects from '../lib/deep_learning_projects.json';
-import { useState } from 'react';
 
 const menuOptions = [
 	{ label: 'Web Development', active: true },
