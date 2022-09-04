@@ -10,7 +10,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 const navItems = [
 	{
 		title: 'About',
-		url: '/about'
+		url: '/'
 	},
 	{
 		title: 'Resume',
