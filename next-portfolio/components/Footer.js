@@ -57,7 +57,7 @@ export const Footer = () => {
 		<Wrapper>
 			<Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 2, md: 4 }}>
 				{footerItems.map(({ title, url, component }, index) => (
-					<Link href={url}>
+					<Link href={url} key={url + title}>
 						<a title={title} target="_blank" rel="noreferrer">
 							<FooterItem key={index}>{component}</FooterItem>
 						</a>
