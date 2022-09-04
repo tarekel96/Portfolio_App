@@ -1,0 +1,23 @@
+[
+	{
+		"name": "Generative NLP: LSTM vs Markov Chains",
+		"githubUrl": "https://github.com/tarekel96/MarkovChains_-_LSTMs",
+		"objective": "Build the Markov Chains in Python using the given nusery rhymes dataset for training to create new nusery rhymes. Do the same with an LSTM model from Keras / TensorFlow, and compare results. ",
+		"modelsAndConcepts": "LSTM, Markov Chains, Generative Model, NLP, Language Processing",
+		"id": "dl_project 1"
+	},
+	{
+		"name": "Keras Regularization Experiments on CNN models using the CIFAR-10 dataset",
+		"githubUrl": "https://github.com/tarekel96/Keras_Regularization_Experiments/blob/main/01-InClassAssignment_2.ipynb",
+		"objective": "Conducted a series of experiments with Jupyter notebook on CNN Models trained on the CIFAR-10 dataset to see how hyperparameters affect the model's performance.",
+		"modelsAndConcepts": "CNN, Keras, TensorFlow, Max Pooling, Dropout, Max Norm, CIFAR-10",
+		"id": "dl_project 2"
+	},
+	{
+		"name": "Neural Network for classifying heart disease.",
+		"githubUrl": "https://github.com/tarekel96/CPSC393_KerasNeuralNetwork",
+		"objective": "Using a patient dataset from Kaggle, built a Sequential Neural Network Model using Keras and TensorFlow to classify if a patient has heart disease or not.",
+		"modelsAndConcepts": "Neural Network, Keras, TensorFlow, Sequential Model, pandas",
+		"id": "dl_project 0"
+	}
+]

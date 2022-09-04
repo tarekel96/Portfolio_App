@@ -1,0 +1,37 @@
+[
+	{
+		"name": "Scrape-a-zon",
+		"githubUrl": "https://github.com/tarekel96/Scrape-a-zon",
+		"objective": "A Webscraper made with Java/JSoup for https://books.toscrape.com, a book e-commerce website that is intended for users to webscrape from.",
+		"technologiesUsed": "Java, JSoup, JavaFx, FXML, Java Collections",
+		"id": "swe_project 4"
+	},
+	{
+		"name": "C++ Database",
+		"githubUrl": "https://github.com/tarekel96/cpsc350-hw5",
+		"objective": "Built a CRUD C++ Console App for a student and faculty records Database.",
+		"technologiesUsed": "C++, Built-Data-Structures, Key-Value Pair BST, Stack, Linked List, OOP, makefile",
+		"id": "swe_project 0"
+	},
+	{
+		"name": "C++ Game Of Life",
+		"githubUrl": "https://github.com/tarekel96/cpsc350-hw2",
+		"objective": "Built Game Of Life in C++ with 3 game modes: Classical, Doughnut, and Mirror. The program takes in an input file to get the number of rows and columns of the matrix. The program prompts the user for further options.",
+		"technologiesUsed": "C++, 2D Array, Dynamic Memory Allocation, Console Sleep/Pause, Input Validation",
+		"id": "swe_project 3"
+	},
+	{
+		"name": "C++ Delimiter Syntax Checker",
+		"githubUrl": "https://github.com/tarekel96/cpsc350-hw3",
+		"objective": "Built a C++ app that takes in an input file that contains code. The program processes the file looking for delimiter syntax errors. If an error is found, the line number and a message is given to the user.",
+		"technologiesUsed": "C++, Sorting Algorithms, Merge Sort, Quick Sort, Bubble Sort, Selection Sort, Insertion Sort, ctime, makefile",
+		"id": "swe_project 2"
+	},
+	{
+		"name": "C++ Registrar Office",
+		"githubUrl": "https://github.com/tarekel96/cpsc350-hw4V2",
+		"objective": "Built a C++ Registrar Simulation App. It simulates a registrar office with windows helping students in a queue. The program takes in an input file for number of windows and number of students in line.",
+		"technologiesUsed": "C++, Built-Data-Structures, Queue, Linked List, OOP, makefile",
+		"id": "swe_project 1"
+	}
+]

@@ -1,0 +1,37 @@
+[
+	{
+		"name": "Support Vector Model for classifying Iris flowers.",
+		"githubUrl": "https://github.com/tarekel96/CPSC393_Assignment_1_SVM",
+		"objective": "Built an SVM Model to determine if flower samples (pedal & sepal lengths) are Iris or not.",
+		"modelsAndConcepts": "SVC, sklearn, pandas, Train Test Split, KFold, Mean Squared Error, Accuracy Score",
+		"id": "ds_project 4"
+	},
+	{
+		"name": "Regression Models",
+		"githubUrl": "https://github.com/tarekel96/DataScience_Portfolio/tree/main/01-RegressionModels",
+		"objective": "Built a linear regression model to predict reaction times based on predictors of provided data",
+		"modelsAndConcepts": "Linear Regression, sklearn, pandas, Train Test Split, KFold, Mean Squared Error, Accuracy Score, r2 score, Heteroskedasticity, Linear Assumption",
+		"id": "ds_project 0"
+	},
+	{
+		"name": "Clustering Models",
+		"githubUrl": "https://github.com/tarekel96/DataScience_Portfolio/tree/main/02-ClusteringModels",
+		"objective": "Built various clustering models, calculated performance metrics, and conducted analysis.",
+		"modelsAndConcepts": "K-Means, Gaussian Mixture Models (with EM), DBSCAN, Hierarchical Clustering, sklearn, Pandas, Silhouette Scores, Nearest Neighbors, Elbow Method (Epsilon), Noise, Hyperparameters",
+		"id": "ds_project 1"
+	},
+	{
+		"name": "Principle Component Analysis on Linear Regression Model",
+		"githubUrl": "https://github.com/tarekel96/DataScience_Portfolio/tree/main/03-PrincipleComponentAnalysisModel",
+		"objective": "Built a Linear Regression Model without and with PCA to compare and analyze their results.",
+		"modelsAndConcepts": "Linear Regression, Principle Component Analysis (PCA), Mean Squared Error, r2 score, Accuracy Score, sklearn, pandas, Train Test Split",
+		"id": "ds_project 2"
+	},
+	{
+		"name": "Supervised & Unsupervised Machine Learning Models - DS Final Project",
+		"githubUrl": "https://github.com/tarekel96/DataScience_Portfolio/tree/main/04-FinalProject(Team)",
+		"objective": "Using a movie dataset from Kaggle, build the relevant ML models to answer the different questions and provide analysis about movies.",
+		"modelsAndConcepts": "Supervised ML, Unsupervised ML, Principle Component Analysis (PCA), Regression Models, Clustering Models, Performance Metrics, sklearn, pandas",
+		"id": "ds_project 3"
+	}
+]
