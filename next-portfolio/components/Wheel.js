@@ -1,6 +1,8 @@
-import { styled } from '@mui/system';
+// import packages
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
+// import components
+import { styled } from '@mui/system';
 
 const Carousel = styled(motion.div)(({ theme }) => ({
 	cursor: 'grab',
