@@ -49,7 +49,7 @@ const Instructions = styled('article')(({ theme }) => ({
 	textAlign: 'center',
 	fontWeight: 'bold',
 	fontSize: 'large',
-	margin: '1% auto'
+	margin: '0.5% auto'
 }));
 const CardWrapper = styled(motion.div)(({ theme }) => ({
 	display: 'flex',

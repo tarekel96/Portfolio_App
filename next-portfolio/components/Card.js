@@ -120,6 +120,7 @@ export const Card = ({
 								width: '100%',
 								bordeRadius: '4px'
 							}}
+							draggable={false}
 						/>
 					</Fragment>
 				) : null}
