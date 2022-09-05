@@ -45,6 +45,12 @@ const MenuOption = styled(Chip)(({ theme }) => ({
 	}
 }));
 
+const Instructions = styled('article')(({ theme }) => ({
+	textAlign: 'center',
+	fontWeight: 'bold',
+	fontSize: 'large',
+	margin: '1% auto'
+}));
 const CardWrapper = styled(motion.div)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'row',
@@ -159,6 +165,7 @@ const Portfolio = () => {
 					))}
 				</MenuStack>
 			</Menu>
+			<Instructions>**Slide/drag cards to the left to view more cards.**</Instructions>
 			{currentWheel === 'Web Development' && <WebDevWheel />}
 			{currentWheel === 'Software Engineering' && <SWE_Wheel />}
 			{currentWheel === 'Data Science & Machine Learning' && <DS_ML_Wheel />}
