@@ -97,7 +97,7 @@ export const Navbar = () => {
 			</SubNavWrapper>
 			{theme.palette.mode} mode
 			<IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
-				{theme.palette.mode === 'dark' ? <SunIcon /> : <MoonIcon />}
+				{theme.palette.mode === 'dark' ? <MoonIcon /> : <SunIcon />}
 			</IconButton>
 		</Wrapper>
 	);
