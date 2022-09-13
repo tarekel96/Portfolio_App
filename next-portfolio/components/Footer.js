@@ -17,17 +17,17 @@ const footerItems = [
 		title: 'GitHub',
 		url: 'https://github.com/tarekel96',
 		component: <GitHubIcon fontSize="large" />
-	},
-	{
-		title: 'Twitter',
-		url: 'https://twitter.com/hajjaoui_tarek',
-		component: <TwitterIcon fontSize="large" />
-	},
-	{
-		title: 'instagram',
-		url: 'https://www.instagram.com/tarek5point0/',
-		component: <InstagramIcon fontSize="large" />
 	}
+	// {
+	// 	title: 'Twitter',
+	// 	url: 'https://twitter.com/hajjaoui_tarek',
+	// 	component: <TwitterIcon fontSize="large" />
+	// },
+	// {
+	// 	title: 'instagram',
+	// 	url: 'https://www.instagram.com/tarek5point0/',
+	// 	component: <InstagramIcon fontSize="large" />
+	// }
 ];
 
 const Wrapper = styled('footer')(({ theme }) => ({
