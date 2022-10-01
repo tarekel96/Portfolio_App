@@ -1,6 +1,6 @@
 {
 	"certifications": "Node.js/Express.js, JavaScript/jQuery, React.js, HTML/CSS, SQL/NoSQL Databases",
-	"skills": "Data Structures & Algorithms, Git, Languages (Python, JavaScript, C/C++, Java), Databases (SQL - MySQL, MS SQL, SQLite3; MongoDB), REST API, GraphQL, Data Science/ML (scikit-learn, Keras, TensorFlow), Backend Development (Django, Node), Frontend Development (Vanilla JS, Redux, React, SCSS, Bootstrap), Desktop Development (Electron.js, JavaFX), CI/CD (Jenkins, GitHub Actions), CM (Docker, Nginx), Auth (JWT)",
+	"skills": "Data Structures & Algorithms, Git, Languages (Python, JavaScript, C/C++, Java), Databases (SQL - MySQL, SQL Server, SQLite3, Snowflake; MongoDB), Data Science/ML (scikit-learn, Keras, TensorFlow, OpenCV, Transfer Learning/Supervised/Unsupervised ML models), Backend Development (Django, Flask, Node, GraphQL), Frontend Development (Vanilla JS, Redux, React, Next.js, SCSS), Desktop Development (Electron.js, JavaFX), CI/CD (Jenkins, GitHub Actions, Netlify), CM (Docker, Nginx), Auth (JWT)",
 	"educations": [
 		{
 			"name": "University of California Irvine",
@@ -18,7 +18,7 @@
 			"duration": "09/01/19 - 05/20/22",
 			"major": "Software Engineering",
 			"degreeType": "Bachelor's of Science",
-			"gpa": "3.5",
+			"gpa": "3.632",
 			"relevantCourses": "Data Structure & Algorithms (C++), Intro to computer science I & II (Python and Java), Intro to Linux/Unix Programming and Git, Software Requirements, Software Design, Discrete Math, Calculus I-III, Intro to Linear Algebra and Differential Equations, Intro to Statistics, Intro to 3D printing and modeling",
 			"specialAwards": []
 		},
