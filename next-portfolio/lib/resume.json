@@ -1,6 +1,6 @@
 {
 	"certifications": "Node.js/Express.js, JavaScript/jQuery, React.js, HTML/CSS, SQL/NoSQL Databases",
-	"skills": "Data Structures & Algorithms, Git, Languages (Python, JavaScript, C/C++, Java), Databases (SQL - MySQL, SQL Server, SQLite3, Snowflake; MongoDB), Data Science/ML (scikit-learn, Keras, TensorFlow, OpenCV, Transfer Learning/Supervised/Unsupervised ML models), Backend Development (Django, Flask, Node, GraphQL), Frontend Development (Vanilla JS, Redux, React, Next.js, SCSS), Desktop Development (Electron.js, JavaFX), CI/CD (Jenkins, GitHub Actions, Netlify), CM (Docker, Nginx), Auth (JWT)",
+	"skills": "Data Structures, Algorithms, Git, Python, JavaScript, C/C++, Java, MySQL, SQL Server, SQLite3, Snowflake, MongoDB, scikit-learn, Keras, TensorFlow, OpenCV, Transfer Learning ML, Supervised ML, Unsupervised ML, Django, Flask, Node, GraphQL, Vanilla JS, Redux, React, Next.js, SCSS, Electron.js, JavaFX, Jenkins, GitHub Actions, Netlify, Docker, Nginx, Auth (JWT)",
 	"educations": [
 		{
 			"name": "University of California Irvine",
