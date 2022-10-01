@@ -1,7 +1,6 @@
 # Portfolio_App
 
-Deployed Portfolio: https://pure-chamber-65645.herokuapp.com/
+Deployed Portfolio: https://tarekelhajjaoui.io/
 
-A Web App created with React that showcases my portfolio.
-**NOTE** - I used react-awesome-reveal for the animations (https://github.com/dennismorello/react-awesome-reveal)
+A Web App created with Next.js/React.js that showcases my background, resume, and portfolio.
 @Copyright (c) 2021, Author: Tarek El-Hajjaoui
