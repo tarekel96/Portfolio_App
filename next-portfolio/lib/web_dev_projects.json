@@ -1,5 +1,14 @@
 [
 	{
+		"name": "N Queens Implementation",
+		"url": "https://n-queens-implementation.netlify.app/",
+		"githubUrl": "https://github.com/tarekel96/NQueens_Implementation",
+		"imageSrc": "NQueens.png",
+		"objective": "Implemented N-Queens problem with backtracking algorithm in React.js",
+		"technologiesUsed": "React.js, React Hooks, Styled Components",
+		"id": "project n queens"
+	},
+	{
 		"name": "ScreenSaver Display",
 		"url": "https://calm-meadow-13534.herokuapp.com",
 		"githubUrl": "https://github.com/tarekel96/Electron_BackgroundImage_App",
