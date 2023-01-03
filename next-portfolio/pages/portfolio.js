@@ -20,7 +20,7 @@ const menuOptions = [
 	{ label: 'Web Development', active: true },
 	{ label: 'Software Engineering', active: false },
 	{ label: 'Data Science & Machine Learning', active: false },
-	{ label: 'Deep Learning', active: false }
+	{ label: 'Deep Learning & AI', active: false }
 ];
 
 const CarouselWrapper = styled('section')(({ theme }) => ({
@@ -169,7 +169,7 @@ const Portfolio = () => {
 			{currentWheel === 'Web Development' && <WebDevWheel />}
 			{currentWheel === 'Software Engineering' && <SWE_Wheel />}
 			{currentWheel === 'Data Science & Machine Learning' && <DS_ML_Wheel />}
-			{currentWheel === 'Deep Learning' && <DL_Wheel />}
+			{currentWheel === 'Deep Learning & AI' && <DL_Wheel />}
 		</CarouselWrapper>
 	);
 };

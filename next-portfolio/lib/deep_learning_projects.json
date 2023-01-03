@@ -14,10 +14,16 @@
 		"id": "dl_project 2"
 	},
 	{
+		"name": "Traveling Salesman Problem with Branch & Bound DFS",
+		"githubUrl": "https://github.com/tarekel96/TSP_DFS_BnB",
+		"objective": "Solve the Traveling Salesman Problem by implementing the Branch & Bound Depth First Search algorithm.",
+		"modelsAndConcepts": "Depth First Search, DFS, Branch & Bound, numpy"
+	},
+	{
 		"name": "Neural Network for classifying heart disease.",
 		"githubUrl": "https://github.com/tarekel96/CPSC393_KerasNeuralNetwork",
 		"objective": "Using a patient dataset from Kaggle, built a Sequential Neural Network Model using Keras and TensorFlow to classify if a patient has heart disease or not.",
-		"modelsAndConcepts": "Neural Network, Keras, TensorFlow, Sequential Model, pandas",
+		"modelsAndConcepts": "Neural Network, Keras, TensorFlow, Sequential Model, numpy, pandas",
 		"id": "dl_project 0"
 	}
 ]
