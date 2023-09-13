@@ -3,6 +3,10 @@ import { Fragment } from 'react';
 import React from 'react';
 import resumeData from '../lib/resume.json';
 
+Object.entries(resumeData.skillsMap_1).forEach(([ category, values ]) => {
+	console.log(category, values);
+});
+
 const LayoutWrapper = styled('div')(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'space-around',
@@ -33,6 +37,7 @@ const SkillsEducationWrapper = styled('div')(({ theme }) => ({
 const TechnicalSkills = styled('section')(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
+	alignItems: 'center',
 	margin: '0 auto',
 	width: '100%',
 	maxWidth: '100%',
@@ -60,6 +65,7 @@ const TechSubContainer = styled('div')(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
+	width: '80%',
 	[theme.breakpoints.down(768)]: {
 		display: 'block'
 	}
@@ -141,28 +147,42 @@ const Resume = () => {
 						<hr style={{ width: '100%' }} />
 						<TechSubContainer>
 							{/* Slice (1st third of arr) -> Map */}
-							<ul>
+							{/* <ul>
 								{convertToArray(resumeData.skills)
 									.slice(0, getThirdArrLength(convertToArray(resumeData.skills)))
 									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-							</ul>
+							</ul> */}
 							{/* Slice (2nd third of arr) -> Map */}
-							<ul>
+							{/* <ul>
 								{convertToArray(resumeData.skills)
 									.slice(
 										getThirdArrLength(convertToArray(resumeData.skills)),
 										2 * getThirdArrLength(convertToArray(resumeData.skills))
 									)
 									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-							</ul>
+							</ul> */}
 							{/* Slice (last third of arr) -> Map */}
-							<ul>
+							{/* <ul>
 								{convertToArray(resumeData.skills)
 									.slice(
 										2 * getThirdArrLength(convertToArray(resumeData.skills)),
 										convertToArray(resumeData.skills).length
 									)
 									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
+							</ul> */}
+							<ul>
+								{Object.entries(resumeData.skillsMap_1).map(([ category, values ], index) => (
+									<li key={index}>
+										<b>{category}</b>: {values}
+									</li>
+								))}
+							</ul>
+							<ul>
+								{Object.entries(resumeData.skillsMap_2).map(([ category, values ], index) => (
+									<li key={index}>
+										<b>{category}</b>: {values}
+									</li>
+								))}
 							</ul>
 						</TechSubContainer>
 						<Subheader>Technical Certifications</Subheader>

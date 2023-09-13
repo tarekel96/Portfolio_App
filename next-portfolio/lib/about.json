@@ -1,8 +1,8 @@
 {
 	"bio": {
 		"msg": [
-			"I am an upcoming Master of Data Science (MDS) student UCI for Fall 2022. I recently received my 2nd Bachelor's degree from Chapman University in Software Engineering. Before attending Chapman, I graduated from the University of San Diego where I got a Bachelor’s in Business Administration (as a pre-med student) and then attended the UCI Coding Bootcamp.",
-			"The Bootcamp solidified my realization that computer programming is my passion and the career path I want to continue to pursue. Additionally, I have interned as a software engineer with multiple companies such as Pacific Life Insurance and HumanID."
+			"As I approach the culmination of my Master of Data Science degree from UC Irvine, I've honed my expertise in various realms of data science.",
+			"This academic journey in conjunction with my internship experiences have fortified my skillset, enabling me to handle multifaceted data challenges with precision and creativity."
 		],
 		"interests": [
 			"3D Printing",
@@ -27,8 +27,9 @@
 	},
 	"missionStatements": {
 		"statments": [
-			"My mission as a software engineer is to build robust, efficient, and user-considerate applications that empower and improve lives.",
-			"I believe that with software engineering we can make the world a better place by developing technologies that empower people and businesses."
+			"My journey in data science is rooted in a passion for harnessing data to create impactful solutions.",
+			"I am dedicated to developing data-driven strategies that empower users and provide actionable insights.",
+			"Whether through data engineering, analytics, or machine learning, my goal remains the same: unlock the transformative power of data."
 		]
 	}
 }

@@ -91,7 +91,7 @@ const Bio = ({ entries }) => {
 			<div>
 				<Header>Bio</Header>
 				<Divider />
-				{entries.map((entry) => <p key={entry}>{entry}</p>)}
+				{entries.map((entry) => <Entry key={entry}>{entry}</Entry>)}
 				<Divider />
 			</div>
 		</section>
