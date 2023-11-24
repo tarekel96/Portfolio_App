@@ -2,6 +2,7 @@ import { styled } from '@mui/system';
 import { Fragment } from 'react';
 import React from 'react';
 import resumeData from '../lib/resume.json';
+import { convertToArray } from '../lib/helpers';
 
 Object.entries(resumeData.skillsMap_1).forEach(([ category, values ]) => {
 	console.log(category, values);
@@ -37,7 +38,7 @@ const SkillsEducationWrapper = styled('div')(({ theme }) => ({
 const TechnicalSkills = styled('section')(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
-	alignItems: 'center',
+	alignItems: 'left',
 	margin: '0 auto',
 	width: '100%',
 	maxWidth: '100%',
@@ -47,6 +48,16 @@ const TechnicalSkills = styled('section')(({ theme }) => ({
 	[theme.breakpoints.down(600)]: {
 		maxWidth: '375px'
 	}
+}));
+
+const ListCenterContainer = styled('div')(({ theme }) => ({
+	textAlign: 'center'
+}));
+
+const ListItemsContainer = styled('ul')(({ theme }) => ({
+	display: 'inline-flex',
+	flexDirection: 'column',
+	textAlign: 'left'
 }));
 
 const Header = styled('header')(({ theme }) => ({
@@ -65,7 +76,7 @@ const TechSubContainer = styled('div')(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
-	width: '80%',
+	width: '90%',
 	[theme.breakpoints.down(768)]: {
 		display: 'block'
 	}
@@ -92,6 +103,12 @@ const EducationSection = styled('section')(({ theme }) => ({
 	}
 }));
 
+const EducationTitle = styled('div')(({ theme }) => ({
+	display: 'inline-flex',
+	flexDirection: 'row',
+	justifyContent: 'space-between'
+}));
+
 const EducationDiv = styled('div')(({ theme }) => ({
 	padding: '0',
 	margin: '0',
@@ -100,12 +117,48 @@ const EducationDiv = styled('div')(({ theme }) => ({
 	justifyContent: 'center'
 }));
 
+const PaddingSubContainer = styled('div')(({ theme }) => ({
+	padding: '1%'
+}));
+
 const EducationList = styled('ul')(({ theme }) => ({
 	marginTop: '0.40rem',
 	marginBottom: '0.40rem'
 }));
 
 const ExperienceSection = styled('section')(({ theme }) => ({
+	margin: '0 auto',
+	width: '100%',
+	maxWidth: '100%',
+	[theme.breakpoints.down(768)]: {
+		maxWidth: '90%'
+	},
+	[theme.breakpoints.down(600)]: {
+		maxWidth: '375px'
+	}
+}));
+
+const ExperienceDiv = styled('div')(({ theme }) => ({
+	padding: '0',
+	margin: '0',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center'
+}));
+
+const ExperiencePosition = styled('p')(({ theme }) => ({
+	padding: '0',
+	margin: '0',
+	fontWeight: 'bold'
+}));
+
+const ExperienceTitle = styled('div')(({ theme }) => ({
+	display: 'inline-flex',
+	flexDirection: 'row',
+	justifyContent: 'space-between'
+}));
+
+const ResearchSection = styled('section')(({ theme }) => ({
 	margin: '0 auto',
 	width: '100%',
 	maxWidth: '100%',
@@ -141,149 +194,107 @@ const Resume = () => {
 	return (
 		<LayoutWrapper>
 			<ResumeSection>
-				<SkillsEducationWrapper>
-					<TechnicalSkills>
-						<Header>Technical Skills</Header>
-						<hr style={{ width: '100%' }} />
-						<TechSubContainer>
-							{/* Slice (1st third of arr) -> Map */}
-							{/* <ul>
-								{convertToArray(resumeData.skills)
-									.slice(0, getThirdArrLength(convertToArray(resumeData.skills)))
-									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-							</ul> */}
-							{/* Slice (2nd third of arr) -> Map */}
-							{/* <ul>
-								{convertToArray(resumeData.skills)
-									.slice(
-										getThirdArrLength(convertToArray(resumeData.skills)),
-										2 * getThirdArrLength(convertToArray(resumeData.skills))
-									)
-									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-							</ul> */}
-							{/* Slice (last third of arr) -> Map */}
-							{/* <ul>
-								{convertToArray(resumeData.skills)
-									.slice(
-										2 * getThirdArrLength(convertToArray(resumeData.skills)),
-										convertToArray(resumeData.skills).length
-									)
-									.map((skill, index) => <li key={`Skill ID#: ${index}`}>{skill}</li>)}
-							</ul> */}
-							<ul>
-								{Object.entries(resumeData.skillsMap_1).map(([ category, values ], index) => (
-									<li key={index}>
-										<b>{category}</b>: {values}
-									</li>
-								))}
-							</ul>
-							<ul>
-								{Object.entries(resumeData.skillsMap_2).map(([ category, values ], index) => (
-									<li key={index}>
-										<b>{category}</b>: {values}
-									</li>
-								))}
-							</ul>
-						</TechSubContainer>
-						<Subheader>Technical Certifications</Subheader>
-						<CertificationsContainer>
-							<ul>
-								{convertToArray(resumeData.certifications)
-									.slice(0, getThirdArrLength(convertToArray(resumeData.certifications)))
-									.map((certification, index) => (
-										<li key={`certification ID#: ${index}`}>{certification}</li>
-									))}
-							</ul>
-							<ul>
-								{convertToArray(resumeData.certifications)
-									.slice(
-										getThirdArrLength(convertToArray(resumeData.certifications)),
-										2 * getThirdArrLength(convertToArray(resumeData.certifications))
-									)
-									.map((certification, index) => (
-										<li key={`certification ID#: ${index}`}>{certification}</li>
-									))}
-							</ul>
-							<ul>
-								{convertToArray(resumeData.certifications)
-									.slice(
-										2 * getThirdArrLength(convertToArray(resumeData.certifications)),
-										convertToArray(resumeData.certifications).length
-									)
-									.map((certification, index) => (
-										<li key={`certification ID#: ${index}`}>{certification}</li>
-									))}
-							</ul>
-						</CertificationsContainer>
-					</TechnicalSkills>
-					<EducationSection>
-						<Header>Education</Header>
-						<hr style={{ width: '100%' }} />
-						{resumeData.educations.map(({ name, id, duration, major, degreeType, gpa, specialAwards }) => (
+				<TechnicalSkills>
+					<Header>Technical Skills</Header>
+					<hr style={{ width: '100%' }} />
+					<ListItemsContainer>
+						{Object.entries(resumeData.skillsMap_1).map(([ category, values ], index) => (
+							<li key={index}>
+								{category}: {values}
+							</li>
+						))}
+					</ListItemsContainer>
+				</TechnicalSkills>
+				<EducationSection>
+					<Header>Education</Header>
+					<hr style={{ width: '100%' }} />
+					<PaddingSubContainer>
+						{resumeData.educations.map(({ name, id, duration, degreeType, gpa, specialAwards }) => (
 							<Education
 								key={id}
 								name={name}
 								duration={duration}
-								major={major}
 								degreeType={degreeType}
 								gpa={gpa}
 								specialAwards={specialAwards}
 							/>
 						))}
-					</EducationSection>
-				</SkillsEducationWrapper>
+					</PaddingSubContainer>
+				</EducationSection>
 				<ExperienceSection>
 					<Header>Experiences</Header>
-					<hr />
-					{resumeData.experiences.map(({ companyName, id, location, duration, position, roles }) => (
-						<Experience
-							key={id}
-							companyName={companyName}
-							location={location}
-							position={position}
-							duration={duration}
-							roles={roles}
-						/>
-					))}
-					<hr />
+					<hr style={{ width: '100%' }} />
+					<PaddingSubContainer>
+						{resumeData.experiences.map(({ companyName, id, location, duration, position, roles }) => (
+							<Experience
+								key={id}
+								companyName={companyName}
+								location={location}
+								position={position}
+								duration={duration}
+								roles={roles}
+							/>
+						))}
+					</PaddingSubContainer>
 				</ExperienceSection>
+				<ResearchSection>
+					<Header>Research</Header>
+					<hr style={{ width: '100%' }} />
+					<PaddingSubContainer>
+						{resumeData.research.map(({ companyName, id, location, duration, position, roles }) => (
+							<Experience
+								key={id}
+								companyName={companyName}
+								location={location}
+								position={position}
+								duration={duration}
+								roles={roles}
+							/>
+						))}
+					</PaddingSubContainer>
+				</ResearchSection>
+				<hr style={{ width: '100%' }} />
 			</ResumeSection>
 		</LayoutWrapper>
 	);
 };
 
-const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) => {
+const Education = ({ name, duration, degreeType, gpa, specialAwards }) => {
 	return (
 		<EducationDiv>
-			<article>{name}</article>
+			<EducationTitle>
+				<article>{name}</article> <article>{duration}</article>
+			</EducationTitle>
 			<EducationList>
-				<li>
-					<BoldSpan>Time Attended:</BoldSpan> {duration}
-				</li>
-				<li>
-					<BoldSpan>Major:</BoldSpan> {major} - {degreeType}
+				<li
+					style={{
+						listStyleType: gpa !== 'n/a' && 'none'
+					}}
+				>
+					{degreeType}
 				</li>
 				<li
 					style={{
 						display: gpa !== 'n/a' ? 'block' : 'none',
-						listStyleType: gpa !== 'n/a' ? 'circle' : 'none'
+						listStyleType: gpa !== 'n/a' && 'none'
 					}}
 				>
-					<BoldSpan>GPA:</BoldSpan> {gpa}
+					GPA: {gpa}
 				</li>
 				<li
 					style={{
 						display: specialAwards.length !== 0 ? 'block' : 'none',
-						listStyleType: specialAwards.length !== 0 ? 'circle' : 'none'
+						listStyleType: specialAwards.length !== 0 && 'none'
 					}}
 				>
-					<BoldSpan>Awards:</BoldSpan>{' '}
-					{specialAwards.map((award, index) => (
-						<span key={`Award ${index}`}>
-							{award}
-							{index !== specialAwards.length - 1 && ', '}{' '}
-						</span>
-					))}
+					Awards:{' '}
+					<ul>
+						{specialAwards.map((award, index) => (
+							<li key={`Award ${index}`} style={{ listStyleType: 'square' }}>
+								{award}
+							</li>
+						))}
+					</ul>
 				</li>
 			</EducationList>
 		</EducationDiv>
@@ -292,28 +303,47 @@ const Education = ({ name, duration, major, degreeType, gpa, specialAwards }) =>
 
 const Experience = ({ companyName, location, duration, position, roles }) => {
 	return (
-		<div>
-			<article>
-				{companyName} - {location}
-			</article>
+		<ExperienceDiv>
+			<ExperienceTitle>
+				<article>
+					{companyName}, {location}
+				</article>
+				<article>
+					<b>{duration}</b>
+				</article>
+			</ExperienceTitle>
+			<ExperiencePosition>{position}</ExperiencePosition>
 			<ul>
-				<li>
-					<BoldSpan>Duration:</BoldSpan> {duration}
-				</li>
-				<li>
-					<BoldSpan>Position:</BoldSpan> {position}
-				</li>
-				<li>
-					<BoldArticle>Roles: </BoldArticle>
-				</li>
 				{roles.map((role, index) => (
-					<li key={`Role ${index}`} style={{ marginLeft: '2.5%', listStyleType: 'square' }}>
+					<li key={`Role ${index}`} style={{ width: '90%' }}>
 						{role}
-						{index !== roles.length - 1 && ', '}{' '}
 					</li>
 				))}
 			</ul>
-		</div>
+		</ExperienceDiv>
+	);
+};
+
+const Research = ({ companyName, location, duration, position, roles }) => {
+	return (
+		<ExperienceDiv>
+			<ExperienceTitle>
+				<article>
+					{companyName}, {location}
+				</article>
+				<article>
+					<b>{duration}</b>
+				</article>
+			</ExperienceTitle>
+			<ExperiencePosition>{position}</ExperiencePosition>
+			<ul>
+				{roles.map((role, index) => (
+					<li key={`Role ${index}`} style={{ width: '90%' }}>
+						{role}
+					</li>
+				))}
+			</ul>
+		</ExperienceDiv>
 	);
 };
 

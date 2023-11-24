@@ -2,14 +2,9 @@
 	"certifications": "Node.js/Express.js, JavaScript/jQuery, React.js, HTML/CSS, SQL/NoSQL Databases",
 	"skills": "Data Structures, Algorithms, Git, Python, JavaScript, C/C++, Java, MySQL, SQL Server, SQLite3, Snowflake, MongoDB, scikit-learn, Keras, TensorFlow, OpenCV, Transfer Learning ML, Supervised ML, Unsupervised ML, Django, Flask, Node, GraphQL, Vanilla JS, Redux, React, Next.js, SCSS, Electron.js, JavaFX, Jenkins, GitHub Actions, Netlify, Docker, Nginx, Auth (JWT)",
 	"skillsMap_1": {
-		"Languages": "Python, R, SQL, JavaScript, Java",
-		"Data Libraries": "Apache Spark, NumPy, Pandas, Matplotlib, SciPy Stats",
-		"DB Languages": "SQL (DDL / DQL / DML / DCL / TCL), Mongo (JSON Document-based), SQL++",
-		"DBMS": "Microsoft SQL Server, PostgreSQL, MySQL, MongoDB",
-		"Data Warehouse": "Snowflake, Google Big Query",
-		"Data Lake/Lakehouse": "Azure Databricks, Databricks Delta Lake, Google Cloud Storage, Amazon S3",
-		"Stream Processing": "Apache Kafka (Java)",
-		"CI/CD": "Jenkins, GitHub Actions, Netlify"
+		"Programming Languages": "Python, SQL, Java, R, JavaScript",
+		"Platforms/Tools": "Apache Airflow, Microsoft Power BI, Databricks, PySpark, Keras, Kafka, Docker",
+		"Databases/Datawarehouses": "Microsoft SQL Server, Google BigQuery, Snowflake, MySQL"
 	},
 	"skillsMap_2": {
 		"Business Intelligence Analytics": "Power BI, Streamlit",
@@ -24,8 +19,7 @@
 		{
 			"name": "University of California Irvine",
 			"id": "uci-masters",
-			"duration": "09/15/22 - 12/15/23",
-			"major": "Data Science",
+			"duration": "Sep 2022-Dec 2023",
 			"degreeType": "Masters of Data Science",
 			"gpa": "3.57",
 			"relevantCourses": "",
@@ -34,35 +28,23 @@
 		{
 			"name": "Chapman University",
 			"id": "chapman",
-			"duration": "09/01/19 - 05/20/22",
-			"major": "Software Engineering",
-			"degreeType": "Bachelor's of Science",
+			"duration": "Sep 2019-May 2022",
+			"degreeType": "B.S. / Bachelor of Software Engineering",
 			"gpa": "3.63",
 			"relevantCourses": "Data Structure & Algorithms (C++), Intro to computer science I & II (Python and Java), Intro to Linux/Unix Programming and Git, Software Requirements, Software Design, Discrete Math, Calculus I-III, Intro to Linear Algebra and Differential Equations, Intro to Statistics, Intro to 3D printing and modeling",
-			"specialAwards": []
+			"specialAwards": [ "Cum Laude", "Provost's List" ]
 		},
 		{
 			"name": "University of San Diego",
 			"id": "usd",
-			"duration": "09/01/14 - 05/20/18",
-			"major": "Business Administration",
-			"degreeType": "Bachelor's of Arts",
+			"duration": "Sep 2014-Dec 2018",
+			"degreeType": "B.B.A / Bachelor of Business Administration",
 			"gpa": "3.56",
 			"relevantCourses": "",
 			"specialAwards": [
 				"Academic Excellence in Business Administration",
 				"Departmental Honors in Business Administration"
 			]
-		},
-		{
-			"name": "University of California Irvine - Department of Continuing Education",
-			"id": "uci",
-			"duration": "08/01/18 - 10/20/20",
-			"major": "The Coding Bootcamp",
-			"degreeType": "Coding Certifications",
-			"gpa": "n/a",
-			"relevantCourses": "",
-			"specialAwards": []
 		}
 	],
 	"experiences": [
@@ -70,54 +52,38 @@
 			"companyName": "Mr. Cooper",
 			"id": "mrcooper",
 			"location": "Dallas, TX (remote)",
-			"duration": "June, 2023 - current",
+			"duration": "June, 2023-Present",
 			"position": "Machine Learning Engineer Intern, Enterprise Platform",
 			"roles": [
-				"Overall, my work contributed to the transition from manual call-center operations to a data-driven, ML-powered system enabling customers to ask questions about mortgages and loans to a GPT chatbot model.",
-				"Developed Python producer and consumer Kafka applications and Java streaming Kafka applications to process and handle data streams of chatbot model conversations. Capturing and delivering data for auditing purposes and ML Analytics.",
-				"Migrated large volumes of data from Kafka Topics to Google Cloud Storage (GCS) and Google Big Query using Azure Databricks.",
-				"Designed and implemented External Tables on Google Big Query that retrieved data from GCS Buckets."
+				"Developed ETL pipelines on GCP Databricks using Python, SQL, and Airflow, enabling real-time Machine Learning Analysis.",
+				"Modeled SQL Data Warehouse Tables on Google BigQuery to efficiently store GPT chatbot data in a structured format.",
+				"Improved data pipeline efficiency and reduced associated costs by migrating ETL pipelines from Azure Data Factory (ADF) and SQL Server Integration Services (SSIS) to GCP Databricks.",
+				"Developed Java Kafka pipelines, helping automate transitioning thousands of loans from originations to servicing."
 			]
 		},
 		{
 			"companyName": "Pacific Life Insurance",
 			"id": "pacificLife_2",
 			"location": "Newport Beach, CA",
-			"duration": "May, 2022 - June 2022",
-			"position": "ETL Developer (Contractor) / Data Engineering Intern, Risk & Security Operations Corporate IT",
+			"duration": "May, 2022-June 2022",
+			"position": "ETL Developer, Risk & Security Operations Corporate IT",
 			"roles": [
-				"Engineered a dynamic data solution (Database & Dashboard) for Risk & Security Operations Corporate IT, automating manual reporting, saving security analysts 20 manual hours per week.",
-				"Designed a SQL Server Database from the ground up that related the various types of data such as device and software entities with one another.",
-				"Developed an ETL program with Python and SQL that would extract data from the multiple sources via REST APIs and SQL queries. Data was then inserted into the SQL database which leveraged stored procedures, cursors, constraints, etc.",
-				"Used SQL database as source for Power BI Dashboard bringing near real-time insights to IT Business Executives, allowing them to quickly assess the endpoint security health at Pacific Life.",
-				"Leveraging relationships in SQL enabled new data analysis and visualization previously not possible.",
-				"Visualizations were built with drill down capabilities allowing consumers such as security analysts the ability to extract custom data reports.",
-				"Helped maintain the server hosting the database such as job scheduling, log file setups, access management, etc."
-			]
-		},
-		{
-			"companyName": "humanID",
-			"id": "humanID_2",
-			"location": "Cambridge, MA (remote)",
-			"duration": "Jan 2021-May 2021",
-			"position": "Technical Lead - CTO (Volunteer)",
-			"roles": [
-				"Led the US team of software developer and project manager interns with SCRUM practices.",
-				"Managed software projects throughout development, integration, and deployment.",
-				"Projects completed: Setup Docker containers (Django & MySQL) for development, setup staging site for developer console, improved UI/UX of developer console, migrated SDK documentation to GitBook, setup a Discord webhook alarm for site down incidents",
-				"Projects started: Automate CI/CD for developer console via GitHub Actions, CSS Style Guide, Synchronize data between DBs from microservices"
+				"Architected and implemented a solution consisting of a Microsoft SQL Server Database, Python ETL Program, & Microsoft Power BI Dashboard, providing near real-time insights for IT Business Executives and security analysts on endpoint security.",
+				"The SQL database was designed using ER-diagramming and accommodated diverse data models.",
+				"The ETL program extracts data from multiple sources via REST APIs and utilizes Python libraries & SQL to transform data.",
+				"The Power BI Dashboard contains interactive visualizations with drill-down capabilities, allowing users custom datasets."
 			]
 		},
 		{
 			"companyName": "humanID",
 			"id": "humanID_1",
 			"location": "Cambridge, MA (remote)",
-			"duration": "Jan 2021-May 2021",
-			"position": "Software Developer Intern",
+			"duration": "Jan 2021-Sep 2021",
+			"position": "Software Developer Intern, Tech & Product Team",
 			"roles": [
-				"Develop open-source software for humanID, a non-profit startup that works with Mozilla and Harvard.",
-				"Develop the Developer Console web application for humanID with the Django framework, MySQL, JavaScript, HTML/CSS and more.",
-				"Develop in a Docker environment and integrate code with AWS Hosting Platform (S3)"
+				"Implemented admin features using Python for the Developer Console of humanID, a Harvard non-profit startup supported by Mozilla with the mission of bringing one identity per person through its anonymous Single Sign-On (SSO) tool.",
+				"These features empowered companies utilizing humanID’s SSO tool in their applications with improved user management.",
+				"Developed a Docker container for Django & MySQL that standardized the development environment for developers."
 			]
 		},
 		{
@@ -127,37 +93,41 @@
 			"duration": "Jan 2020-August 2020",
 			"position": "Web Developer Intern, HatchLabs Division",
 			"roles": [
-				"Build web applications using innovative technologies such as Node.js, React.js, SCSS/styled-components, GraphQL, Contentful CMS, Gatsby, Zapiar Webhook API Email Automation, Style Dictionary, Webflow, Bit.dev, Airtable, Mural, and more",
-				"Built a custom React Grid Component (from scratch) that replaced the role of bootstrap columns and rows.",
-				"Debug/troubleshoot existing code",
-				"Work in quickly adapting environment based on Agile methodologies and SCRUM practices"
+				"Developed for an internal blog for the HatchLabs division of Pacific Life, serving as a centralized platform for employees to gain insights into the division's innovative projects.",
+				"Built various UI pages using React.js and leveraged GraphQL to query data from Contentful CMS, enabling dynamic content rendering and seamless integration of data into the blog.",
+				"Engineered a highly customizable React Grid component that became an integral part of the codebase by providing a flexible and consistent layout structure for nearly all pages and components, saving developer hours in development."
 			]
 		},
 		{
 			"companyName": "Forkaia",
 			"id": "forkaia",
-			"location": "Irvine, CA (remote)",
+			"location": "Irvine, CA",
 			"duration": "June 2019-Jan 2020",
-			"position": "Startup Software Engineer Intern",
+			"position": "Software Engineer Intern",
 			"roles": [
-				"Design apps and producing content for startup apps.",
-				"Developed the backend user sign up and sign in authentication for 2 apps: A_Connect and 46andMix using Node.js, Express.js, Mongo, Mongoose, JWT, and Bcrypt. Developed some of the Front-End for A-Connect with React.js and Bootstrap."
+				"Engineered the backend user sign up and sign in authentication for 2 startup apps, A-Connect and 46andMix, using Node.js, Express.js, Mongo, Mongoose, JWT, and Bcrypt.",
+				"Developed frontend UI pages and components for A-Connect with React.js and Bootstrap."
 			]
-		},
+		}
+	],
+	"research": [
 		{
-			"companyName": "University of California Irvine - The Coding Bootcamp",
-			"id": "uci",
-			"duration": "08/01/18 - 10/20/20",
-			"position": "Bootcamp Student",
+			"companyName": "Children’s Hospital of Orange County (CHOC)",
+			"id": "CHOC",
+			"location": "Orange, CA",
+			"duration": "Sep 2023-Current",
+			"position": "Research Intern",
 			"roles": [
-				"An intensive 24-week long boot camp dedicated to designing and building web applications.",
-				"Skills learned consisted of HTML5, CSS3, JavaScript, jQuery, Bootstrap, Firebase, NodeJs, MySQL, MongoDB, Express, Handlebars JS, & React Js.",
-				"Note - 5 Coding Certifications (please refer to LinkedIn)"
+				"Feature engineer Histogram of Oriented Gradients (HOG) feature descriptors, utilized in explainable SVM models.",
+				"Leveraged the TensorFlow Keras GradientTape API to determine which regions of images are most important for Deep Convolutional Neural Networks (CNNs.)",
+				"Use Python to address the imbalanced dataset with augmentation transformation methods and generative AI models."
 			]
 		},
 		{
 			"companyName": "University of California, San Diego Airway Research and Clinical Trials Center",
 			"id": "ucsd",
+			"location": "San Diego, CA",
+			"duration": "June 2017-May 2018",
 			"position": "Undergraduate Researcher",
 			"roles": [
 				"Organize and input raw patient data, worked with medical staff to collect samples from patients, and performed spirometer respiratory function and DLCO tests on patients.",
