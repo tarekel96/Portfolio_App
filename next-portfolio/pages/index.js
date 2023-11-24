@@ -1,6 +1,7 @@
 // ui components
 import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
 import aboutData from '../lib/about.json';
 const Loading = () => <h1>Loading</h1>;
@@ -30,6 +31,21 @@ const Entry = styled('p')(({ theme }) => ({
 	textAlign: 'center !important'
 }));
 
+const ListCenterContainer = styled('div')(({ theme }) => ({
+	textAlign: 'center'
+}));
+
+const ListItemsContainer = styled('ul')(({ theme }) => ({
+	display: 'inline-flex',
+	flexDirection: 'column',
+	textAlign: 'left'
+}));
+
+const ListItemEntry = styled('li')(({ theme }) => ({
+	margin: '0',
+	padding: '0'
+}));
+
 const ImageSection = styled('section')(({ theme }) => ({
 	margin: '0 auto',
 	display: 'flex',
@@ -49,7 +65,11 @@ const About = () => {
 				<MissionStatement entries={aboutData.missionStatements.statments} />
 
 				<ProfileImage imgSrc={'assets/images/tarekProfilePic.jpg'} imgAlt={'Tarek'} />
-				<Bio entries={aboutData.bio.msg} />
+				<Bio
+					msgTop={aboutData.bio.msgTop}
+					msgBulletPoints={aboutData.bio.msgBulletPoints}
+					msgBottom={aboutData.bio.msgBottom}
+				/>
 			</MissionSection>
 		</Wrapper>
 	);
@@ -71,27 +91,32 @@ const ProfileImage = ({ imgSrc, imgAlt }) => {
 	return (
 		<ImageSection>
 			<div>
-				<LazyLoadImage
-					alt={imgAlt}
-					height={288}
+				<Avatar
 					src={imgSrc}
-					width={288}
-					style={{
-						boxShadow: '12px 12px 12px #666',
-						borderRadius: '5px'
+					alt={imgAlt}
+					sx={{
+						width: '290px',
+						height: '290px',
+						outline: '1.5px solid black;'
 					}}
 				/>
 			</div>
 		</ImageSection>
 	);
 };
-const Bio = ({ entries }) => {
+const Bio = ({ msgTop, msgBulletPoints, msgBottom }) => {
 	return (
 		<section>
 			<div>
 				<Header>Bio</Header>
 				<Divider />
-				{entries.map((entry) => <Entry key={entry}>{entry}</Entry>)}
+				{msgTop.map((entry) => <Entry key={entry}>{entry}</Entry>)}
+				<ListCenterContainer>
+					<ListItemsContainer>
+						{msgBulletPoints.map((entry) => <ListItemEntry key={entry}>{entry}</ListItemEntry>)}
+					</ListItemsContainer>
+				</ListCenterContainer>
+				{msgBottom.map((entry) => <Entry key={entry}>{entry}</Entry>)}
 				<Divider />
 			</div>
 		</section>

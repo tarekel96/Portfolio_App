@@ -1,8 +1,17 @@
 {
 	"bio": {
-		"msg": [
-			"As I approach the culmination of my Master of Data Science degree from UC Irvine, I've honed my expertise in various realms of data science.",
-			"This academic journey in conjunction with my internship experiences have fortified my skillset, enabling me to handle multifaceted data challenges with precision and creativity."
+		"msgTop": [
+			"As I approach the culmination of my Master of Data Science degree from UC Irvine, I've honed my expertise in various aspects of data science which include:"
+		],
+		"msgBulletPoints": [
+			"SQL Design & Development",
+			"Data Engineering",
+			"Data Analytics",
+			"Machine & Deep Learning",
+			"Explainable Artificial Intelligence (AI) "
+		],
+		"msgBottom": [
+			"This career journey in conjunction with my academics have fortified my skillset, enabling me to handle multifaceted data challenges with expertise and creativity."
 		],
 		"interests": [
 			"3D Printing",
