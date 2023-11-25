@@ -19,7 +19,7 @@ const ResumeSection = styled('section')(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'space-evenly',
-	width: '100%',
+	width: '900px',
 	height: '100%',
 	margin: '2.5% auto',
 	borderRadius: '5px',
