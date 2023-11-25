@@ -1,12 +1,5 @@
 [
 	{
-		"name": "Scrape-a-zon",
-		"githubUrl": "https://github.com/tarekel96/Scrape-a-zon",
-		"objective": "A Webscraper made with Java/JSoup for https://books.toscrape.com, a book e-commerce website that is intended for users to webscrape from.",
-		"technologiesUsed": "Java, JSoup, JavaFx, FXML, Java Collections",
-		"id": "swe_project 4"
-	},
-	{
 		"name": "C++ Database",
 		"githubUrl": "https://github.com/tarekel96/cpsc350-hw5",
 		"objective": "Built a CRUD C++ Console App for a student and faculty records Database.",

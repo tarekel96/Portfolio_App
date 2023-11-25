@@ -1,0 +1,37 @@
+[
+	{
+		"name": "Wine Quality Classification",
+		"githubUrl": "https://github.com/tarekel96/WineQualityClassification",
+		"objective": "Trained GradientBoostClassifier, Random Forest, & Decision Tree models from the the scikit learn library. Tuned hyperparameters by using GridSearchCV.",
+		"modelsAndConcepts": "Python, scikit-learn, Classification, GradientBoostClassifier, Random Forest, Decision Tree, GridSearchCV",
+		"id": "ds_project 1"
+	},
+	{
+		"name": "Statistical Modeling with R",
+		"githubUrl": "https://github.com/tarekel96/R_Statistical_Modeling",
+		"objective": "Various projects from my statistical modeling courses at UCI using the R programming language.",
+		"modelsAndConcepts": "R, LDA, Multilevel Modeling, Poisson Regression, Nonlinear Models, Principle Components, Linear Regression, ",
+		"id": "ds_project 2"
+	},
+	{
+		"name": "Keras Explainable Convolutional Neural Networks",
+		"githubUrl": "https://github.com/tarekel96/TF_Keras_ImageProcessing",
+		"objective": "Utilize the Keras GradientTape API to create Class Activation Maps (CAMs) that explain which regions deep Convolutional Neural Networks are focusing on for classification tasks.",
+		"modelsAndConcepts": "Python, Keras, TensorFlow, GradientTape, CNN, Class Activation Maps, cv2, Image Interpolation",
+		"id": "ds_project 3"
+	},
+	{
+		"name": "ML Models & functions from Scratch.",
+		"githubUrl": "https://github.com/tarekel96/UCI_ML_Projects",
+		"objective": "Multiple ML projects from my UCI courses which demonstrate understanding the fundamentals of popular ML models.",
+		"modelsAndConcepts": "Python, K Nearest Neighbors, Linear Regression, PyTorch, Logistic Regression, Decision Trees, PCA, CNN, Clustering",
+		"id": "ds_project 0"
+	},
+	{
+		"name": "Generative NLP: LSTM vs Markov Chains",
+		"githubUrl": "https://github.com/tarekel96/MarkovChains_-_LSTMs",
+		"objective": "Build the Markov Chains in Python using the given nusery rhymes dataset for training to create new nusery rhymes. Do the same with an LSTM model from Keras / TensorFlow, and compare results. ",
+		"modelsAndConcepts": "LSTM, Markov Chains, Generative Model, NLP, Language Processing",
+		"id": "dl_project 1"
+	}
+]

@@ -13,14 +13,14 @@ import { convertToArray } from '../lib/helpers';
 // import data
 import webDevProjects from '../lib/web_dev_projects.json';
 import sweProjects from '../lib/swe_projects.json';
-import dsProjects from '../lib/data_science_projects.json';
-import dlProjects from '../lib/deep_learning_projects.json';
+import mlProjects from '../lib/ml_stats_projects.json';
+import deAnalytics from '../lib/data_eng_analytics.json';
 
 const menuOptions = [
-	{ label: 'Web Development', active: true },
+	{ label: 'Machine Learning & Statistical Modeling', active: true },
+	{ label: 'Data Engineering', active: false },
 	{ label: 'Software Engineering', active: false },
-	{ label: 'Data Science & Machine Learning', active: false },
-	{ label: 'Deep Learning & AI', active: false }
+	{ label: 'Web Development', active: false }
 ];
 
 const CarouselWrapper = styled('section')(({ theme }) => ({
@@ -29,6 +29,8 @@ const CarouselWrapper = styled('section')(({ theme }) => ({
 }));
 
 const Menu = styled('div')(({ theme }) => ({
+	backgroundColor: theme.palette.background.default,
+	color: theme.palette.text.secondary,
 	display: 'flex',
 	justifyContent: 'center',
 	width: '100%'
@@ -37,6 +39,7 @@ const Menu = styled('div')(({ theme }) => ({
 const MenuStack = styled(Stack)(({ theme }) => ({}));
 
 const MenuOption = styled(Chip)(({ theme }) => ({
+	color: theme.palette.text.secondary,
 	padding: '1rem 2rem',
 	fontWeight: 'bold',
 	'&:hover': {
@@ -46,6 +49,7 @@ const MenuOption = styled(Chip)(({ theme }) => ({
 }));
 
 const Instructions = styled('article')(({ theme }) => ({
+	color: theme.palette.text.secondary,
 	textAlign: 'center',
 	fontWeight: 'bold',
 	fontSize: 'large',
@@ -60,7 +64,7 @@ const CardWrapper = styled(motion.div)(({ theme }) => ({
 
 const Portfolio = () => {
 	const [ options, setOptions ] = useState(menuOptions);
-	const [ currentWheel, setWheel ] = useState('Web Development');
+	const [ currentWheel, setWheel ] = useState('Machine Learning & Statistical Modeling');
 
 	const handleClick = (event, label) => {
 		let currentOptions = [ ...options ];
@@ -76,21 +80,36 @@ const Portfolio = () => {
 		setOptions(currentOptions);
 	};
 
-	const WebDevWheel = () => (
+	const DS_ML_Wheel = () => (
 		<Wheel>
-			{webDevProjects.map(({ name, url, githubUrl, imageSrc, objective, technologiesUsed, id }) => (
+			{mlProjects.map(({ name, githubUrl, objective, modelsAndConcepts, id }) => (
 				<CardWrapper>
 					<Card
-						key={`Web Dev Project #${id}`}
+						key={`DS/ML Project #${id}`}
 						id={id}
 						title={name}
-						imageSrc={`assets/images/webDevProjects/${imageSrc}`}
-						imageAlt={name + ' ' + imageSrc}
+						content={objective}
+						tags={convertToArray(modelsAndConcepts)}
+						url_2={githubUrl}
+						webDev={false}
+					/>
+				</CardWrapper>
+			))}
+		</Wheel>
+	);
+
+	const DE_Wheel = () => (
+		<Wheel>
+			{deAnalytics.map(({ name, githubUrl, objective, technologiesUsed, id }) => (
+				<CardWrapper>
+					<Card
+						key={`DL Project #${id}`}
+						id={id}
+						title={name}
 						content={objective}
 						tags={convertToArray(technologiesUsed)}
-						url_1={url}
 						url_2={githubUrl}
-						webDev={true}
+						webDev={false}
 					/>
 				</CardWrapper>
 			))}
@@ -115,36 +134,21 @@ const Portfolio = () => {
 		</Wheel>
 	);
 
-	const DS_ML_Wheel = () => (
+	const WebDevWheel = () => (
 		<Wheel>
-			{dsProjects.map(({ name, githubUrl, objective, modelsAndConcepts, id }) => (
+			{webDevProjects.map(({ name, url, githubUrl, imageSrc, objective, technologiesUsed, id }) => (
 				<CardWrapper>
 					<Card
-						key={`DS/ML Project #${id}`}
+						key={`Web Dev Project #${id}`}
 						id={id}
 						title={name}
+						imageSrc={`assets/images/webDevProjects/${imageSrc}`}
+						imageAlt={name + ' ' + imageSrc}
 						content={objective}
-						tags={convertToArray(modelsAndConcepts)}
+						tags={convertToArray(technologiesUsed)}
+						url_1={url}
 						url_2={githubUrl}
-						webDev={false}
-					/>
-				</CardWrapper>
-			))}
-		</Wheel>
-	);
-
-	const DL_Wheel = () => (
-		<Wheel>
-			{dlProjects.map(({ name, githubUrl, objective, modelsAndConcepts, id }) => (
-				<CardWrapper>
-					<Card
-						key={`DL Project #${id}`}
-						id={id}
-						title={name}
-						content={objective}
-						tags={convertToArray(modelsAndConcepts)}
-						url_2={githubUrl}
-						webDev={false}
+						webDev={true}
 					/>
 				</CardWrapper>
 			))}
@@ -165,11 +169,11 @@ const Portfolio = () => {
 					))}
 				</MenuStack>
 			</Menu>
-			<Instructions>**Slide/drag cards to the left to view more cards.**</Instructions>
-			{currentWheel === 'Web Development' && <WebDevWheel />}
+			<Instructions>** Slide/drag cards to the left with mouse to view more cards. **</Instructions>
+			{currentWheel === 'Machine Learning & Statistical Modeling' && <DS_ML_Wheel />}
+			{currentWheel === 'Data Engineering' && <DE_Wheel />}
 			{currentWheel === 'Software Engineering' && <SWE_Wheel />}
-			{currentWheel === 'Data Science & Machine Learning' && <DS_ML_Wheel />}
-			{currentWheel === 'Deep Learning & AI' && <DL_Wheel />}
+			{currentWheel === 'Web Development' && <WebDevWheel />}
 		</CarouselWrapper>
 	);
 };

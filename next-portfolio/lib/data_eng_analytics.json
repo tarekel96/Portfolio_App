@@ -1,0 +1,23 @@
+[
+	{
+		"name": "Fullstack Magazine Application",
+		"githubUrl": "https://github.com/tarekel96/Flask_MySQL_MagazineApp",
+		"objective": "A fullstack magazine subscription application built with Python, JavaScript, and MySQL. The app has 2 types of users with different functionalities; please see README for more details.",
+		"technologiesUsed": "Python, Flask, MySQL, ER Modeling, JavaScript, React.js, Material-UI",
+		"id": "de_project_0"
+	},
+	{
+		"name": "Scrape-a-zon",
+		"githubUrl": "https://github.com/tarekel96/Scrape-a-zon",
+		"objective": "A Webscraper made with Java/JSoup for https://books.toscrape.com, a book e-commerce website that is intended for users to webscrape from.",
+		"technologiesUsed": "Java, JSoup, JavaFx, FXML, Java Collections",
+		"id": "de_project_1"
+	},
+	{
+		"name": "ETL App - User Data Generator",
+		"githubUrl": "https://github.com/tarekel96/Python_SQL_MagazineApp",
+		"objective": "A Python application that utilizes various Python libraries to generate fake user data for a Magazine application. The data is transformed and loaded in a MySQL database.",
+		"technologiesUsed": "Python, pandas, MySQL, ER Modeling",
+		"id": "de_project_2"
+	}
+]

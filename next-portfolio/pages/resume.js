@@ -199,8 +199,22 @@ const Resume = () => {
 					<hr style={{ width: '100%' }} />
 					<ListItemsContainer>
 						{Object.entries(resumeData.skillsMap_1).map(([ category, values ], index) => (
-							<li key={index}>
-								{category}: {values}
+							<li
+								key={index}
+								style={{
+									listStyleType: 'none'
+								}}
+							>
+								{category}:
+								<ul>
+									<li
+										style={{
+											listStyleType: 'square'
+										}}
+									>
+										{values}
+									</li>
+								</ul>
 							</li>
 						))}
 					</ListItemsContainer>
