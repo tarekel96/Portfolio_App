@@ -3,7 +3,7 @@
 	"skills": "Data Structures, Algorithms, Git, Python, JavaScript, C/C++, Java, MySQL, SQL Server, SQLite3, Snowflake, MongoDB, scikit-learn, Keras, TensorFlow, OpenCV, Transfer Learning ML, Supervised ML, Unsupervised ML, Django, Flask, Node, GraphQL, Vanilla JS, Redux, React, Next.js, SCSS, Electron.js, JavaFX, Jenkins, GitHub Actions, Netlify, Docker, Nginx, Auth (JWT)",
 	"skillsMap_1": {
 		"Programming Languages": "Python, SQL, Java, R, JavaScript",
-		"Platforms/Tools": "Apache Airflow, Microsoft Power BI, Databricks, PySpark, Keras, Kafka, Docker",
+		"Platforms/Tools": "AWS, GCP, Power BI, Databricks, PySpark, Airflow, Kafka, ADF, Scikit-Learn",
 		"Databases/Datawarehouses": "Microsoft SQL Server, Google BigQuery, Snowflake, MySQL"
 	},
 	"skillsMap_2": {
@@ -21,7 +21,7 @@
 			"id": "uci-masters",
 			"duration": "Sep 2022-Dec 2023",
 			"degreeType": "Masters of Data Science",
-			"gpa": "3.57",
+			"gpa": "3.65",
 			"relevantCourses": "",
 			"specialAwards": []
 		},
@@ -53,7 +53,7 @@
 			"id": "mrcooper",
 			"location": "Dallas, TX (remote)",
 			"duration": "June, 2023-Present",
-			"position": "Machine Learning Engineer Intern, Enterprise Platform",
+			"position": "Software Developer",
 			"roles": [
 				"Developed ETL pipelines on GCP Databricks using Python, SQL, and Airflow, enabling real-time Machine Learning Analysis.",
 				"Modeled SQL Data Warehouse Tables on Google BigQuery to efficiently store GPT chatbot data in a structured format.",
@@ -66,7 +66,7 @@
 			"id": "pacificLife_2",
 			"location": "Newport Beach, CA",
 			"duration": "May, 2022-June 2022",
-			"position": "ETL Developer, Risk & Security Operations Corporate IT",
+			"position": "ETL Developer",
 			"roles": [
 				"Architected and implemented a solution consisting of a Microsoft SQL Server Database, Python ETL Program, & Microsoft Power BI Dashboard, providing near real-time insights for IT Business Executives and security analysts on endpoint security.",
 				"The SQL database was designed using ER-diagramming and accommodated diverse data models.",
@@ -78,12 +78,12 @@
 			"companyName": "humanID",
 			"id": "humanID_1",
 			"location": "Cambridge, MA (remote)",
-			"duration": "Jan 2021-Sep 2021",
-			"position": "Software Developer Intern, Tech & Product Team",
+			"duration": "Jan 2021-Apr 2022",
+			"position": "Software Developer Intern",
 			"roles": [
-				"Implemented admin features using Python for the Developer Console of humanID, a Harvard non-profit startup supported by Mozilla with the mission of bringing one identity per person through its anonymous Single Sign-On (SSO) tool.",
-				"These features empowered companies utilizing humanID’s SSO tool in their applications with improved user management.",
-				"Developed a Docker container for Django & MySQL that standardized the development environment for developers."
+				"Using AWS services (EC2, S3), Python, and SQL, developed REST APIs to enable RBAC features for the Developer Console.",
+				"Achieved a 15% improvement in a KPI, monthly disk I/O operations, by optimizing the SQL database’s indexes and queries, with performance enhancements measured through AWS CloudWatch monitoring of the EC2 server.",
+				"Ensured data quality and integrity by implementing Python unit tests into the GitHub Actions CI/CD pipeline."
 			]
 		},
 		{
@@ -91,22 +91,11 @@
 			"id": "pacificLife",
 			"location": "Newport Beach, CA",
 			"duration": "Jan 2020-August 2020",
-			"position": "Web Developer Intern, HatchLabs Division",
+			"position": "Web Developer Intern",
 			"roles": [
 				"Developed for an internal blog for the HatchLabs division of Pacific Life, serving as a centralized platform for employees to gain insights into the division's innovative projects.",
 				"Built various UI pages using React.js and leveraged GraphQL to query data from Contentful CMS, enabling dynamic content rendering and seamless integration of data into the blog.",
 				"Engineered a highly customizable React Grid component that became an integral part of the codebase by providing a flexible and consistent layout structure for nearly all pages and components, saving developer hours in development."
-			]
-		},
-		{
-			"companyName": "Forkaia",
-			"id": "forkaia",
-			"location": "Irvine, CA",
-			"duration": "June 2019-Jan 2020",
-			"position": "Software Engineer Intern",
-			"roles": [
-				"Engineered the backend user sign up and sign in authentication for 2 startup apps, A-Connect and 46andMix, using Node.js, Express.js, Mongo, Mongoose, JWT, and Bcrypt.",
-				"Developed frontend UI pages and components for A-Connect with React.js and Bootstrap."
 			]
 		}
 	],
@@ -118,9 +107,9 @@
 			"duration": "Sep 2023-Current",
 			"position": "Research Intern",
 			"roles": [
-				"Feature engineer Histogram of Oriented Gradients (HOG) feature descriptors, utilized in explainable SVM models.",
-				"Leveraged the TensorFlow Keras GradientTape API to determine which regions of images are most important for Deep Convolutional Neural Networks (CNNs.)",
-				"Use Python to address the imbalanced dataset with augmentation transformation methods and generative AI models."
+				"Utilized Python and Scikit-Learn to develop a feature engineering framework that finds optimal Histogram of Oriented Gradients (HOG) feature descriptors and SVM hyperparameters for Computer Vision Machine Learning.",
+				"Developed an explainable AI method for Computer Vision models by using weights from trained SVM models.",
+				"Leveraged the TensorFlow Keras GradientTape API to determine which regions of images are most important for CNNs."
 			]
 		},
 		{

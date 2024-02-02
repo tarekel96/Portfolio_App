@@ -1,5 +1,12 @@
 [
 	{
+		"name": "Explainable ML Vision",
+		"githubUrl": "https://github.com/tarekel96/Explainable_Computer_Version",
+		"objective": "Developed an SVM Model for a Computer Vision classification task with explainable results, highlighting regions of importance.",
+		"modelsAndConcepts": "Python, Computer Vision, SVM, Explainable AI, Feature Engineering, HOG, GridSearchCV, scikit-learn",
+		"id": "CHOC_Explainable_CV"
+	},
+	{
 		"name": "Wine Quality Classification",
 		"githubUrl": "https://github.com/tarekel96/WineQualityClassification",
 		"objective": "Trained GradientBoostClassifier, Random Forest, & Decision Tree models from the the scikit learn library. Tuned hyperparameters by using GridSearchCV.",
@@ -10,7 +17,7 @@
 		"name": "Statistical Modeling with R",
 		"githubUrl": "https://github.com/tarekel96/R_Statistical_Modeling",
 		"objective": "Various projects from my statistical modeling courses at UCI using the R programming language.",
-		"modelsAndConcepts": "R, LDA, Multilevel Modeling, Poisson Regression, Nonlinear Models, Principle Components, Linear Regression, ",
+		"modelsAndConcepts": "R, LDA, Multilevel Modeling, Poisson Regression, Nonlinear Models, Principle Components, Linear Regression",
 		"id": "ds_project 2"
 	},
 	{
